@@ -78,7 +78,7 @@ const CreateCustom = ({ setImage, handleNext }: { setImage: any, handleNext: any
                     <div>
                         <div
                             id="editor"
-                            style={{ width: '100vw', height: '100vh' }}
+                            style={{ width: 'calc(100vw - 17px)', height: '100vh' }}
                         />
                     </div>
                 </div>
