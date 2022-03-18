@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "next/babel",
+      {
+        "styled-jsx": {
+          "plugins": [
+            "styled-jsx-plugin-postcss"
+          ]
+        },
+        "preset-env": {},
+        "transform-runtime": {},
+        "class-properties": {}
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "styled-components",
+      {
+        // "ssr": true,
+        "displayName": false,
+        "preprocess": true
+      }
+    ],
+    "inline-react-svg"
+  ]
+}

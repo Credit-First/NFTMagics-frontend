@@ -1,0 +1,49 @@
+@font-face {
+    font-family: "upheaval";
+    src: url("/fonts/upheaval/upheavtt.ttf");
+  }
+  @font-face {
+    font-family: "coolvetica";
+    src: url('/fonts/coolvetica/coolvetica_rg.otf')
+  }
+  @font-face {
+    font-family: "Sansation";
+    src: url("/fonts/sansation/Sansation_Light.ttf");
+  }
+  @font-face {
+    font-family: "spacex";
+    src: url("/fonts/spacex-free/SpaceX_FREE_FOR_PERSONAL_USE.ttf");
+  }
+  @font-face {
+    font-family: "poppin-bold";
+    src: url("/fonts/poppins/Poppins-Bold.ttf");
+  }
+  @font-face {
+    font-family: "poppin-medium";
+    src: url("/fonts/poppins/Poppins-Medium.ttf");
+  }
+  @font-face {
+    font-family: "poppin-light";
+    src: url("/fonts/poppins/Poppins-Light.ttf");
+  }
+  @font-face {
+    font-family: "Nosifer";
+    src: url("/fonts/Nosifer/Nosifer-Regular.ttf");
+  }
+  
+  * {
+    font-family: poppin-light; 
+  }
+
+  .featured-subheader {
+    font-family: poppin-light; 
+  }
+  .magics-logo .logo-title {
+    font-family: Nosifer; 
+  }  
+  .put-list-modal .item-detail .content .name {
+    font-family: upheaval; 
+  }
+  .hastag {
+    font-family: coolvetica; 
+  }

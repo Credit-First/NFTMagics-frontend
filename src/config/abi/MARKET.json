@@ -1,0 +1,787 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "contract NFTMagics",
+                "name": "nftCtxAddress",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            }
+        ],
+        "name": "activeMarketItem",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            }
+        ],
+        "name": "createdCollection",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            }
+        ],
+        "name": "itemAddedForSale",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "indexed": true,
+                "internalType": "uint256",
+                "name": "collectionId",
+                "type": "uint256"
+            }
+        ],
+        "name": "marketItemCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "buyer",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "tokenURI",
+                "type": "string"
+            }
+        ],
+        "name": "purchase",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "logo",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "banner",
+                "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "featured",
+                "type": "string"
+            }
+        ],
+        "name": "updatedCollectionItem",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "saleToken",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "giftAddress",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "royalty",
+                "type": "uint256"
+            }
+        ],
+        "name": "updatedMarketItem",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "DENOMINATOR",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "_contractOwner",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "itemId",
+                "type": "uint256"
+            }
+        ],
+        "name": "buyMarketItem",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "claimRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "collectionList",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "itemId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "logo",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "banner",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "featured",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "count",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "logo",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "banner",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "featured",
+                "type": "string"
+            }
+        ],
+        "name": "createCollection",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "collectionId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }
+        ],
+        "name": "createMarketItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "itemId",
+                "type": "uint256"
+            }
+        ],
+        "name": "createMarketSale",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "fetchCollectionItems",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "itemId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "name",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "description",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "logo",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "banner",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "featured",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "count",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct NFTMarketplace.collection[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "fetchMarketItems",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "itemId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "collectionId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "string",
+                        "name": "uri",
+                        "type": "string"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "seller",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "saleToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "price",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "giftAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "royalty",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "active",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct NFTMarketplace.marketItem[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "marketItemList",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "itemId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "tokenId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "collectionId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "uri",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "saleToken",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "giftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "royalty",
+                "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "active",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "rewardAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rewardPercent1",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "rewardPercent2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "rewards",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "ithd",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "ayra",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "wbnb",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "endDate",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalCollection",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "totalItems",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "transactionPercent1",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "transactionPercent2",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "collectionId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "string",
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "description",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "logo",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "banner",
+                "type": "string"
+            },
+            {
+                "internalType": "string",
+                "name": "featured",
+                "type": "string"
+            }
+        ],
+        "name": "updateCollectionItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "itemId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "updatePrice",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "saleToken",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "giftAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "royalty",
+                "type": "uint256"
+            }
+        ],
+        "name": "updateMarketItem",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    }
+]

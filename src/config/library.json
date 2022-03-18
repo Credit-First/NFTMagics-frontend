@@ -1,0 +1,2368 @@
+{
+  "categories": [
+    {
+      "name": "Template",
+      "coverImage": "assets/template/1.jpg",
+      "searchQuery": "Template"
+    },
+    {
+      "name": "ANIVERSARY GIFTS",
+      "coverImage": "assets/template/aniversary/3.jpg",
+      "searchQuery": "aniversary"
+    },
+    {
+      "name": "Birthday Greetings",
+      "coverImage": "assets/template/birthday/5.jpg",
+      "searchQuery": "birthday"
+    },
+    {
+      "name": "Dedication of Love",
+      "coverImage": "assets/template/dedication/17.jpg",
+      "searchQuery": "dedication"
+    },
+    {
+      "name": "Divorces",
+      "coverImage": "assets/template/divorces/7.jpg",
+      "searchQuery": "divorces"
+    },
+    {
+      "name": "Family or Friendship",
+      "coverImage": "assets/template/family/10.jpg",
+      "searchQuery": "family"
+    },
+    {
+      "name": "FREE ART",
+      "coverImage": "assets/template/freeart/7.jpg",
+      "searchQuery": "freeart"
+    },
+    {
+      "name": "HAVE A BABY",
+      "coverImage": "assets/template/baby/8.png",
+      "searchQuery": "baby"
+    },
+    {
+      "name": "JOB AND STUDY SUCCESS",
+      "coverImage": "assets/template/study/7.png",
+      "searchQuery": "study"
+    },
+    {
+      "name": "LAUGHING AND MEMES TEMPLATES",
+      "coverImage": "assets/template/laugh/7.png",
+      "searchQuery": "laugh"
+    },
+    {
+      "name": "NEW YEAR",
+      "coverImage": "assets/template/newyear/2.jpg",
+      "searchQuery": "newyear"
+    },
+    {
+      "name": "PARTY INVITATIONS",
+      "coverImage": "assets/template/party/6.png",
+      "searchQuery": "party"
+    },
+    {
+      "name": "PERSONAL DEVELOPMENT",
+      "coverImage": "assets/template/personal/11.jpg",
+      "searchQuery": "personal"
+    },
+    {
+      "name": "POETRY",
+      "coverImage": "assets/template/poetry/13.png",
+      "searchQuery": "poetry"
+    },
+    {
+      "name": "Religion",
+      "coverImage": "assets/template/religion/14.jpg",
+      "searchQuery": "religion"
+    },
+    {
+      "name": "Wedding Invitations",
+      "coverImage": "assets/template/wedding/5.png",
+      "searchQuery": "wedding"
+    }
+  ],
+  "images": [
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/1.jpg",
+      "thumbUrl": "assets/template/1.jpg",
+      "rawUrl": "./template/1.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/2.png",
+      "thumbUrl": "assets/template/2.png",
+      "rawUrl": "./template/2.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/3.jpg",
+      "thumbUrl": "assets/template/3.jpg",
+      "rawUrl": "./template/3.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/4.jpg",
+      "thumbUrl": "assets/template/4.jpg",
+      "rawUrl": "./template/4.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/5.jpg",
+      "thumbUrl": "assets/template/5.jpg",
+      "rawUrl": "./template/5.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/6.png",
+      "thumbUrl": "assets/template/6.png",
+      "rawUrl": "./template/6.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/7.jpg",
+      "thumbUrl": "assets/template/7.jpg",
+      "rawUrl": "./template/7.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/8.png",
+      "thumbUrl": "assets/template/8.png",
+      "rawUrl": "./template/8.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/9.jpg",
+      "thumbUrl": "assets/template/9.jpg",
+      "rawUrl": "./template/9.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/10.jpg",
+      "thumbUrl": "assets/template/10.jpg",
+      "rawUrl": "./template/10.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/11.png",
+      "thumbUrl": "assets/template/11.png",
+      "rawUrl": "./template/11.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/12.jpg",
+      "thumbUrl": "assets/template/12.jpg",
+      "rawUrl": "./template/12.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/13.jpg",
+      "thumbUrl": "assets/template/13.jpg",
+      "rawUrl": "./template/13.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/14.png",
+      "thumbUrl": "assets/template/14.png",
+      "rawUrl": "./template/14.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/15.jpg",
+      "thumbUrl": "assets/template/15.jpg",
+      "rawUrl": "./template/15.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/16.png",
+      "thumbUrl": "assets/template/16.png",
+      "rawUrl": "./template/16.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/17.jpg",
+      "thumbUrl": "assets/template/17.jpg",
+      "rawUrl": "./template/17.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/18.png",
+      "thumbUrl": "assets/template/18.png",
+      "rawUrl": "./template/18.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/19.jpg",
+      "thumbUrl": "assets/template/19.jpg",
+      "rawUrl": "./template/19.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/20.png",
+      "thumbUrl": "assets/template/20.png",
+      "rawUrl": "./template/20.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/21.jpg",
+      "thumbUrl": "assets/template/21.jpg",
+      "rawUrl": "./template/21.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/22.png",
+      "thumbUrl": "assets/template/22.png",
+      "rawUrl": "./template/22.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/23.jpg",
+      "thumbUrl": "assets/template/23.jpg",
+      "rawUrl": "./template/23.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/24.png",
+      "thumbUrl": "assets/template/24.png",
+      "rawUrl": "./template/24.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/25.jpg",
+      "thumbUrl": "assets/template/25.jpg",
+      "rawUrl": "./template/25.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/26.png",
+      "thumbUrl": "assets/template/26.png",
+      "rawUrl": "./template/26.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/27.jpg",
+      "thumbUrl": "assets/template/27.jpg",
+      "rawUrl": "./template/27.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/28.jpg",
+      "thumbUrl": "assets/template/28.jpg",
+      "rawUrl": "./template/28.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/29.jpg",
+      "thumbUrl": "assets/template/29.jpg",
+      "rawUrl": "./template/29.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/30.png",
+      "thumbUrl": "assets/template/30.png",
+      "rawUrl": "./template/30.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/31.jpg",
+      "thumbUrl": "assets/template/31.jpg",
+      "rawUrl": "./template/31.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/32.png",
+      "thumbUrl": "assets/template/32.png",
+      "rawUrl": "./template/32.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/33.jpg",
+      "thumbUrl": "assets/template/33.jpg",
+      "rawUrl": "./template/33.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/34.png",
+      "thumbUrl": "assets/template/34.png",
+      "rawUrl": "./template/34.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/35.jpg",
+      "thumbUrl": "assets/template/35.jpg",
+      "rawUrl": "./template/35.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/36.png",
+      "thumbUrl": "assets/template/36.png",
+      "rawUrl": "./template/36.png"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/37.jpg",
+      "thumbUrl": "assets/template/37.jpg",
+      "rawUrl": "./template/37.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/38.jpg",
+      "thumbUrl": "assets/template/38.jpg",
+      "rawUrl": "./template/38.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/39.jpg",
+      "thumbUrl": "assets/template/39.jpg",
+      "rawUrl": "./template/39.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/40.jpg",
+      "thumbUrl": "assets/template/40.jpg",
+      "rawUrl": "./template/40.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/41.jpg",
+      "thumbUrl": "assets/template/41.jpg",
+      "rawUrl": "./template/41.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/42.jpg",
+      "thumbUrl": "assets/template/42.jpg",
+      "rawUrl": "./template/42.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/43.jpg",
+      "thumbUrl": "assets/template/43.jpg",
+      "rawUrl": "./template/43.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/44.JPG",
+      "thumbUrl": "assets/template/44.JPG",
+      "rawUrl": "./template/44.JPG"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/45.jpg",
+      "thumbUrl": "assets/template/45.jpg",
+      "rawUrl": "./template/45.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/46.jpg",
+      "thumbUrl": "assets/template/46.jpg",
+      "rawUrl": "./template/46.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/47.jpg",
+      "thumbUrl": "assets/template/47.jpg",
+      "rawUrl": "./template/47.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/48.jpg",
+      "thumbUrl": "assets/template/48.jpg",
+      "rawUrl": "./template/48.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/49.jpg",
+      "thumbUrl": "assets/template/49.jpg",
+      "rawUrl": "./template/49.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/50.jpg",
+      "thumbUrl": "assets/template/50.jpg",
+      "rawUrl": "./template/50.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/51.jpg",
+      "thumbUrl": "assets/template/51.jpg",
+      "rawUrl": "./template/51.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/52.jpg",
+      "thumbUrl": "assets/template/52.jpg",
+      "rawUrl": "./template/52.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/53.jpg",
+      "thumbUrl": "assets/template/53.jpg",
+      "rawUrl": "./template/53.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/54.jpg",
+      "thumbUrl": "assets/template/54.jpg",
+      "rawUrl": "./template/54.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/55.jpg",
+      "thumbUrl": "assets/template/55.jpg",
+      "rawUrl": "./template/55.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/56.jpg",
+      "thumbUrl": "assets/template/56.jpg",
+      "rawUrl": "./template/56.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/57.jpg",
+      "thumbUrl": "assets/template/57.jpg",
+      "rawUrl": "./template/57.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/58.jpg",
+      "thumbUrl": "assets/template/58.jpg",
+      "rawUrl": "./template/58.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/59.jpg",
+      "thumbUrl": "assets/template/59.jpg",
+      "rawUrl": "./template/59.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/60.jpg",
+      "thumbUrl": "assets/template/60.jpg",
+      "rawUrl": "./template/60.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/61.jpg",
+      "thumbUrl": "assets/template/61.jpg",
+      "rawUrl": "./template/61.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/62.jpg",
+      "thumbUrl": "assets/template/62.jpg",
+      "rawUrl": "./template/62.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/63.jpg",
+      "thumbUrl": "assets/template/63.jpg",
+      "rawUrl": "./template/63.jpg"
+    },
+    {
+      "title": "Template",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/64.jpg",
+      "thumbUrl": "assets/template/64.jpg",
+      "rawUrl": "./template/64.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/1.png",
+      "thumbUrl": "assets/template/aniversary/1.png",
+      "rawUrl": "./template/aniversary/1.png"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/2.jpg",
+      "thumbUrl": "assets/template/aniversary/2.jpg",
+      "rawUrl": "./template/aniversary/2.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/3.jpg",
+      "thumbUrl": "assets/template/aniversary/3.jpg",
+      "rawUrl": "./template/aniversary/3.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/4.jpg",
+      "thumbUrl": "assets/template/aniversary/4.jpg",
+      "rawUrl": "./template/aniversary/4.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/5.jpg",
+      "thumbUrl": "assets/template/aniversary/5.jpg",
+      "rawUrl": "./template/aniversary/5.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/6.jpg",
+      "thumbUrl": "assets/template/aniversary/6.jpg",
+      "rawUrl": "./template/aniversary/6.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/7.jpg",
+      "thumbUrl": "assets/template/aniversary/7.jpg",
+      "rawUrl": "./template/aniversary/7.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/8.jpg",
+      "thumbUrl": "assets/template/aniversary/8.jpg",
+      "rawUrl": "./template/aniversary/8.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/9.png",
+      "thumbUrl": "assets/template/aniversary/9.png",
+      "rawUrl": "./template/aniversary/9.png"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/10.jpg",
+      "thumbUrl": "assets/template/aniversary/10.jpg",
+      "rawUrl": "./template/aniversary/10.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/11.jpg",
+      "thumbUrl": "assets/template/aniversary/11.jpg",
+      "rawUrl": "./template/aniversary/11.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/12.jpg",
+      "thumbUrl": "assets/template/aniversary/12.jpg",
+      "rawUrl": "./template/aniversary/12.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/13.jpg",
+      "thumbUrl": "assets/template/aniversary/13.jpg",
+      "rawUrl": "./template/aniversary/13.jpg"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/14.png",
+      "thumbUrl": "assets/template/aniversary/14.png",
+      "rawUrl": "./template/aniversary/14.png"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/15.png",
+      "thumbUrl": "assets/template/aniversary/15.png",
+      "rawUrl": "./template/aniversary/15.png"
+    },
+    {
+      "title": "ANIVERSARY GIFTS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/aniversary/16.jpg",
+      "thumbUrl": "assets/template/aniversary/16.jpg",
+      "rawUrl": "./template/aniversary/16.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/1.png",
+      "thumbUrl": "assets/template/birthday/1.png",
+      "rawUrl": "./template/birthday/1.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/2.jpg",
+      "thumbUrl": "assets/template/birthday/2.jpg",
+      "rawUrl": "./template/birthday/2.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/3.jpg",
+      "thumbUrl": "assets/template/birthday/3.jpg",
+      "rawUrl": "./template/birthday/3.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/4.png",
+      "thumbUrl": "assets/template/birthday/4.png",
+      "rawUrl": "./template/birthday/4.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/5.jpg",
+      "thumbUrl": "assets/template/birthday/5.jpg",
+      "rawUrl": "./template/birthday/5.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/6.png",
+      "thumbUrl": "assets/template/birthday/6.png",
+      "rawUrl": "./template/birthday/6.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/7.png",
+      "thumbUrl": "assets/template/birthday/7.png",
+      "rawUrl": "./template/birthday/7.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/8.png",
+      "thumbUrl": "assets/template/birthday/8.png",
+      "rawUrl": "./template/birthday/8.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/9.png",
+      "thumbUrl": "assets/template/birthday/9.png",
+      "rawUrl": "./template/birthday/9.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/10.jpg",
+      "thumbUrl": "assets/template/birthday/10.jpg",
+      "rawUrl": "./template/birthday/10.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/11.jpg",
+      "thumbUrl": "assets/template/birthday/11.jpg",
+      "rawUrl": "./template/birthday/11.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/12.png",
+      "thumbUrl": "assets/template/birthday/12.png",
+      "rawUrl": "./template/birthday/12.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/13.jpg",
+      "thumbUrl": "assets/template/birthday/13.jpg",
+      "rawUrl": "./template/birthday/13.jpg"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/14.png",
+      "thumbUrl": "assets/template/birthday/14.png",
+      "rawUrl": "./template/birthday/14.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/15.png",
+      "thumbUrl": "assets/template/birthday/15.png",
+      "rawUrl": "./template/birthday/15.png"
+    },
+    {
+      "title": "Birthday Greetings",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/birthday/16.png",
+      "thumbUrl": "assets/template/birthday/16.png",
+      "rawUrl": "./template/birthday/16.png"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/1.jpg",
+      "thumbUrl": "assets/template/dedication/1.jpg",
+      "rawUrl": "./template/dedication/1.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/2.jpg",
+      "thumbUrl": "assets/template/dedication/2.jpg",
+      "rawUrl": "./template/dedication/2.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/3.jpg",
+      "thumbUrl": "assets/template/dedication/3.jpg",
+      "rawUrl": "./template/dedication/3.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/4.jpg",
+      "thumbUrl": "assets/template/dedication/4.jpg",
+      "rawUrl": "./template/dedication/4.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/5.jpg",
+      "thumbUrl": "assets/template/dedication/5.jpg",
+      "rawUrl": "./template/dedication/5.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/6.jpg",
+      "thumbUrl": "assets/template/dedication/6.jpg",
+      "rawUrl": "./template/dedication/6.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/7.jpg",
+      "thumbUrl": "assets/template/dedication/7.jpg",
+      "rawUrl": "./template/dedication/7.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/8.jpg",
+      "thumbUrl": "assets/template/dedication/8.jpg",
+      "rawUrl": "./template/dedication/8.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/9.jpg",
+      "thumbUrl": "assets/template/dedication/9.jpg",
+      "rawUrl": "./template/dedication/9.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/10.png",
+      "thumbUrl": "assets/template/dedication/10.png",
+      "rawUrl": "./template/dedication/10.png"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/11.jpg",
+      "thumbUrl": "assets/template/dedication/11.jpg",
+      "rawUrl": "./template/dedication/11.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/12.png",
+      "thumbUrl": "assets/template/dedication/12.png",
+      "rawUrl": "./template/dedication/12.png"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/13.png",
+      "thumbUrl": "assets/template/dedication/13.png",
+      "rawUrl": "./template/dedication/13.png"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/14.jpg",
+      "thumbUrl": "assets/template/dedication/14.jpg",
+      "rawUrl": "./template/dedication/14.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/15.jpg",
+      "thumbUrl": "assets/template/dedication/15.jpg",
+      "rawUrl": "./template/dedication/15.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/16.png",
+      "thumbUrl": "assets/template/dedication/16.png",
+      "rawUrl": "./template/dedication/16.png"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/17.jpg",
+      "thumbUrl": "assets/template/dedication/17.jpg",
+      "rawUrl": "./template/dedication/17.jpg"
+    },
+    {
+      "title": "Dedication of Love",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/dedication/18.jpg",
+      "thumbUrl": "assets/template/dedication/18.jpg",
+      "rawUrl": "./template/dedication/18.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/1.png",
+      "thumbUrl": "assets/template/divorces/1.png",
+      "rawUrl": "./template/divorces/1.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/2.jpg",
+      "thumbUrl": "assets/template/divorces/2.jpg",
+      "rawUrl": "./template/divorces/2.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/3.jpg",
+      "thumbUrl": "assets/template/divorces/3.jpg",
+      "rawUrl": "./template/divorces/3.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/4.jpg",
+      "thumbUrl": "assets/template/divorces/4.jpg",
+      "rawUrl": "./template/divorces/4.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/5.jpg",
+      "thumbUrl": "assets/template/divorces/5.jpg",
+      "rawUrl": "./template/divorces/5.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/6.jpg",
+      "thumbUrl": "assets/template/divorces/6.jpg",
+      "rawUrl": "./template/divorces/6.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/7.jpg",
+      "thumbUrl": "assets/template/divorces/7.jpg",
+      "rawUrl": "./template/divorces/7.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/8.jpg",
+      "thumbUrl": "assets/template/divorces/8.jpg",
+      "rawUrl": "./template/divorces/8.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/9.png",
+      "thumbUrl": "assets/template/divorces/9.png",
+      "rawUrl": "./template/divorces/9.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/10.jpg",
+      "thumbUrl": "assets/template/divorces/10.jpg",
+      "rawUrl": "./template/divorces/10.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/11.jpg",
+      "thumbUrl": "assets/template/divorces/11.jpg",
+      "rawUrl": "./template/divorces/11.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/12.png",
+      "thumbUrl": "assets/template/divorces/12.png",
+      "rawUrl": "./template/divorces/12.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/13.jpg",
+      "thumbUrl": "assets/template/divorces/13.jpg",
+      "rawUrl": "./template/divorces/13.jpg"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/14.png",
+      "thumbUrl": "assets/template/divorces/14.png",
+      "rawUrl": "./template/divorces/14.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/15.png",
+      "thumbUrl": "assets/template/divorces/15.png",
+      "rawUrl": "./template/divorces/15.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/16.png",
+      "thumbUrl": "assets/template/divorces/16.png",
+      "rawUrl": "./template/divorces/16.png"
+    },
+    {
+      "title": "Divorces",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/divorces/17.jpg",
+      "thumbUrl": "assets/template/divorces/17.jpg",
+      "rawUrl": "./template/divorces/17.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/1.jpg",
+      "thumbUrl": "assets/template/family/1.jpg",
+      "rawUrl": "./template/family/1.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/2.jpg",
+      "thumbUrl": "assets/template/family/2.jpg",
+      "rawUrl": "./template/family/2.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/3.png",
+      "thumbUrl": "assets/template/family/3.png",
+      "rawUrl": "./template/family/3.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/4.png",
+      "thumbUrl": "assets/template/family/4.png",
+      "rawUrl": "./template/family/4.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/5.jpg",
+      "thumbUrl": "assets/template/family/5.jpg",
+      "rawUrl": "./template/family/5.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/6.png",
+      "thumbUrl": "assets/template/family/6.png",
+      "rawUrl": "./template/family/6.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/7.png",
+      "thumbUrl": "assets/template/family/7.png",
+      "rawUrl": "./template/family/7.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/8.png",
+      "thumbUrl": "assets/template/family/8.png",
+      "rawUrl": "./template/family/8.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/9.png",
+      "thumbUrl": "assets/template/family/9.png",
+      "rawUrl": "./template/family/9.png"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/10.jpg",
+      "thumbUrl": "assets/template/family/10.jpg",
+      "rawUrl": "./template/family/10.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/11.jpg",
+      "thumbUrl": "assets/template/family/11.jpg",
+      "rawUrl": "./template/family/11.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/12.jpg",
+      "thumbUrl": "assets/template/family/12.jpg",
+      "rawUrl": "./template/family/12.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/13.jpg",
+      "thumbUrl": "assets/template/family/13.jpg",
+      "rawUrl": "./template/family/13.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/14.jpg",
+      "thumbUrl": "assets/template/family/14.jpg",
+      "rawUrl": "./template/family/14.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/15.jpg",
+      "thumbUrl": "assets/template/family/15.jpg",
+      "rawUrl": "./template/family/15.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/16.jpg",
+      "thumbUrl": "assets/template/family/16.jpg",
+      "rawUrl": "./template/family/16.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/17.jpg",
+      "thumbUrl": "assets/template/family/17.jpg",
+      "rawUrl": "./template/family/17.jpg"
+    },
+    {
+      "title": "Family or Friendship",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/family/18.jpg",
+      "thumbUrl": "assets/template/family/18.jpg",
+      "rawUrl": "./template/family/18.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/1.jpg",
+      "thumbUrl": "assets/template/freeart/1.jpg",
+      "rawUrl": "./template/freeart/1.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/2.png",
+      "thumbUrl": "assets/template/freeart/2.png",
+      "rawUrl": "./template/freeart/2.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/3.jpg",
+      "thumbUrl": "assets/template/freeart/3.jpg",
+      "rawUrl": "./template/freeart/3.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/4.jpg",
+      "thumbUrl": "assets/template/freeart/4.jpg",
+      "rawUrl": "./template/freeart/4.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/5.jpg",
+      "thumbUrl": "assets/template/freeart/5.jpg",
+      "rawUrl": "./template/freeart/5.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/6.jpg",
+      "thumbUrl": "assets/template/freeart/6.jpg",
+      "rawUrl": "./template/freeart/6.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/7.jpg",
+      "thumbUrl": "assets/template/freeart/7.jpg",
+      "rawUrl": "./template/freeart/7.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/8.png",
+      "thumbUrl": "assets/template/freeart/8.png",
+      "rawUrl": "./template/freeart/8.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/9.jpg",
+      "thumbUrl": "assets/template/freeart/9.jpg",
+      "rawUrl": "./template/freeart/9.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/10.jpg",
+      "thumbUrl": "assets/template/freeart/10.jpg",
+      "rawUrl": "./template/freeart/10.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/11.png",
+      "thumbUrl": "assets/template/freeart/11.png",
+      "rawUrl": "./template/freeart/11.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/12.png",
+      "thumbUrl": "assets/template/freeart/12.png",
+      "rawUrl": "./template/freeart/12.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/13.jpg",
+      "thumbUrl": "assets/template/freeart/13.jpg",
+      "rawUrl": "./template/freeart/13.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/14.jpg",
+      "thumbUrl": "assets/template/freeart/14.jpg",
+      "rawUrl": "./template/freeart/14.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/15.png",
+      "thumbUrl": "assets/template/freeart/15.png",
+      "rawUrl": "./template/freeart/15.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/16.jpg",
+      "thumbUrl": "assets/template/freeart/16.jpg",
+      "rawUrl": "./template/freeart/16.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/17.jpg",
+      "thumbUrl": "assets/template/freeart/17.jpg",
+      "rawUrl": "./template/freeart/17.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/18.jpg",
+      "thumbUrl": "assets/template/freeart/18.jpg",
+      "rawUrl": "./template/freeart/18.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/19.jpg",
+      "thumbUrl": "assets/template/freeart/19.jpg",
+      "rawUrl": "./template/freeart/19.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/20.png",
+      "thumbUrl": "assets/template/freeart/20.png",
+      "rawUrl": "./template/freeart/20.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/21.jpg",
+      "thumbUrl": "assets/template/freeart/21.jpg",
+      "rawUrl": "./template/freeart/21.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/22.png",
+      "thumbUrl": "assets/template/freeart/22.png",
+      "rawUrl": "./template/freeart/22.png"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/23.jpg",
+      "thumbUrl": "assets/template/freeart/23.jpg",
+      "rawUrl": "./template/freeart/23.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/24.jpg",
+      "thumbUrl": "assets/template/freeart/24.jpg",
+      "rawUrl": "./template/freeart/24.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/25.jpg",
+      "thumbUrl": "assets/template/freeart/25.jpg",
+      "rawUrl": "./template/freeart/25.jpg"
+    },
+    {
+      "title": "FREE ART",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/freeart/26.jpg",
+      "thumbUrl": "assets/template/freeart/26.jpg",
+      "rawUrl": "./template/freeart/26.jpg"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/1.png",
+      "thumbUrl": "assets/template/baby/1.png",
+      "rawUrl": "./template/baby/1.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/2.png",
+      "thumbUrl": "assets/template/baby/2.png",
+      "rawUrl": "./template/baby/2.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/3.png",
+      "thumbUrl": "assets/template/baby/3.png",
+      "rawUrl": "./template/baby/3.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/4.png",
+      "thumbUrl": "assets/template/baby/4.png",
+      "rawUrl": "./template/baby/4.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/5.png",
+      "thumbUrl": "assets/template/baby/5.png",
+      "rawUrl": "./template/baby/5.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/6.jpg",
+      "thumbUrl": "assets/template/baby/6.jpg",
+      "rawUrl": "./template/baby/6.jpg"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/7.png",
+      "thumbUrl": "assets/template/baby/7.png",
+      "rawUrl": "./template/baby/7.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/8.png",
+      "thumbUrl": "assets/template/baby/8.png",
+      "rawUrl": "./template/baby/8.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/9.jpg",
+      "thumbUrl": "assets/template/baby/9.jpg",
+      "rawUrl": "./template/baby/9.jpg"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/10.png",
+      "thumbUrl": "assets/template/baby/10.png",
+      "rawUrl": "./template/baby/10.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/11.png",
+      "thumbUrl": "assets/template/baby/11.png",
+      "rawUrl": "./template/baby/11.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/12.png",
+      "thumbUrl": "assets/template/baby/12.png",
+      "rawUrl": "./template/baby/12.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/13.jpg",
+      "thumbUrl": "assets/template/baby/13.jpg",
+      "rawUrl": "./template/baby/13.jpg"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/14.png",
+      "thumbUrl": "assets/template/baby/14.png",
+      "rawUrl": "./template/baby/14.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/15.png",
+      "thumbUrl": "assets/template/baby/15.png",
+      "rawUrl": "./template/baby/15.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/16.png",
+      "thumbUrl": "assets/template/baby/16.png",
+      "rawUrl": "./template/baby/16.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/17.jpg",
+      "thumbUrl": "assets/template/baby/17.jpg",
+      "rawUrl": "./template/baby/17.jpg"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/18.png",
+      "thumbUrl": "assets/template/baby/18.png",
+      "rawUrl": "./template/baby/18.png"
+    },
+    {
+      "title": "HAVE A BABY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/baby/19.png",
+      "thumbUrl": "assets/template/baby/19.png",
+      "rawUrl": "./template/baby/19.png"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/1.png",
+      "thumbUrl": "assets/template/study/1.png",
+      "rawUrl": "./template/study/1.png"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/2.png",
+      "thumbUrl": "assets/template/study/2.png",
+      "rawUrl": "./template/study/2.png"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/3.png",
+      "thumbUrl": "assets/template/study/3.png",
+      "rawUrl": "./template/study/3.png"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/4.jpg",
+      "thumbUrl": "assets/template/study/4.jpg",
+      "rawUrl": "./template/study/4.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/5.jpg",
+      "thumbUrl": "assets/template/study/5.jpg",
+      "rawUrl": "./template/study/5.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/6.jpg",
+      "thumbUrl": "assets/template/study/6.jpg",
+      "rawUrl": "./template/study/6.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/7.png",
+      "thumbUrl": "assets/template/study/7.png",
+      "rawUrl": "./template/study/7.png"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/8.jpg",
+      "thumbUrl": "assets/template/study/8.jpg",
+      "rawUrl": "./template/study/8.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/9.jpg",
+      "thumbUrl": "assets/template/study/9.jpg",
+      "rawUrl": "./template/study/9.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/10.jpg",
+      "thumbUrl": "assets/template/study/10.jpg",
+      "rawUrl": "./template/study/10.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/11.jpg",
+      "thumbUrl": "assets/template/study/11.jpg",
+      "rawUrl": "./template/study/11.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/12.jpg",
+      "thumbUrl": "assets/template/study/12.jpg",
+      "rawUrl": "./template/study/12.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/13.jpg",
+      "thumbUrl": "assets/template/study/13.jpg",
+      "rawUrl": "./template/study/13.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/14.jpg",
+      "thumbUrl": "assets/template/study/14.jpg",
+      "rawUrl": "./template/study/14.jpg"
+    },
+    {
+      "title": "JOB AND STUDY SUCCESS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/study/15.jpg",
+      "thumbUrl": "assets/template/study/15.jpg",
+      "rawUrl": "./template/study/15.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/1.png",
+      "thumbUrl": "assets/template/laugh/1.png",
+      "rawUrl": "./template/laugh/1.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/2.png",
+      "thumbUrl": "assets/template/laugh/2.png",
+      "rawUrl": "./template/laugh/2.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/3.png",
+      "thumbUrl": "assets/template/laugh/3.png",
+      "rawUrl": "./template/laugh/3.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/4.png",
+      "thumbUrl": "assets/template/laugh/4.png",
+      "rawUrl": "./template/laugh/4.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/5.jpg",
+      "thumbUrl": "assets/template/laugh/5.jpg",
+      "rawUrl": "./template/laugh/5.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/6.png",
+      "thumbUrl": "assets/template/laugh/6.png",
+      "rawUrl": "./template/laugh/6.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/7.png",
+      "thumbUrl": "assets/template/laugh/7.png",
+      "rawUrl": "./template/laugh/7.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/8.jpg",
+      "thumbUrl": "assets/template/laugh/8.jpg",
+      "rawUrl": "./template/laugh/8.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/9.jpg",
+      "thumbUrl": "assets/template/laugh/9.jpg",
+      "rawUrl": "./template/laugh/9.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/10.jpg",
+      "thumbUrl": "assets/template/laugh/10.jpg",
+      "rawUrl": "./template/laugh/10.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/11.jpg",
+      "thumbUrl": "assets/template/laugh/11.jpg",
+      "rawUrl": "./template/laugh/11.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/12.png",
+      "thumbUrl": "assets/template/laugh/12.png",
+      "rawUrl": "./template/laugh/12.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/13.jpg",
+      "thumbUrl": "assets/template/laugh/13.jpg",
+      "rawUrl": "./template/laugh/13.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/14.png",
+      "thumbUrl": "assets/template/laugh/14.png",
+      "rawUrl": "./template/laugh/14.png"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/15.jpg",
+      "thumbUrl": "assets/template/laugh/15.jpg",
+      "rawUrl": "./template/laugh/15.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/16.jpg",
+      "thumbUrl": "assets/template/laugh/16.jpg",
+      "rawUrl": "./template/laugh/16.jpg"
+    },
+    {
+      "title": "LAUGHING AND MEMES TEMPLATES",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/laugh/17.png",
+      "thumbUrl": "assets/template/laugh/17.png",
+      "rawUrl": "./template/laugh/17.png"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/1.jpg",
+      "thumbUrl": "assets/template/newyear/1.jpg",
+      "rawUrl": "./template/newyear/1.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/2.jpg",
+      "thumbUrl": "assets/template/newyear/2.jpg",
+      "rawUrl": "./template/newyear/2.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/3.jpg",
+      "thumbUrl": "assets/template/newyear/3.jpg",
+      "rawUrl": "./template/newyear/3.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/4.jpg",
+      "thumbUrl": "assets/template/newyear/4.jpg",
+      "rawUrl": "./template/newyear/4.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/5.jpg",
+      "thumbUrl": "assets/template/newyear/5.jpg",
+      "rawUrl": "./template/newyear/5.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/6.jpg",
+      "thumbUrl": "assets/template/newyear/6.jpg",
+      "rawUrl": "./template/newyear/6.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/7.jpg",
+      "thumbUrl": "assets/template/newyear/7.jpg",
+      "rawUrl": "./template/newyear/7.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/8.png",
+      "thumbUrl": "assets/template/newyear/8.png",
+      "rawUrl": "./template/newyear/8.png"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/9.jpg",
+      "thumbUrl": "assets/template/newyear/9.jpg",
+      "rawUrl": "./template/newyear/9.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/10.jpg",
+      "thumbUrl": "assets/template/newyear/10.jpg",
+      "rawUrl": "./template/newyear/10.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/11.jpg",
+      "thumbUrl": "assets/template/newyear/11.jpg",
+      "rawUrl": "./template/newyear/11.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/12.jpg",
+      "thumbUrl": "assets/template/newyear/12.jpg",
+      "rawUrl": "./template/newyear/12.jpg"
+    },
+    {
+      "title": "NEW YEAR",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/newyear/13.jpg",
+      "thumbUrl": "assets/template/newyear/13.jpg",
+      "rawUrl": "./template/newyear/13.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/1.jpg",
+      "thumbUrl": "assets/template/party/1.jpg",
+      "rawUrl": "./template/party/1.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/2.jpg",
+      "thumbUrl": "assets/template/party/2.jpg",
+      "rawUrl": "./template/party/2.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/3.jpg",
+      "thumbUrl": "assets/template/party/3.jpg",
+      "rawUrl": "./template/party/3.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/4.jpg",
+      "thumbUrl": "assets/template/party/4.jpg",
+      "rawUrl": "./template/party/4.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/5.jpg",
+      "thumbUrl": "assets/template/party/5.jpg",
+      "rawUrl": "./template/party/5.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/6.png",
+      "thumbUrl": "assets/template/party/6.png",
+      "rawUrl": "./template/party/6.png"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/7.png",
+      "thumbUrl": "assets/template/party/7.png",
+      "rawUrl": "./template/party/7.png"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/8.jpg",
+      "thumbUrl": "assets/template/party/8.jpg",
+      "rawUrl": "./template/party/8.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/9.jpg",
+      "thumbUrl": "assets/template/party/9.jpg",
+      "rawUrl": "./template/party/9.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/10.png",
+      "thumbUrl": "assets/template/party/10.png",
+      "rawUrl": "./template/party/10.png"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/11.jpg",
+      "thumbUrl": "assets/template/party/11.jpg",
+      "rawUrl": "./template/party/11.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/12.jpg",
+      "thumbUrl": "assets/template/party/12.jpg",
+      "rawUrl": "./template/party/12.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/13.jpg",
+      "thumbUrl": "assets/template/party/13.jpg",
+      "rawUrl": "./template/party/13.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/14.jpg",
+      "thumbUrl": "assets/template/party/14.jpg",
+      "rawUrl": "./template/party/14.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/15.jpg",
+      "thumbUrl": "assets/template/party/15.jpg",
+      "rawUrl": "./template/party/15.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/16.jpg",
+      "thumbUrl": "assets/template/party/16.jpg",
+      "rawUrl": "./template/party/16.jpg"
+    },
+    {
+      "title": "PARTY INVITATIONS",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/party/17.png",
+      "thumbUrl": "assets/template/party/17.png",
+      "rawUrl": "./template/party/17.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/1.jpg",
+      "thumbUrl": "assets/template/personal/1.jpg",
+      "rawUrl": "./template/personal/1.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/2.png",
+      "thumbUrl": "assets/template/personal/2.png",
+      "rawUrl": "./template/personal/2.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/3.jpg",
+      "thumbUrl": "assets/template/personal/3.jpg",
+      "rawUrl": "./template/personal/3.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/4.jpg",
+      "thumbUrl": "assets/template/personal/4.jpg",
+      "rawUrl": "./template/personal/4.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/5.png",
+      "thumbUrl": "assets/template/personal/5.png",
+      "rawUrl": "./template/personal/5.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/6.jpg",
+      "thumbUrl": "assets/template/personal/6.jpg",
+      "rawUrl": "./template/personal/6.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/7.jpg",
+      "thumbUrl": "assets/template/personal/7.jpg",
+      "rawUrl": "./template/personal/7.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/8.jpg",
+      "thumbUrl": "assets/template/personal/8.jpg",
+      "rawUrl": "./template/personal/8.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/9.jpg",
+      "thumbUrl": "assets/template/personal/9.jpg",
+      "rawUrl": "./template/personal/9.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/10.png",
+      "thumbUrl": "assets/template/personal/10.png",
+      "rawUrl": "./template/personal/10.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/11.jpg",
+      "thumbUrl": "assets/template/personal/11.jpg",
+      "rawUrl": "./template/personal/11.jpg"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/12.png",
+      "thumbUrl": "assets/template/personal/12.png",
+      "rawUrl": "./template/personal/12.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/13.png",
+      "thumbUrl": "assets/template/personal/13.png",
+      "rawUrl": "./template/personal/13.png"
+    },
+    {
+      "title": "PERSONAL DEVELOPMENT",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/personal/14.jpg",
+      "thumbUrl": "assets/template/personal/14.jpg",
+      "rawUrl": "./template/personal/14.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/1.jpg",
+      "thumbUrl": "assets/template/poetry/1.jpg",
+      "rawUrl": "./template/poetry/1.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/2.jpg",
+      "thumbUrl": "assets/template/poetry/2.jpg",
+      "rawUrl": "./template/poetry/2.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/3.jpg",
+      "thumbUrl": "assets/template/poetry/3.jpg",
+      "rawUrl": "./template/poetry/3.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/4.jpg",
+      "thumbUrl": "assets/template/poetry/4.jpg",
+      "rawUrl": "./template/poetry/4.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/5.jpg",
+      "thumbUrl": "assets/template/poetry/5.jpg",
+      "rawUrl": "./template/poetry/5.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/6.jpg",
+      "thumbUrl": "assets/template/poetry/6.jpg",
+      "rawUrl": "./template/poetry/6.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/7.jpg",
+      "thumbUrl": "assets/template/poetry/7.jpg",
+      "rawUrl": "./template/poetry/7.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/8.jpg",
+      "thumbUrl": "assets/template/poetry/8.jpg",
+      "rawUrl": "./template/poetry/8.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/9.jpg",
+      "thumbUrl": "assets/template/poetry/9.jpg",
+      "rawUrl": "./template/poetry/9.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/10.jpg",
+      "thumbUrl": "assets/template/poetry/10.jpg",
+      "rawUrl": "./template/poetry/10.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/11.jpg",
+      "thumbUrl": "assets/template/poetry/11.jpg",
+      "rawUrl": "./template/poetry/11.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/12.jpg",
+      "thumbUrl": "assets/template/poetry/12.jpg",
+      "rawUrl": "./template/poetry/12.jpg"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/13.png",
+      "thumbUrl": "assets/template/poetry/13.png",
+      "rawUrl": "./template/poetry/13.png"
+    },
+    {
+      "title": "POETRY",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/poetry/14.jpg",
+      "thumbUrl": "assets/template/poetry/14.jpg",
+      "rawUrl": "./template/poetry/14.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/1.jpg",
+      "thumbUrl": "assets/template/religion/1.jpg",
+      "rawUrl": "./template/religion/1.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/2.png",
+      "thumbUrl": "assets/template/religion/2.png",
+      "rawUrl": "./template/religion/2.png"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/3.jpg",
+      "thumbUrl": "assets/template/religion/3.jpg",
+      "rawUrl": "./template/religion/3.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/4.jpg",
+      "thumbUrl": "assets/template/religion/4.jpg",
+      "rawUrl": "./template/religion/4.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/5.jpg",
+      "thumbUrl": "assets/template/religion/5.jpg",
+      "rawUrl": "./template/religion/5.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/6.jpg",
+      "thumbUrl": "assets/template/religion/6.jpg",
+      "rawUrl": "./template/religion/6.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/7.jpg",
+      "thumbUrl": "assets/template/religion/7.jpg",
+      "rawUrl": "./template/religion/7.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/8.jpg",
+      "thumbUrl": "assets/template/religion/8.jpg",
+      "rawUrl": "./template/religion/8.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/9.jpg",
+      "thumbUrl": "assets/template/religion/9.jpg",
+      "rawUrl": "./template/religion/9.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/10.png",
+      "thumbUrl": "assets/template/religion/10.png",
+      "rawUrl": "./template/religion/10.png"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/11.jpg",
+      "thumbUrl": "assets/template/religion/11.jpg",
+      "rawUrl": "./template/religion/11.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/12.jpg",
+      "thumbUrl": "assets/template/religion/12.jpg",
+      "rawUrl": "./template/religion/12.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/13.jpg",
+      "thumbUrl": "assets/template/religion/13.jpg",
+      "rawUrl": "./template/religion/13.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/14.jpg",
+      "thumbUrl": "assets/template/religion/14.jpg",
+      "rawUrl": "./template/religion/14.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/15.jpg",
+      "thumbUrl": "assets/template/religion/15.jpg",
+      "rawUrl": "./template/religion/15.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/16.jpg",
+      "thumbUrl": "assets/template/religion/16.jpg",
+      "rawUrl": "./template/religion/16.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/17.jpg",
+      "thumbUrl": "assets/template/religion/17.jpg",
+      "rawUrl": "./template/religion/17.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/18.jpg",
+      "thumbUrl": "assets/template/religion/18.jpg",
+      "rawUrl": "./template/religion/18.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/19.jpg",
+      "thumbUrl": "assets/template/religion/19.jpg",
+      "rawUrl": "./template/religion/19.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/20.jpg",
+      "thumbUrl": "assets/template/religion/20.jpg",
+      "rawUrl": "./template/religion/20.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/21.jpg",
+      "thumbUrl": "assets/template/religion/21.jpg",
+      "rawUrl": "./template/religion/21.jpg"
+    },
+    {
+      "title": "Religion",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/religion/22.jpg",
+      "thumbUrl": "assets/template/religion/22.jpg",
+      "rawUrl": "./template/religion/22.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/1.png",
+      "thumbUrl": "assets/template/wedding/1.png",
+      "rawUrl": "./template/wedding/1.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/2.png",
+      "thumbUrl": "assets/template/wedding/2.png",
+      "rawUrl": "./template/wedding/2.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/3.png",
+      "thumbUrl": "assets/template/wedding/3.png",
+      "rawUrl": "./template/wedding/3.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/4.jpg",
+      "thumbUrl": "assets/template/wedding/4.jpg",
+      "rawUrl": "./template/wedding/4.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/5.png",
+      "thumbUrl": "assets/template/wedding/5.png",
+      "rawUrl": "./template/wedding/5.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/6.jpg",
+      "thumbUrl": "assets/template/wedding/6.jpg",
+      "rawUrl": "./template/wedding/6.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/7.jpg",
+      "thumbUrl": "assets/template/wedding/7.jpg",
+      "rawUrl": "./template/wedding/7.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/8.png",
+      "thumbUrl": "assets/template/wedding/8.png",
+      "rawUrl": "./template/wedding/8.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/9.jpg",
+      "thumbUrl": "assets/template/wedding/9.jpg",
+      "rawUrl": "./template/wedding/9.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/10.jpg",
+      "thumbUrl": "assets/template/wedding/10.jpg",
+      "rawUrl": "./template/wedding/10.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/11.png",
+      "thumbUrl": "assets/template/wedding/11.png",
+      "rawUrl": "./template/wedding/11.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/12.jpg",
+      "thumbUrl": "assets/template/wedding/12.jpg",
+      "rawUrl": "./template/wedding/12.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/13.jpg",
+      "thumbUrl": "assets/template/wedding/13.jpg",
+      "rawUrl": "./template/wedding/13.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/14.png",
+      "thumbUrl": "assets/template/wedding/14.png",
+      "rawUrl": "./template/wedding/14.png"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/15.jpg",
+      "thumbUrl": "assets/template/wedding/15.jpg",
+      "rawUrl": "./template/wedding/15.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/16.jpg",
+      "thumbUrl": "assets/template/wedding/16.jpg",
+      "rawUrl": "./template/wedding/16.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/17.jpg",
+      "thumbUrl": "assets/template/wedding/17.jpg",
+      "rawUrl": "./template/wedding/17.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/18.jpg",
+      "thumbUrl": "assets/template/wedding/18.jpg",
+      "rawUrl": "./template/wedding/18.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/19.jpg",
+      "thumbUrl": "assets/template/wedding/19.jpg",
+      "rawUrl": "./template/wedding/19.jpg"
+    },
+    {
+      "title": "Wedding Invitations",
+      "authorName": "NFTS MAGICS",
+      "authorAvatar": "assets/template/wedding/20.png",
+      "thumbUrl": "assets/template/wedding/20.png",
+      "rawUrl": "./template/wedding/20.png"
+    }
+  ]
+}
