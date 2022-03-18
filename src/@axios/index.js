@@ -3,7 +3,7 @@ import Axios from "axios";
 const axios = Axios.create({
     responseType: "json",
     // baseURL: 'http://localhost:5000',
-    baseURL: 'https://nftmagic.herokuapp.com/',
+    baseURL: 'https://nftmagic-backend.herokuapp.com/',
     headers: {
         'Content-Type': 'application/json',
         'accept': 'application/json',
