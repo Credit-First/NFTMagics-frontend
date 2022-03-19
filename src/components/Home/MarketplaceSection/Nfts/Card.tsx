@@ -12,7 +12,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
 
-const IMG_HEIGHT = 300;
+const IMG_HEIGHT = 280;
 
 const EmptyCard = styled('div')(({ theme, width, height }: { theme?: any, width: any, height: any }) => {
     return ({
@@ -22,8 +22,7 @@ const EmptyCard = styled('div')(({ theme, width, height }: { theme?: any, width:
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: "center",
-        marginRight: 40,
-        marginTop: 10,
+        margin: '10px 10px',
         flexDirection: 'column',
         zIndex: 2,
         maxWidth: '550px',
@@ -42,19 +41,19 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
             width: width,
             // height: height,
             textAlign: "center",
-            margin: '10px 20px',
+            margin: '10px 10px',
             flexDirection: 'column',
-            borderRadius: 15,
+            borderRadius: 10,
             zIndex: 2,
             maxWidth: '550px',
             transition: 'all 0.3s',
-            border: '1px solid rgba(0, 0, 0, 0.15)',
-            boxShadow: 'rgb(0 0 0 / 5%) 0px 0px 10px 0px',
-            ...((sm || md) && {
+            // border: '1px solid rgba(0, 0, 0, 0.15)',
+            boxShadow: 'rgb(0 0 0 / 20%) 0px 0px 10px 0px',
+            ...(md && {
                 maxWidth: '355px',
             }),
             '& .card-image-card-link': {
-                borderRadius: 15,
+                borderRadius: 10,
                 color: 'rgb(32, 129, 226)',
                 textDecoration: 'none',
                 '& .card-image-card-link-meida': {
@@ -264,6 +263,8 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
     const price = fromWei(web3, item.price)
     let token_img = '/svg/bnb.svg';
     let token_name = 'BNB';
+    let createAt = item.createAt;
+    
 
     if (item?.saleToken == 1) {
         token_img = '/images/token/ayra.png';
@@ -273,7 +274,7 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
         token_img = '/images/token/ithd.png';
         token_name = 'ITHD';
     }
-
+    
     const imgLoader = ({ src, width, quality }: { src: any, width?: any, quality?: any }) => {
         return `https://ipfs.infura.io/ipfs/${src}?w=${width || 300}&q=${quality || 75}`
     }

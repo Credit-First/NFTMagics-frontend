@@ -12,7 +12,7 @@ const rpcUrl = RPC_URLS[4];//getNodeUrl();
 const chainId = parseInt('4', 10);
 export const injected = new InjectedConnector({
     // supportedChainIds: [56], //mainChainId
-    supportedChainIds: [1, 3, 4, 5, 42, 56, 97], //testChainId
+    supportedChainIds: [97], //testChainId
 });
 
 export const walletconnect = new WalletConnectConnector({

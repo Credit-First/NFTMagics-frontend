@@ -21,7 +21,7 @@ const tokenImg = {
 }
 
 export default function ApproveTokenModal({ modal, setModal, approveTokenType, onAddress }: { modal: any, setModal: any, approveTokenType: any, onAddress: any }) {
-    const { active, account, library }: any = useWeb3React();
+    const { account, library }: any = useWeb3React();
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -88,9 +88,9 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
                     </div>
                 </DialogContent>
                 <DialogActions className='modal-actions'>
-                    <Button autoFocus className='button button-primary' onClick={approve}>
+                    <button autoFocus className='button button-primary' onClick={approve}>
                         Approve
-                    </Button>
+                    </button>
                 </DialogActions>
             </Modal>
         </Dialog>

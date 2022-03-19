@@ -1,5 +1,4 @@
 import Document, {
-  DocumentContext,
   Head,
   Html,
   Main,
@@ -33,55 +32,14 @@ class MyDocument extends Document {
             `,
             }}
           />
-          <link
-            rel="preload"
-            href="/fonts/upheaval/upheavtt.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/coolvetica/coolvetica_rg.otf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/sansation/Sansation_Light.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/spacex-free/SpaceX_FREE_FOR_PERSONAL_USE.ttf"
-            as="font"
-            crossOrigin=""
-          />
-
-          <link
-            rel="preload"
-            href="/fonts/poppins/Poppins-Bold.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/poppins/Poppins-Medium.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/poppins/Poppins-Light.ttf"
-            as="font"
-            crossOrigin=""
-          />
-          <link
-            rel="preload"
-            href="/fonts/Nosifer/Nosifer-Regular.ttf"
-            as="font"
-            crossOrigin=""
-          />
+          <link rel="preload" href="/fonts/upheaval/upheavtt.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/coolvetica/coolvetica_rg.otf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/sansation/Sansation_Light.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/spacex-free/SpaceX_FREE_FOR_PERSONAL_USE.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/poppins/Poppins-Bold.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/poppins/Poppins-Medium.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/poppins/Poppins-Light.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Nosifer/Nosifer-Regular.ttf" as="font" crossOrigin="" />
         </Head>
         <body>
           <Main />

@@ -33,31 +33,26 @@ export default function Nft() {
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const [sideBaropen, setsideBarOpen] = React.useState(true);
+    const [searchText, setSearchText] = React.useState('');
     const [selectFilterItem, setSelectFilterItem] = React.useState({
         sales: false,
         forGift: false,
         purchase: false,
         followings: false
     });
-    const [rangePrice, setRangePrice] = React.useState([0, 37]);
+    const [rangePrice, setRangePrice] = React.useState([0, 35]);
 
     const [assetList, setAssetList] = React.useState([]);
-
-    const handleChangePrice = (event: any, newValue: any) => {
-        setRangePrice(newValue);
-    };
 
     interface listProps {
         status: boolean,
         price: boolean,
         chains: boolean,
-        mycollection: boolean
     }
     const [listOpen, setListOpen] = React.useState<listProps>({
         status: true,
         price: true,
         chains: true,
-        mycollection: true
     });
 
     const handleToggleSideBar = () => {
@@ -91,11 +86,32 @@ export default function Nft() {
         if (item === 'followings') {
             setSelectFilterItem(value => ({ ...value, followings: !selectFilterItem.followings }));
         }
+        dispatch(actionGetMarketplace({ [item]: true, collectionId }));
     }
+
+    const sleep = (ms: any) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    const handleSearch = async (event: any) => {
+        if (event.keyCode == 13) {
+            await sleep(1000);
+            dispatch(actionGetMarketplace({ ...listOpen, name: searchText, collectionId }));
+        }
+    }
+
+    const handleChangePrice = (event: any, newValue: any) => {
+        setRangePrice(newValue);
+    };
+
+    const handleSearchPrice = () => {
+        dispatch(actionGetMarketplace({ ...listOpen, rangePrice, name: searchText, collectionId }));
+    }
+
     React.useEffect(() => {
         let filter = {};
         if (address) filter = { ...selectFilterItem, account: address }
-        dispatch(actionGetMarketplace(filter));
+        dispatch(actionGetMarketplace(filter)); 
     }, [selectFilterItem]);
 
     React.useEffect(() => {
@@ -144,6 +160,10 @@ export default function Nft() {
                                                     value={rangePrice}
                                                     onChange={handleChangePrice}
                                                     valueLabelDisplay="auto"
+                                                    step={0.05}
+                                                    max={100}
+                                                    min={0}
+                                                    onChangeCommitted={handleSearchPrice}
                                                 />
                                             </div>
                                         </List>
@@ -172,7 +192,7 @@ export default function Nft() {
                                 <div className='search-icon-wrapper'>
                                     <SearchIcon />
                                 </div>
-                                <input placeholder="Search" />
+                                <input placeholder="Search" onKeyDown={handleSearch} onChange={e => setSearchText(e.target.value)} value={searchText} />
                             </div>
                             <div className='assets-search-view-dropdowns'>
                                 <div className='assets-search-view-modal-dropdown'>

@@ -1,7 +1,7 @@
 import { styled, Theme, CSSObject, alpha } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const drawerWidth = 350;
+const drawerWidth = 250;
 
 const openedMixin = (theme: Theme): CSSObject => ({
     width: drawerWidth,
@@ -275,7 +275,7 @@ export const CollectionHeader = styled('div')(({ theme, readmore }: { theme?: an
 export const Main = styled('div')(({ theme, open }: DrawerProps) => {
 
     return ({
-        padding: 15,
+        padding: 10,
         width: '100%',
         '& .assets-search-view-header': {
             display: 'flex',

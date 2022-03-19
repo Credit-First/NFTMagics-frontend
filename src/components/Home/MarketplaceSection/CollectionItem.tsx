@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { LoadingComponent } from '@/components/Loading';
 import { useWeb3React } from "@web3-react/core";
 
-const IMG_HEIGHT = 200;
+const IMG_HEIGHT = 220;
 
 const EmptyCard = styled('div')(({ theme, width, height }: { theme?: any, width: any, height: any }) => {
     return ({
@@ -23,8 +23,7 @@ const EmptyCard = styled('div')(({ theme, width, height }: { theme?: any, width:
         alignItems: 'center',
         justifyContent: 'center',
         textAlign: "center",
-        marginRight: 40,
-        marginTop: 10,
+        margin: '10px 10px',
         flexDirection: 'column',
         zIndex: 2,
         maxWidth: '550px',
@@ -42,16 +41,16 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
             display: 'flex',
             width: width,
             textAlign: "center",
-            margin: '10px 20px',
+            margin: '10px 10px',
             flexDirection: 'column',
             alignItems: 'center',
             justifyContent: 'center',
-            borderRadius: 15,
+            borderRadius: 10,
             maxWidth: '550px',
             transition: 'all 0.3s',
-            border: '1px solid rgba(0, 0, 0, 0.15)',
+            // border: '1px solid rgba(0, 0, 0, 0.15)',
             boxSizing: 'content-box',
-            boxShadow: 'rgb(0 0 0 / 5%) 0px 0px 10px 0px',
+            boxShadow: 'rgb(0 0 0 / 20%) 0px 0px 10px 0px',
             background: `${theme.palette.background.default}`,
             ...((sm || md) && {
                 maxWidth: '355px',
@@ -72,7 +71,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 boxShadow: '0px 0px 5px 0px grey'
             },
             '& .card-image-card-link': {
-                borderRadius: 15,
+                borderRadius: 10,
                 color: 'rgb(32, 129, 226)',
                 textDecoration: 'none',
                 display: 'flex',

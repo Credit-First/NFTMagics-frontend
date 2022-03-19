@@ -225,6 +225,7 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                             textOverflow: 'ellipsis',
                             whiteSpace: 'nowrap',
                             '& .item-link': {
+                                color: 'rgb(24, 104, 183)',
                                 fontSize: 20,
                                 fontWeight: 600,
                                 textDecoration: 'none',
@@ -464,6 +465,7 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
                         '& .item-link': {
+                            color: 'rgb(24, 104, 183)',
                             fontSize: 20,
                             fontWeight: 600,
                             textDecoration: 'none',

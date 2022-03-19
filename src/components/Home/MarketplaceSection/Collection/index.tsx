@@ -33,13 +33,14 @@ export default function Collection() {
     const marketplace = useSelector(selectMarketplace);
     const collectionItem = useSelector(selectCollectionItem);
     const [sideBaropen, setsideBarOpen] = React.useState(false);
+    const [searchText, setSearchText] = React.useState('');
     const [selectFilterItem, setSelectFilterItem] = React.useState({
-        sale: false,
-        likes: false,
+        sales: false,
+        forGift: false,
         purchase: false,
         followings: false
     });
-    const [rangePrice, setRangePrice] = React.useState([0, 37]);
+    const [rangePrice, setRangePrice] = React.useState([0, 35]);
     const [readMore, setReadMore] = React.useState(false);
 
     const [assetList, setAssetList] = React.useState([]);
@@ -59,10 +60,6 @@ export default function Collection() {
         count: 0,
         updatedAt: ''
     })
-
-    const handleChangePrice = (event: any, newValue: any) => {
-        setRangePrice(newValue);
-    };
 
     interface listProps {
         status: boolean,
@@ -96,8 +93,17 @@ export default function Collection() {
     };
 
     const handleSelectFilterItem = (item: string) => () => {
-        if (item === 'sale') {
-            setSelectFilterItem(value => ({ ...value, sale: !selectFilterItem.sale }));
+        if (item === 'sales') {
+            setSelectFilterItem(value => ({ ...value, sales: !selectFilterItem.sales }));
+        }
+        if (item === 'forGift') {
+            setSelectFilterItem(value => ({ ...value, forGift: !selectFilterItem.forGift }));
+        }
+        if (item === 'purchase') {
+            setSelectFilterItem(value => ({ ...value, purchase: !selectFilterItem.purchase }));
+        }
+        if (item === 'followings') {
+            setSelectFilterItem(value => ({ ...value, followings: !selectFilterItem.followings }));
         }
         dispatch(actionGetMarketplace({ [item]: true, collectionId }));
     }
@@ -108,6 +114,26 @@ export default function Collection() {
     const imgLoader = ({ src, width, quality }: { src: any, width?: any, quality?: any }) => {
         return `https://ipfs.infura.io/ipfs/${src}?w=${width || 300}&q=${quality || 75}`
     }
+
+    const sleep = (ms: any) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    const handleSearch = async (event: any) => {
+        if (event.keyCode == 13) {
+            await sleep(1000);
+            dispatch(actionGetMarketplace({ ...listOpen, name: searchText, collectionId }));
+        }
+    }
+    
+    const handleChangePrice = (event: any, newValue: any) => {
+        setRangePrice(newValue);
+    };
+
+    const handleSearchPrice = () => {
+        dispatch(actionGetMarketplace({ ...listOpen, rangePrice, name: searchText, collectionId }));
+    }
+
     React.useEffect(() => {
         console.log(marketplace)
         setAssetList(marketplace);
@@ -115,7 +141,8 @@ export default function Collection() {
 
     React.useEffect(() => {
         collectionItem && setCollection(collectionItem);
-    }, [collectionItem])
+    }, [collectionItem]);
+
     React.useEffect(() => {
         collectionId && dispatch(actionGetMarketplace({ collectionId }));
         collectionId && dispatch(actionGetCollectionItem({ collectionId }));
@@ -134,7 +161,7 @@ export default function Collection() {
                 </div>
                 <div className='collection-info'>
                     <div className='collection-logo'>
-                        <Skeleton className='' sx={{ height: '100%', width: '100%', background: 'grey' }} animation="wave" variant="rectangular" />
+                        <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
                         {
                             collection.logo && (
                                 <Image loader={imgLoader} src={collection.logo} layout="fill" objectFit="fill" />
@@ -204,8 +231,8 @@ export default function Collection() {
                                     </ListItemButton>
                                     <Collapse className='navbar-list-content' in={listOpen.status} timeout="auto" unmountOnExit>
                                         <List className='filter-panel' component="div">
-                                            <button className={clsx('filter-panel-item', (selectFilterItem.sale ? 'isSelected' : ''))} onClick={handleSelectFilterItem('sales')}>Sales</button>
-                                            <button className={clsx('filter-panel-item', (selectFilterItem.likes ? 'isSelected' : ''))} onClick={handleSelectFilterItem('likes')}>Likes</button>
+                                            <button className={clsx('filter-panel-item', (selectFilterItem.sales ? 'isSelected' : ''))} onClick={handleSelectFilterItem('sales')}>Sales</button>
+                                            <button className={clsx('filter-panel-item', (selectFilterItem.forGift ? 'isSelected' : ''))} onClick={handleSelectFilterItem('forGift')}>For Gift</button>
                                             <button className={clsx('filter-panel-item', (selectFilterItem.purchase ? 'isSelected' : ''))} onClick={handleSelectFilterItem('purchase')}>Purchase</button>
                                             <button className={clsx('filter-panel-item', (selectFilterItem.followings ? 'isSelected' : ''))} onClick={handleSelectFilterItem('followings')}>Followings</button>
                                         </List>
@@ -222,6 +249,10 @@ export default function Collection() {
                                                     value={rangePrice}
                                                     onChange={handleChangePrice}
                                                     valueLabelDisplay="auto"
+                                                    step={0.05}
+                                                    max={100}
+                                                    min={0}
+                                                    onChangeCommitted={handleSearchPrice}
                                                 />
                                             </div>
                                         </List>
@@ -250,7 +281,7 @@ export default function Collection() {
                                 <div className='search-icon-wrapper'>
                                     <SearchIcon />
                                 </div>
-                                <input placeholder="Search" />
+                                <input placeholder="Search" onKeyDown={handleSearch} onChange={e => setSearchText(e.target.value)} value={searchText} />
                             </div>
                             <div className='assets-search-view-dropdowns'>
                                 <div className='assets-search-view-modal-dropdown'>

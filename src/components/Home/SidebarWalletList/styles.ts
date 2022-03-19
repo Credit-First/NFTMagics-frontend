@@ -8,7 +8,7 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
         right: 0,
         bottom: 0,
         top: 80,
-        width: '420px',
+        width: '400px',
         zIndex: 90,
         backgroundColor: `${theme.palette.background.default}`,
         color: 'text.primary',
@@ -312,7 +312,7 @@ export const DropdownMenu = styled('div')(({ theme, open, width }: { theme?: any
             backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))',
             borderRadius: 10,
             transition: 'all 0.3s ease 0s',
-            boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`,
+            boxShadow: '0px 0px 10px 0px rgb(0 0 0 / 40%)',
             ...(open && {
                 transition: 'all 0.3s ease 0s',
                 display: 'block',

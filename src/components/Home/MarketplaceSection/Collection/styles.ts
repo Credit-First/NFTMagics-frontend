@@ -1,7 +1,7 @@
 import { styled, Theme, CSSObject, alpha } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
-const drawerWidth = 350;
+const drawerWidth = 250;
 
 const openedMixin = (theme: Theme): CSSObject => ({
     width: drawerWidth,

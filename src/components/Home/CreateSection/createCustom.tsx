@@ -4,7 +4,7 @@ import {
 } from '@mui/material';
 import useWindowSize from "@/hooks/useWindowSize";
 import PhotoProvider from "@/providers/photoProvider"
-import { UIEvent, PhotoEditorSDKUI, ImageFormat, ExportFormat, EditorApi } from "photoeditorsdk";
+import { UIEvent, PhotoEditorSDKUI, ImageFormat, ExportFormat, EditorApi, CanvasAction } from "photoeditorsdk";
 
 const CreateCustom = ({ setImage, handleNext }: { setImage: any, handleNext: any }) => {
     const theme = useTheme();
@@ -26,6 +26,7 @@ const CreateCustom = ({ setImage, handleNext }: { setImage: any, handleNext: any
             container: "#editor",
             assetBaseUrl: "./assets",
             image: "./example.jpg",
+            mainCanvasActions: [CanvasAction.UNDO, CanvasAction.REDO, CanvasAction.EXPORT],
             export: {
                 image: {
                     enableDownload: false,
@@ -37,7 +38,7 @@ const CreateCustom = ({ setImage, handleNext }: { setImage: any, handleNext: any
                 languages: {
                     en: {
                         mainCanvasActions: {
-                            buttonExport: 'Save Image',
+                            buttonExport: 'Export Image',
                         },
                     },
                 },

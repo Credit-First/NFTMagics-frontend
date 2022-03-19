@@ -7,8 +7,9 @@ import NFTCard from "./Card";
 const MIN_WIDTH = 920;
 const cardWidth = 300;
 const cardHeight = 450;
-const rowHeigthMargin = 40;
-const drawerWidth = 350;
+const columnMargin = 20;
+const rowHeigthMargin = 25;
+const drawerWidth = 250;
 
 const useStyles = makeStyles(() => ({
     cardArea: {
@@ -45,7 +46,7 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
                         const rowWidth = width - (!sm ? drawer_width : 0) - 40;
                         const itemsPerRow = Math.max(
                             1,
-                            Math.floor(rowWidth / cardWidth) - extraSpace
+                            Math.floor(rowWidth / (cardWidth + columnMargin)) - extraSpace
                         );
                         const rowCount = Math.ceil(assetList.length / itemsPerRow);
 

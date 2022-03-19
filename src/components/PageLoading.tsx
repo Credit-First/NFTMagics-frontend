@@ -6,7 +6,7 @@ const Loader = styled('div')(({ theme, loading } : { theme?:any, loading: any}) 
         position: 'fixed',
         top: 0,
         left: 0,
-        right: 0,
+        right: 0, 
         bottom: 0,
         margin: 0,
         padding: 0,

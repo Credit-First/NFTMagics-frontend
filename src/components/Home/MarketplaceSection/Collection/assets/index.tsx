@@ -30,14 +30,15 @@ import { OwnerSticky, LargeSection, SmallSection, Accordion, AccordionSummary, A
 import { HisttoryDropDownMenu, HisttoryFilterMenu } from './components';
 
 import ImageViewer from 'react-simple-image-viewer';
+import AppConfig from "@/utils/AppConfig";
 import toast from "@/components/Toast";
 import "react-toastify/dist/ReactToastify.css";
-import { actionGetMarketItem } from '@/store/actions';
-import { selectMarketItem } from '@/store/selectors';
-import { useDispatch, useSelector } from 'react-redux';
 import Config from '@/config/app';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
+import { actionGetMarketItem } from '@/store/actions';
+import { selectMarketItem } from '@/store/selectors';
+import { useDispatch, useSelector } from 'react-redux';
 
 import ApproveTokenModal from '@/components/Home/ApproveTokenModal';
 import PutListModal from '@/components/Home/putListModal';
@@ -109,6 +110,7 @@ export default function Assets() {
         }
     }, []);
     const allowanceBalanceof = async (tokenType: any, onAddress: any) => {
+        if (tokenType != Config.Token.AYRA.address || tokenType != Config.Token.ITHD.address) return true;
         let token_abi = Config.Token.AYRA.abi;
         let token_address = Config.Token.AYRA.address;
 
@@ -424,7 +426,14 @@ export default function Assets() {
                                 <div className='item-toolbar'>
                                     <div className='button-group'>
                                         <button onClick={handleRefeshItem}><RefreshIcon /></button>
-                                        <button><OpenInNewIcon /></button>
+                                        <button>
+                                            <a
+                                                href={`${AppConfig.test_network}address/${Config.NFT.address}`}
+                                                target="_blank"
+                                            >
+                                                <OpenInNewIcon />
+                                            </a>
+                                        </button>
                                         <button><ShareIcon /></button>
                                         <button><MoreVertIcon /></button>
                                     </div>
@@ -634,7 +643,14 @@ export default function Assets() {
                             <div className='item-toolbar'>
                                 <div className='button-group'>
                                     <button onClick={handleRefeshItem}><RefreshIcon /></button>
-                                    <button><OpenInNewIcon /></button>
+                                    <button>
+                                        <a
+                                            href={`${AppConfig.test_network}address/${Config.NFT.address}`}
+                                            target="_blank"
+                                        >
+                                            <OpenInNewIcon />
+                                        </a>
+                                    </button>
                                     <button><ShareIcon /></button>
                                     <button><MoreVertIcon /></button>
                                 </div>

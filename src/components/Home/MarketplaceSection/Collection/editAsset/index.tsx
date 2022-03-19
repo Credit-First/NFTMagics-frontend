@@ -19,6 +19,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { LargeSection, SmallSection, Input, SwitchButton } from './styles';
 import { TokenDropDownMenu } from './components';
 
+import AppConfig from "@/utils/AppConfig";
 import Config from '@/config/app';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
@@ -166,8 +167,8 @@ export default function EditAssets() {
                 .then((_tx: any) => {
                     notify('success', 'You have update the item');
                 });
-        } catch (err:any) {
-            if(err.code == 4001) notify('error', err.message);
+        } catch (err: any) {
+            if (err.code == 4001) notify('error', err.message);
             else notify('error', 'Error updating the item');
             console.log('Error updating the item : ', err);
             setLoading(false);
@@ -229,7 +230,14 @@ export default function EditAssets() {
                                 <div className='item-toolbar'>
                                     <div className='button-group'>
                                         <button onClick={handleRefreshItem}><RefreshIcon /></button>
-                                        <button><OpenInNewIcon /></button>
+                                        <button>
+                                            <a
+                                                href={`${AppConfig.test_network}address/${Config.NFT.address}`}
+                                                target="_blank"
+                                            >
+                                                <OpenInNewIcon />
+                                            </a>
+                                        </button>
                                         <button><ShareIcon /></button>
                                         <button><MoreVertIcon /></button>
                                     </div>
@@ -372,7 +380,7 @@ export default function EditAssets() {
                             </div>
                         </article>
                         <div className='item-action'>
-                            <Button className="button button-regular" onClick={handleEditAction} disabled={loading}>Update NFT</Button>
+                            <button className="button button-regular" onClick={handleEditAction} disabled={loading}>Update NFT</button>
                             {loading && (
                                 <CircularProgress className='loading' size={24} />
                             )}
@@ -390,7 +398,14 @@ export default function EditAssets() {
                             <div className='item-toolbar'>
                                 <div className='button-group'>
                                     <button onClick={handleRefreshItem}><RefreshIcon /></button>
-                                    <button><OpenInNewIcon /></button>
+                                    <button>
+                                        <a
+                                            href={`${AppConfig.test_network}address/${Config.NFT.address}`}
+                                            target="_blank"
+                                        >
+                                            <OpenInNewIcon />
+                                        </a>
+                                    </button>
                                     <button><ShareIcon /></button>
                                     <button><MoreVertIcon /></button>
                                 </div>
@@ -527,7 +542,7 @@ export default function EditAssets() {
                                     )
                                 }
                                 <div className='item-action'>
-                                    <Button className="button button-regular" onClick={handleEditAction} disabled={loading}>Update NFT</Button>
+                                    <button className="button button-regular" onClick={handleEditAction} disabled={loading}>Update NFT</button>
                                     {loading && (
                                         <CircularProgress className='loading' size={24} />
                                     )}

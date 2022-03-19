@@ -102,6 +102,7 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                     justifyContent: 'center',
                     alignItems: 'flex-end',
                     '& .button': {
+                        fontSize: 20,
                         cursor: 'pointer',
                         textAlign: 'center',
                         ...(loading && {
@@ -561,6 +562,7 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             borderTop: `1px solid ${theme.palette.divider}`,
                             justifyContent: 'center',
                             '& .button': {
+                                fontSize: 20,
                                 cursor: 'pointer',
                                 textAlign: 'center',
                                 ...(loading && {

@@ -5,10 +5,11 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import NFTCard from "./Card";
 
 const MIN_WIDTH = 920;
-const cardWidth = 300;
+const cardWidth = 280;
 const cardHeight = 450;
-const rowHeigthMargin = 40;
-const drawerWidth = 350;
+const columnMargin = 20;
+const rowHeigthMargin = 25;
+const drawerWidth = 250;
 
 const useStyles = makeStyles(() => ({
     cardArea: {
@@ -27,11 +28,11 @@ const useStyles = makeStyles(() => ({
 const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOpen: any }) => {
     const [mounted, setMounted] = React.useState(false);
     const classes = useStyles();
-    
+
     const sm = useMediaQuery('(max-width:600px)');
     const md = useMediaQuery('(max-width:950px)');
     const lg = useMediaQuery('(max-width:1200px)');
-    
+
     React.useEffect(() => {
         setMounted(true)
     }, [])
@@ -41,14 +42,14 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
                 <WindowScroller>
                     {({ width, height, isScrolling, registerChild, scrollTop }) => {
                         const drawer_width = (sideBarOpen) ? drawerWidth : 100;
-                        const extraSpace = md ? 1 : 0;
+                        const extraSpace = md ? (lg ? 2 : 1) : 0;
                         const rowWidth = width - (!sm ? drawer_width : 0) - 40;
                         const itemsPerRow = Math.max(
                             1,
-                            Math.floor(rowWidth / cardWidth) - extraSpace
+                            Math.floor(rowWidth / (cardWidth + columnMargin)) - extraSpace
                         );
                         const rowCount = Math.ceil(assetList.length / itemsPerRow);
-
+                        
                         return (
                             <React.Fragment>
                                 <div ref={registerChild} className={classes.cardArea}>
@@ -69,12 +70,12 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
                                             );
                                             for (let i = fromIndex; i < toIndex; i++) {
                                                 items.push(
-                                                    <NFTCard key={i} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight}/>
+                                                    <NFTCard key={i} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight} />
                                                 );
                                             }
                                             const emptySize = itemsPerRow - items.length;
                                             for (let i = 0; i < emptySize; i++) {
-                                                items.push(<NFTCard key={i + toIndex} empty item={undefined} width={cardWidth} height={cardHeight}/>);
+                                                items.push(<NFTCard key={i + toIndex} empty item={undefined} width={cardWidth} height={cardHeight} />);
                                             }
                                             return (
                                                 <div className={classes.row} key={key} style={style}>

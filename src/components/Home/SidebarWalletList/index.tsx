@@ -10,6 +10,7 @@ import CheckIcon from '@mui/icons-material/Check';
 import LaunchRoundedIcon from '@mui/icons-material/LaunchRounded';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import AppConfig from "@/utils/AppConfig";
 import toast from "@/components/Toast";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -112,7 +113,8 @@ export default function SidebarWalletList(props: any) {// the function is being 
                             chainId: `0x${Config.netId.toString(16)}`,
                             chainName: "BNB Test NET",
                             rpcUrls: [
-                                "https://data-seed-prebsc-1-s1.binance.org:8545/"
+                                // "https://data-seed-prebsc-1-s1.binance.org:8545/",
+                                AppConfig.test_rpc_url
                             ],
                             nativeCurrency: {
                                 name: "BNB",
@@ -120,7 +122,8 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                 decimals: 18,
                             },
                             blockExplorerUrls: [
-                                "https://testnet.bscscan.com"
+                                // "https://testnet.bscscan.com",
+                                AppConfig.test_network
                             ],
                         },
                     ],
@@ -147,7 +150,6 @@ export default function SidebarWalletList(props: any) {// the function is being 
     }
 
     const getErrorMessage = (error: any) => {
-        console.log('wallet error', error)
         if (error instanceof NoEthereumProviderError) {
             return "Install MetaMask on desktop or visit from a dApp browser on mobile.";
         } else if (error instanceof UnsupportedChainIdError) {
@@ -435,7 +437,26 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                                 <div className='type'>Popular</div>
                                                 <div className='loading'>
                                                     {
-                                                        !isSelectingWallet && (
+                                                        !isSelectingWallet && activatingConnector == Wallets[0].connector && (
+                                                            <CircularProgress className='loading-progress' style={{ width: 20, height: 20 }} />
+                                                        )
+                                                    }
+                                                </div>
+                                            </div>
+                                        </button>
+                                    </li>
+                                    <li className='wallet-item'>
+                                        <button onClick={onConnectWallet(Wallets[1])}>
+                                            <div className='wallet-img'>
+                                                <img src='/images/wallet/4.png' />
+                                            </div>
+                                            <div className='wallet-name'>
+                                                <span>Wallet Connect</span>
+                                            </div>
+                                            <div className='wallet-info'>
+                                                <div className='loading'>
+                                                    {
+                                                        !isSelectingWallet && activatingConnector == Wallets[1].connector && (
                                                             <CircularProgress className='loading-progress' style={{ width: 20, height: 20 }} />
                                                         )
                                                     }
@@ -452,25 +473,6 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                                 <span>CoinBase Wallet</span>
                                             </div>
                                             <div className='wallet-info'></div>
-                                        </button>
-                                    </li>
-                                    <li className='wallet-item'>
-                                        <button onClick={onConnectWallet(Wallets[1])}>
-                                            <div className='wallet-img'>
-                                                <img src='/images/wallet/4.png' />
-                                            </div>
-                                            <div className='wallet-name'>
-                                                <span>Wallet Connect</span>
-                                            </div>
-                                            <div className='wallet-info'>
-                                                <div className='loading'>
-                                                    {
-                                                        !isSelectingWallet && (
-                                                            <CircularProgress className='loading-progress' style={{ width: 20, height: 20 }} />
-                                                        )
-                                                    }
-                                                </div>
-                                            </div>
                                         </button>
                                     </li>
                                     <li className='wallet-item'>
