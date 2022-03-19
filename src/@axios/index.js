@@ -7,7 +7,6 @@ const axios = Axios.create({
     headers: {
         'Content-Type': 'application/json',
         'accept': 'application/json',
-        'Access-Control-Allow-Origin': '*',
     },
 });
 
