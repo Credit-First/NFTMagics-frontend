@@ -1,9 +1,9 @@
 import Axios from "axios";
+import AppConfig from "../utils/AppConfig";
 
 const axios = Axios.create({
     responseType: "json",
-    // baseURL: 'http://localhost:5000',
-    baseURL: process.env.BACKEND_URL,
+    baseURL: AppConfig.backend_url,
     headers: {
         'Content-Type': 'application/json',
         'accept': 'application/json',
