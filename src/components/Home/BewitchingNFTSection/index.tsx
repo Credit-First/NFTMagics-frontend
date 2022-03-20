@@ -131,7 +131,7 @@ export default function BewitchingNFTSection() {
                                     </div>
                                     <div className="nft-col-pp">
                                         <a onClick={handleCollectionLink(item.collectionId)}>
-                                            <Skeleton className='' sx={{ height: '100%', width: '100%', background: 'grey' }} animation="wave" variant="rectangular" />
+                                            <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
                                             {
                                                 item.collectionLogo && (
                                                     <Image loader={imgLoader} className="lazy pp-coll" src={item.collectionLogo} alt="" layout='fill' objectFit='fill' />
