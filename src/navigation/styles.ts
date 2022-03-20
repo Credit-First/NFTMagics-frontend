@@ -28,6 +28,8 @@ export const Header = styled('div')((theme) => {
         '& .magics-logo': {
           display: 'flex',
           alignItems: 'center',
+          height: '100%',
+          marginRight: 30,
           '& img': {
             marginRight: '1rem',
             width: 50,
@@ -36,10 +38,20 @@ export const Header = styled('div')((theme) => {
           '& .logo-title': {
             cursor: 'pointer',
             fontSize: '2rem',
-            paddingRight: 30,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
+            backgroundColor: '#CA4246',
+            backgroundImage: 'linear-gradient( 45deg, #CA4246 16.666%,  #E16541 16.666%,  #E16541 33.333%,  #F18F43 33.333%,  #F18F43 50%,  #8B9862 50%,  #8B9862 66.666%,  #476098 66.666%,  #476098 83.333%,  #A7489B 83.333%)',
+            backgroundSize: '100%',
+            backgroundRepeat: 'repeat',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            animation: 'rainbow-text-simple-animation-rev 0.75s ease forwards',
+            height: '100%',
+            '&:hover': {
+              animation: 'rainbow-text-simple-animation 0.5s ease-in forwards',
+            },
             ...(sm && {
               display: 'none'
             })
@@ -108,6 +120,28 @@ export const Header = styled('div')((theme) => {
       width: '100%',
       transition: 'all 1s',
     },
+    '@keyframes rainbow-text-simple-animation-rev': {
+      '0%': {
+        backgroundSize: '650%',
+      },
+      '40%': {
+        backgroundSize: '650%',
+      },
+      '100%': {
+        backgroundSize: '100%',
+      }
+    },
+    '@keyframes rainbow-text-simple-animation': {
+      '0%': {
+        backgroundSize: '100%',
+      },
+      '80%': {
+        backgroundSize: '650%',
+      },
+      '100%': {
+        backgroundSize: '650%',
+      }
+    }
   })
 });
 
@@ -289,4 +323,4 @@ export const DropdownMenu = styled('div')(({ theme, open, width, height }: { the
       },
     }
   }
-}))
+})) 

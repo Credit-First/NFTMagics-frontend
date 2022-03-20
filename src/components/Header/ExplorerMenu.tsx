@@ -43,6 +43,16 @@ const ExploreMenu = () => {
               </a>
             </Link>
           </li>
+          <li onClick={handleListClick('Collection', 2)}>
+            <Link href={'/lottery'}>
+              <a>
+                <div className='menu-image'>
+                  <img src={`/svg/art-${theme_mode}.svg`} />
+                </div>
+                Lottery
+              </a>
+            </Link>
+          </li>
         </ul>
       </div>
     </DropdownMenu>

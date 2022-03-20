@@ -60,6 +60,7 @@ export const Item = styled('a')(({ theme }) => {
     const md = useMediaQuery('(max-width:900px)');
 
     return ({
+        cursor: 'pointer',
         width: '100%',
         color: 'inherit',
         fontWeight: 600,
@@ -73,7 +74,8 @@ export const Item = styled('a')(({ theme }) => {
         display: 'flex',
         alignItems: 'center',
         ...((md || sm) && {
-            maxWidth: 450
+            maxWidth: 450,
+            minWidth: 300
         }),
         '&:hover': {
             boxShadow: 'rgb(4 17 29 / 25%) 0px 0px 10px 0px',
@@ -125,6 +127,7 @@ export const Item = styled('a')(({ theme }) => {
             justifyContent: 'center',
             aligItems: 'center',
             '& .tokenImg': {
+                width:30,
                 '$ span': {
                     position: 'absolute'
                 }

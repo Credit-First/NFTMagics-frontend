@@ -47,7 +47,7 @@ export default function HeaderComponent(props: any) {
             <div className='magics-logo'>
               <img src="/images/logo.png" />
               <div className='logo-title'>
-                NFTMAGICS
+                MAGICS
               </div>
             </div>
           </Link>

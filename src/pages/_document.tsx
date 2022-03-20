@@ -40,6 +40,8 @@ class MyDocument extends Document {
           <link rel="preload" href="/fonts/poppins/Poppins-Medium.ttf" as="font" crossOrigin="" />
           <link rel="preload" href="/fonts/poppins/Poppins-Light.ttf" as="font" crossOrigin="" />
           <link rel="preload" href="/fonts/Nosifer/Nosifer-Regular.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Kanit/Kanit-Bold.ttf" as="font" crossOrigin="" />
+          <link rel="preload" href="/fonts/Kanit/Kanit-Medium.ttf" as="font" crossOrigin="" />
         </Head>
         <body>
           <Main />

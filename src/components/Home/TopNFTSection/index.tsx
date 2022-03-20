@@ -53,7 +53,7 @@ export default function TopNFTs() {
                 {
                     itemsData && itemsData.map((item: any, key) => {
                         return (
-                            <Grid item key={key} className='flex items-center justify-center' xs={4} sm={4} md={4} lg={4}>
+                            <Grid item key={key} className='' xs={4} sm={8} md={6} lg={4}>
                                 <Item>
                                     <div className='item-no'>
                                         <span>{key}</span>

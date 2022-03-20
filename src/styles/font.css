@@ -30,13 +30,21 @@
     font-family: "Nosifer";
     src: url("/fonts/Nosifer/Nosifer-Regular.ttf");
   }
+  @font-face {
+    font-family: "Kanit-Bold";
+    src: url("/fonts/Kanit/Kanit-Bold.ttf");
+  }
+  @font-face {
+    font-family: "Kanit";
+    src: url("/fonts/Kanit/Kanit-Medium.ttf");
+  }
   
   * {
-    font-family: poppin-light; 
+    font-family: poppin-medium; 
   }
 
   .featured-subheader {
-    font-family: poppin-light; 
+    font-family: poppin-medium; 
   }
   .magics-logo .logo-title {
     font-family: Nosifer; 
