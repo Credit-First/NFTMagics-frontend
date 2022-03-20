@@ -141,8 +141,6 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 height: 150,
                 marginBottom: 10,
                 '& .name': {
-                    fontWeight: 500,
-                    fontSize: 20,
                     display: '-webkit-box',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'break-spaces',

@@ -29,7 +29,7 @@ import Web3 from "web3";
 export default function Nft() {
     // const theme = useTheme();
     const router = useRouter()
-    const { collectionId, address } = router.query;
+    const { collectionId, address, gift } = router.query;
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const [sideBaropen, setsideBarOpen] = React.useState(true);
@@ -86,7 +86,6 @@ export default function Nft() {
         if (item === 'followings') {
             setSelectFilterItem(value => ({ ...value, followings: !selectFilterItem.followings }));
         }
-        dispatch(actionGetMarketplace({ [item]: true, collectionId }));
     }
 
     const sleep = (ms: any) => {
@@ -96,7 +95,7 @@ export default function Nft() {
     const handleSearch = async (event: any) => {
         if (event.keyCode == 13) {
             await sleep(1000);
-            dispatch(actionGetMarketplace({ ...listOpen, name: searchText, collectionId }));
+            dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
         }
     }
 
@@ -105,14 +104,19 @@ export default function Nft() {
     };
 
     const handleSearchPrice = () => {
-        dispatch(actionGetMarketplace({ ...listOpen, rangePrice, name: searchText, collectionId }));
+        dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
     }
+    
+    React.useEffect(() => {
+        dispatch(actionGetMarketplace({ ...selectFilterItem, account: address, collectionId }));
+    }, [selectFilterItem]);
 
     React.useEffect(() => {
-        let filter = {};
-        if (address) filter = { ...selectFilterItem, account: address }
-        dispatch(actionGetMarketplace(filter)); 
-    }, [selectFilterItem]);
+        if( gift ) {
+            setSelectFilterItem(value => ({ ...value, forGift: true }));
+            dispatch(actionGetMarketplace({ forGift: true, account: address, collectionId }));
+        }
+    }, [gift]);
 
     React.useEffect(() => {
         setAssetList(marketplace);
@@ -192,7 +196,7 @@ export default function Nft() {
                                 <div className='search-icon-wrapper'>
                                     <SearchIcon />
                                 </div>
-                                <input placeholder="Search" onKeyDown={handleSearch} onChange={e => setSearchText(e.target.value)} value={searchText} />
+                                <input placeholder="Search items" onKeyDown={handleSearch} onChange={e => setSearchText(e.target.value)} value={searchText} />
                             </div>
                             <div className='assets-search-view-dropdowns'>
                                 <div className='assets-search-view-modal-dropdown'>
@@ -211,7 +215,7 @@ export default function Nft() {
                                 <AssetList assetList={assetList} sideBarOpen={sideBaropen} />
                             ) : (
                                 <div className='no-items'>
-                                    There is no items...
+                                    There are no items...
                                 </div>
                             )}
                         </div>

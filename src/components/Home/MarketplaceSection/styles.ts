@@ -193,8 +193,8 @@ export const MarketplaceHeader = styled('div')(({ theme, readmore }: { theme?: a
             },
             '& .marketplace-title': {
                 fontSize: 30,
-                fontWeight: 500,
-                marginTop: 20,
+                fontWeight: 700,
+                marginTop: 30,
                 marginBottom: 20,
             },
             '& .collection-add': {

@@ -122,7 +122,7 @@ export default function Collection() {
     const handleSearch = async (event: any) => {
         if (event.keyCode == 13) {
             await sleep(1000);
-            dispatch(actionGetMarketplace({ ...listOpen, name: searchText, collectionId }));
+            dispatch(actionGetMarketplace({ ...selectFilterItem, name: searchText, collectionId }));
         }
     }
     
@@ -131,11 +131,10 @@ export default function Collection() {
     };
 
     const handleSearchPrice = () => {
-        dispatch(actionGetMarketplace({ ...listOpen, rangePrice, name: searchText, collectionId }));
+        dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
     }
 
     React.useEffect(() => {
-        console.log(marketplace)
         setAssetList(marketplace);
     }, [marketplace]);
 
@@ -300,7 +299,7 @@ export default function Collection() {
                                 <AssetList assetList={assetList} sideBarOpen={sideBaropen} />
                             ) : (
                                 <div className='no-items'>
-                                    There is no items...
+                                    There are no items...
                                 </div>
                             )}
                         </div>

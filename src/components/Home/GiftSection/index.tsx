@@ -37,7 +37,10 @@ const GiftBox = () => {
 
   const handleLink = () => {
     setLoading(true);
-    router.push(`/account/${address}/all`);
+    router.push({
+      pathname: `/account/${address}/all`,
+      query: { gift: true },
+    })
   }
 
   return (

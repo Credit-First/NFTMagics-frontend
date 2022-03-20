@@ -327,8 +327,8 @@ export const Main = styled('div')(({ theme, open }: DrawerProps) => {
             }
         },
         '& .no-items': {
-            fontSize: 25,
-            fontWeight: 600,
+            fontSize: 20,
+            fontWeight: 400,
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
