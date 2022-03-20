@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Layout from '@/components/Layout/Layout';
 import CollectionSection from '@/components/Home/MarketplaceSection/Collection/index';
-import Footer from "@/components/Footer";
 
 export default function Collection() {
     return (

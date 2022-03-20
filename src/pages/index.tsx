@@ -12,10 +12,10 @@ function Home() {
   return (
     <Layout>
       <div className='sections'>
-        {/* <FeaturedNFTSection />
+        <FeaturedNFTSection />
         <BewitchingNFTSection />
         <TopNFTSection />
-        <NFTDetailSection /> */}
+        <NFTDetailSection />
       </div>
     </Layout>
   );

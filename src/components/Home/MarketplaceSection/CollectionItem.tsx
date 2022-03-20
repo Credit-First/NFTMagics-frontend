@@ -134,7 +134,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
+                justifyContent: 'flex-start',
                 color: `${theme.palette.text.primary}`,
                 padding: 20,
                 width: '100%',

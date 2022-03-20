@@ -124,6 +124,11 @@ export const Item = styled('a')(({ theme }) => {
             display: 'flex',
             justifyContent: 'center',
             aligItems: 'center',
+            '& .tokenImg': {
+                '$ span': {
+                    position: 'absolute'
+                }
+            },
             '& .price': {
                 display: 'flex',
                 alignItems: 'center',

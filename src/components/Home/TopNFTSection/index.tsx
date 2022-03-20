@@ -71,10 +71,11 @@ export default function TopNFTs() {
                                     </div>
                                     <div className='item-info'>
                                         <div className='tokenImg'>
+                                            {!item && <Skeleton variant="text" style={{ width: 30, height: 30 }} />}
                                             {item.price ? (
                                                 <img src={tokenImg[item.saleToken]} width={30} height={30} />
                                             ) : (
-                                                <Skeleton variant="text" style={{ width: 30, height: 30 }} />
+                                                <>---</>
                                             )}
                                         </div>
                                         <div className='price'>{item.price / 1e18}</div>
