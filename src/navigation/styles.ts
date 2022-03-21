@@ -32,12 +32,12 @@ export const Header = styled('div')((theme) => {
           marginRight: 30,
           '& img': {
             marginRight: '1rem',
-            width: 50,
-            height: 50
+            width: 70,
+            height: 70
           },
           '& .logo-title': {
             cursor: 'pointer',
-            fontSize: '2rem',
+            fontSize: '2.3rem',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

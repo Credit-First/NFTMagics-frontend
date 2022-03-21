@@ -1,4 +1,105 @@
 import { styled } from '@mui/material/styles';
+import Dialog from '@mui/material/Dialog';
+import useMediaQuery from '@mui/material/useMediaQuery';
+
+export const Modal = styled(Dialog)(({ theme }: { theme: any }) => {
+
+    const sm = useMediaQuery('(max-width:600px)');
+    const md = useMediaQuery('(max-width:900px)');
+
+    return ({
+        '& .MuiBackdrop-root': {
+            background: '#ffffff59'
+        },
+        '& .MuiDialog-paper': {
+            background: 'none',
+            boxShadow: 'none'
+        },
+        // backgroundImage: 'linear-gradient(rgb(255 255 255 / 9%), rgb(137 137 137 / 99%))',
+        '& .modal-title': {
+            textAlign: 'center',
+            display: 'flex',
+            alignItem: 'center',
+            justifyContent: 'space-between',
+            padding: 10,
+            '& .title': {
+                padding: 10,
+                fontFamily: 'upheaval',
+            }
+        },
+        '& .modal-body': {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: 'white',
+            '& .left-arrow': {
+                cursor: 'pointer',
+                margin: 30,
+                borderRadius: '50%',
+                padding: 15,
+                minWidth: 50,
+                color: `${theme.palette.text.primary}`,
+                backgroundColor: `${theme.palette.background.default}`,
+                '&:hover': {
+                    boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`
+                }
+            },
+            '& .ticket-body': {
+                margin: 20,
+                position: 'relative',
+                boxShadow: '0px 0px 10px 5px grey',
+                '& .ticket': {
+                    width: 200,
+                    height: 500,
+                    position: 'relative',
+                },
+                '& .ticket-number': {
+                    position: 'absolute',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    top: 50,
+                    padding: 5,
+                    width: '100%',
+                    fontSize: 25,
+                    fontWeight: 700,
+                    '& .number': {
+                        marginRight: 5
+                    },
+                },
+                '& button': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '100%',
+                    padding: 10,
+                    border: '1px dotted white',
+                    background: '#e93c84',
+                    color: 'white',
+                    fontSize: 25,
+                    '&:hover': {
+                        fontWeight: 700,
+                        transition: 'all 0.3s',
+                    }
+                }
+            },
+            '& .right-arrow': {
+                cursor: 'pointer',
+                margin: 30,
+                borderRadius: '50%',
+                padding: 15,
+                minWidth: 50,
+                color: `${theme.palette.text.primary}`,
+                backgroundColor: `${theme.palette.background.default}`,
+                '&:hover': {
+                    boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`
+                }
+            }
+        },
+        '& .modal-actions': {
+        }
+    })
+})
 
 export const HeaderSection = styled('section')(({ theme }: { theme: any }) => {
     return ({
@@ -639,3 +740,48 @@ export const HowPlaySection = styled('section')(({ theme }: { theme: any }) => {
         }
     })
 })
+
+export const Input = styled('div')(({ theme, disabled }: { theme?: any, disabled?: boolean }) => {
+    return ({
+        borderRadius: 10,
+        border: `1px solid ${theme.palette.divider}`,
+        display: 'flex',
+        position: 'relative',
+        outline: 'none',
+        backgroundColor: 'white',
+        color: 'grey',
+        '&:focus-within': {
+            borderColor: 'transparent',
+            boxShadow: '0px 0px 7px 1px rgb(0 0 0 / 20%)',
+            ...(disabled && {
+                borderColor: `${theme.palette.divider}`,
+                boxShadow: 'none'
+            }),
+        },
+        ...(disabled && {
+            opacity: 0.5,
+            color: `${theme.palette.divider}`,
+            boxShadow: 'none'
+        }),
+        '& .input-prefix': {
+            alignItems: 'center',
+            backgroundColor: 'transparent',
+            display: 'flex',
+            paddingLeft: 12,
+        },
+        '& input': {
+            backgroundColor: 'transparent',
+            border: 'none',
+            flex: '1 0 0%',
+            height: 48,
+            outline: 'none',
+            padding: '0px 12px 0px 0px',
+            minWidth: 0,
+            width: '100%',
+            '&:focus': {
+                border: 'none',
+                boxShadow: 'none'
+            }
+        }
+    })
+});

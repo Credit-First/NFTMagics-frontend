@@ -23,7 +23,7 @@ export const Section = styled('div')(({ theme }) => {
                     height: 780
                 }),
                 // backgroundImage: "url(/assets/template/10.jpg)",
-                backgroundSize: 'fill',
+                backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 // opacity: 0.5,
                 filter: 'blur(8px)',
@@ -89,6 +89,7 @@ export const Section = styled('div')(({ theme }) => {
                     '& div': {
                         '& .createBtn': {
                             marginTop: 10,
+                            marginRight: 10,
                             width: 200,
                             ...((sm || md) && {
                                 width: 140,
@@ -107,6 +108,7 @@ export const Section = styled('div')(({ theme }) => {
                         },
                         '& .exploreBtn': {
                             marginTop: 10,
+                            marginRight: 10,
                             width: 200,
                             ...((sm || md) && {
                                 width: 140,
