@@ -70,6 +70,7 @@ export const Drawer = styled('div')(({ theme, open }: DrawerProps) => {
                     },
                     '& .navbar-list-content': {
                         borderBottom: '1px solid rgba(0, 0, 0, 0.12)',
+                        backgroundImage: 'linear-gradient(rgba(150, 150, 150, 0.1), rgba(150, 150, 150, 0.1))',
                         '& .filter-panel': {
                             display: 'flex',
                             flexFlow: 'wrap',
