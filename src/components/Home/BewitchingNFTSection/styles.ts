@@ -49,9 +49,8 @@ export const Section = styled('section')(({ theme }: { theme: any }) => {
 export const NFTItem = styled('div')(({ theme }: { theme: any }) => {
 
     return ({
-        margin: 20,
-        borderRadius: 15,
-        marginBottom: 30,
+        margin: '20px 20px 50px',
+        borderRadius: 10,
         border: `1px solid ${theme.palette.background.default}`,
         transition: 'box-shadow 0.1s ease-in 0s',
         backgroundColor: `${theme.palette.background.default}`,
@@ -62,7 +61,7 @@ export const NFTItem = styled('div')(({ theme }: { theme: any }) => {
         '& .nft-wrap': {
             position: 'relative',
             overflow: 'hidden',
-            borderRadius: '15px 15px 0 0',
+            borderRadius: '10px 10px 0 0',
             width: '100%',
             height: 300,
         },
