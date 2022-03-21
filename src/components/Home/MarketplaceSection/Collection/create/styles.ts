@@ -48,6 +48,7 @@ export const Section = styled('div')(({ theme, loading } : {theme?:any, loading:
                     width: '100%',
                     position: 'relative',
                     '& .button': {
+                        color: 'white',
                         cursor: 'pointer',
                         width: '100%',
                         textAlign: 'center',

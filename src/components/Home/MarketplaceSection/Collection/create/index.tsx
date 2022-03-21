@@ -322,7 +322,7 @@ export default function CreateCollection() {
                     </div>
                     <div className='collection-action'>
                         <Button className="button button-regular" onClick={handleUpdateAction} disabled={loading}>
-                            {inputData.itemId ? 'Create' : 'Update'}
+                            {inputData.itemId ? 'Update' : 'Create'}
                             <span>Collection</span>
                         </Button>
                         {loading && (
