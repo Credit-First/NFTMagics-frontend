@@ -102,7 +102,7 @@ export const LinkBar = styled('div')(({ theme }) => {
                 display: 'none',
                 position: 'absolute',
                 width: '100%',
-                height: '200%',
+                height: '500%',
                 animation: 'o-rotate-360 linear 8s infinite',
                 '& span': {
                     display: 'block',
