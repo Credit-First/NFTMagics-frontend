@@ -80,9 +80,10 @@ export const LinkBar = styled('div')(({ theme }) => {
                 padding: '10px 7px',
                 transition: 'all 0.3s',
                 position: 'relative',
-                '& img': {
+                '& .link-image': {
                     width: 50,
-                    height: 50
+                    height: 50,
+                    position: 'relative'
                 }
             }
         },
@@ -98,6 +99,7 @@ export const LinkBar = styled('div')(({ theme }) => {
             whiteSpace: 'nowrap',
             overflow: 'hidden',
             transition: 'all 0.3s',
+            boxShadow: 'rgb(4 17 29 / 25%) 0px 0px 10px 0px',
             '& .border': {
                 display: 'none',
                 position: 'absolute',

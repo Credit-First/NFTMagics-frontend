@@ -50,10 +50,10 @@ export default function FeaturedNFTSection() {
     const handleLinkClick = (type: any) => () => {
         if (type === 'ayra') {
             setLinkActive(state => ({ ...state, ayra: !linkActive.ayra }));
-            if(linkActive.ithd) setLinkActive(state => ({ ...state, ithd: !linkActive.ithd }));
+            if (linkActive.ithd) setLinkActive(state => ({ ...state, ithd: !linkActive.ithd }));
         } else {
             setLinkActive(state => ({ ...state, ithd: !linkActive.ithd }));
-            if(linkActive.ayra) setLinkActive(state => ({ ...state, ayra: !linkActive.ayra }));
+            if (linkActive.ayra) setLinkActive(state => ({ ...state, ayra: !linkActive.ayra }));
         }
     }
     React.useEffect(() => {
@@ -79,7 +79,9 @@ export default function FeaturedNFTSection() {
                     </div>
                     <button className='link-button'>
                         <Tooltip arrow title="For more information about this token, you can see in https://www.ayratokens.com or Please click now.">
-                            <img src={'/images/token/ayra.png'} />
+                            <div className='link-image'>
+                                <Image src={'/images/token/ayra.png'} layout={'fill'} objectFit={'fill'} />
+                            </div>
                         </Tooltip>
                     </button>
                 </div>
@@ -97,7 +99,9 @@ export default function FeaturedNFTSection() {
                     </div>
                     <button className='link-button'>
                         <Tooltip arrow title="For more information about this token, you can see in https://www.ithdiamond.tk or Please click now.">
-                            <img src={'/images/token/ithd.png'} />
+                            <div className='link-image'>
+                                <Image src={'/images/token/ithd.png'} layout={'fill'} objectFit={'fill'} />
+                            </div>
                         </Tooltip>
                     </button>
                 </div>
