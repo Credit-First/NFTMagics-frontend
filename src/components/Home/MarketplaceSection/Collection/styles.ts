@@ -249,7 +249,7 @@ export const CollectionHeader = styled('div')(({ theme, readmore }: { theme?: an
                 transition: 'all 1s ease 0s',
                 maxWidth: 800,
                 ...(!readmore && {
-                    WebkitMask: 'linear-gradient(rgb(255, 255, 255) 45%, transparent)',
+                    mask: 'linear-gradient(rgb(255, 255, 255) 45%, transparent)',
                     maxHeight: 100,
                 }),
             },

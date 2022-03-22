@@ -8,6 +8,49 @@ export const CreateNFTModal = styled('div')((theme) => {
 
   return ({
     // backgroundImage: 'linear-gradient(rgb(255 255 255 / 9%), rgb(137 137 137 / 99%))',
+    
+    // '& .diaplog-border': {
+    //   position:'absolute',
+    //   background:'red',
+    //   width: '100%',
+    //   height: '100%',
+    //   animation: 'o-rotate-360 linear 8s infinite',
+    //   '& span': {
+    //     display: 'block',
+    //     width: '100%',
+    //     height: '100%',
+    //     position: 'relative',
+    //     transform: 'translate(-50%, -50%)',
+    //     '&:after': {
+    //       display: 'block',
+    //       content: '""',
+    //       width: '100%',
+    //       height: '100%',
+    //       position: 'absolute',
+    //       left: '100%',
+    //     },
+    //     '&:first-of-type': {
+    //       background: '#e85f99',
+    //       '&:after': {
+    //         background: '#50bda1'
+    //       }
+    //     },
+    //     '&:last-of-type': {
+    //       background: '#f18867',
+    //       '&:after': {
+    //         background: '#65587f'
+    //       }
+    //     }
+    //   },
+    //   '@keyframes o-rotate-360': {
+    //     '0%': {
+    //       transform: 'rotate(0)'
+    //     },
+    //     '100%': {
+    //       transform: 'rotate(360deg)'
+    //     }
+    //   }
+    // },
     '& .modal-title': {
       fontSize: '1.7rem',
       fontWeight: 600,
@@ -65,7 +108,7 @@ export const CreateNFTModal = styled('div')((theme) => {
     },
     '& .modal-actions button': {
       display: 'none',
-      ...(( sm || md ) && {
+      ...((sm || md) && {
         display: 'block',
         position: 'fixed',
         bottom: 10

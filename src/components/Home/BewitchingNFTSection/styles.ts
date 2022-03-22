@@ -74,6 +74,7 @@ export const NFTItem = styled('div')(({ theme }: { theme: any }) => {
             position: 'relative',
             boxShadow: `0px 0px 5px 0px #e7e7e7`,
             borderRadius: '50%',
+            border: '2px solid white',
             '& span': {
                 borderRadius: '50%',
                 border: '1px solid white',

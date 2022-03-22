@@ -33,7 +33,8 @@ export const Header = styled('div')((theme) => {
           '& img': {
             marginRight: '1rem',
             width: 70,
-            height: 70
+            height: 70,
+            minWidth: 70
           },
           '& .logo-title': {
             cursor: 'pointer',

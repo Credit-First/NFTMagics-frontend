@@ -426,6 +426,17 @@ export default function SidebarWalletList(props: any) {// the function is being 
                             <div className='body-content'>
                                 <ul className='wallet-list'>
                                     <li className='wallet-item'>
+                                        <button onClick={() => notify('warning', 'AyraMask is comming soon')}>
+                                            <div className='wallet-img'>
+                                                <img src='/images/wallet/9.png' />
+                                            </div>
+                                            <div className='wallet-name'>
+                                                <span>AyraMask</span>
+                                            </div>
+                                            <div className='wallet-info'></div>
+                                        </button>
+                                    </li>
+                                    <li className='wallet-item'>
                                         <button type='button' onClick={onConnectWallet(Wallets[0])} disabled={isSelectingWallet ? false : true}>
                                             <div className='wallet-img'>
                                                 <img src='/images/wallet/1.png' />

@@ -1,6 +1,177 @@
 import { styled } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 
+
+export const LinkBar = styled('div')(({ theme }) => {
+    return ({
+        position: 'absolute',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'flex-end',
+        zIndex: 1,
+        width: '100%',
+        maxWidth: 'min(1400px, 100% - 40px)',
+        marginTop: 20,
+        '& .link-out': {
+            marginLeft: 5,
+            position: 'relative',
+            WebkitClipPath: 'polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0% 25% )',
+            clipPath: 'polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0% 25% )',
+            transition: 'all 1s',
+            background: `${theme.palette.background.default}`,
+            '& .border': {
+                display: 'none',
+                position: 'absolute',
+                background: 'red',
+                width: '100%',
+                height: '100%',
+                animation: 'o-rotate-360 linear 8s infinite',
+                '& span': {
+                    display: 'block',
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
+                    transform: 'translate(-50%, -50%)',
+                    '&:after': {
+                        display: 'block',
+                        content: '""',
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        left: '100%',
+                    },
+                    '&:first-of-type': {
+                        background: '#e85f99',
+                        '&:after': {
+                            background: '#50bda1'
+                        }
+                    },
+                    '&:last-of-type': {
+                        background: '#f18867',
+                        '&:after': {
+                            background: '#65587f'
+                        }
+                    }
+                },
+                '@keyframes o-rotate-360': {
+                    '0%': {
+                        transform: 'rotate(0)'
+                    },
+                    '100%': {
+                        transform: 'rotate(360deg)'
+                    }
+                }
+            },
+            '&:hover': {
+                '& .border': {
+                    transition: 'all 1s',
+                    display: 'block',
+                    background: 'transparent',
+                }
+            },
+            '& .link-button': {
+                WebkitClipPath: 'polygon( 50% 2px, calc(100% - 2px) calc(25% + 1px), calc(100% - 2px) calc(75% - 1px), 50% calc(100% - 2px), 2px calc(75% - 1px), 2px calc(25% + 1px) )',
+                clipPath: 'polygon( 50% 2px, calc(100% - 2px) calc(25% + 1px), calc(100% - 2px) calc(75% - 1px), 50% calc(100% - 2px), 2px calc(75% - 1px), 2px calc(25% + 1px) )',
+                display: 'inline-block',
+                textTransform: 'uppercase',
+                fontWeight: 700,
+                fontSize: 14,
+                background: `${theme.palette.background.default}`,
+                padding: '10px 7px',
+                transition: 'all 0.3s',
+                position: 'relative',
+                '& img': {
+                    width: 50,
+                    height: 50
+                }
+            }
+        },
+        '& .link-pannel': {
+            position: 'relative',
+            marginLeft: 5,
+            height: 36,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            backgroundColor: `${theme.palette.background.default}`,
+            width: 0,
+            whiteSpace: 'nowrap',
+            overflow: 'hidden',
+            transition: 'all 0.3s',
+            '& .border': {
+                display: 'none',
+                position: 'absolute',
+                width: '100%',
+                height: '200%',
+                animation: 'o-rotate-360 linear 8s infinite',
+                '& span': {
+                    display: 'block',
+                    width: '100%',
+                    height: '100%',
+                    position: 'relative',
+                    transform: 'translate(-50%, -50%)',
+                    '&:after': {
+                        display: 'block',
+                        content: '""',
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        left: '100%',
+                    },
+                    '&:first-of-type': {
+                        background: '#e85f99',
+                        '&:after': {
+                            background: '#50bda1'
+                        }
+                    },
+                    '&:last-of-type': {
+                        background: '#f18867',
+                        '&:after': {
+                            background: '#65587f'
+                        }
+                    }
+                },
+                '@keyframes o-rotate-360': {
+                    '0%': {
+                        transform: 'rotate(0)'
+                    },
+                    '100%': {
+                        transform: 'rotate(360deg)'
+                    }
+                }
+            },
+            '& a': {
+                width: 0,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: `${theme.palette.background.default}`,
+                zIndex: 1,
+                '&:hover': {
+                    color: '#ff6050'
+                }
+            },
+            '&.active': {
+                width: 250,
+                padding: 2,
+                transition: 'all 0.3s',
+                '& a': {
+                    width: '100%',
+                    height: '100%',
+                    textAlign: 'left'
+                }
+            },
+            '&:hover': {
+                '& .border': {
+                    transition: 'all 1s',
+                    display: 'block',
+                    background: 'transparent',
+                }
+            },
+        }
+    })
+})
+
 export const Section = styled('div')(({ theme }) => {
 
     const sm = useMediaQuery('(max-width:600px)');
@@ -39,11 +210,11 @@ export const Section = styled('div')(({ theme }) => {
             justifyContent: 'center',
             margin: '0px auto',
             width: '100%',
-            maxWidth: 'min(1280px, 100% - 40px)',
+            maxWidth: 'min(1400px, 100% - 40px)',
             flexWrap: 'wrap',
             '& .featured-title': {
                 flexDirection: 'column',
-                padding: '80px 20px 44px 30px',
+                padding: '110px 20px 44px 30px',
                 alignItems: 'flex-start',
                 display: 'flex',
                 width: '50%',
@@ -143,7 +314,7 @@ export const Section = styled('div')(({ theme }) => {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'flex-end',
-                padding: '80px 40px 40px 40px',
+                padding: '110px 40px 40px 40px',
                 width: '50%',
                 ...((sm || md) && {
                     width: '100%',

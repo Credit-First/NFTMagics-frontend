@@ -26,133 +26,133 @@
     -o-transition: all 0.3s;
     transition: all 0.3s;
     position: relative;
-  }
-  .button.button-primary {
-    background: #5c49d0;
-  }
-  .button.button-primary.active,
-  .button.button-primary:hover,
-  .button.button-primary:active {
-    background: #8e56ff;
-  }
-  .button.button-primary-variant {
-    background: #7339e9;
-  }
-  .button.button-primary-variant.active,
-  .button.button-primary-variant:hover,
-  .button.button-primary-variant:active {
-    background: #8e56ff;
-  }
-  .button.button-regular {
-    background: #e93c84;
-  }
-  .button.button-regular:hover,
-  .button.button-regular.active {
-    background: #f86694;
-  }
-  .button.button-load-more {
-    background: #1c1a31;
-  }
-  .button.button-load-more.active,
-  .button.button-load-more:active,
-  .button.button-load-more:hover {
-    background: #312e4f;
-  }
-  .button.outer-button:before {
-    position: absolute;
-    display: block;
-    content: "";
-    -webkit-clip-path: polygon(
-      11px 0,
-      0 50%,
-      11px 100%,
-      12px calc(100% - 1px),
-      1px 50%,
-      12px 1px,
-      calc(100% - 12px) 1px,
-      calc(100% - 1px) 50%,
-      calc(100% - 12px) calc(100% - 1px),
-      11px calc(100% - 1px),
-      11px 100%,
-      calc(100% - 11px) 100%,
-      100% 50%,
-      calc(100% - 11px) 0
-    );
-    clip-path: polygon(
-      11px 0,
-      0 50%,
-      11px 100%,
-      12px calc(100% - 1px),
-      1px 50%,
-      12px 1px,
-      calc(100% - 12px) 1px,
-      calc(100% - 1px) 50%,
-      calc(100% - 12px) calc(100% - 1px),
-      11px calc(100% - 1px),
-      11px 100%,
-      calc(100% - 11px) 100%,
-      100% 50%,
-      calc(100% - 11px) 0
-    );
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-  }
-  .button.button-log-in {
-    color: #efeafc;
-    display: -ms-inline-flexbox;
-    display: -webkit-inline-box;
-    display: inline-flex;
-    -ms-flex-align: center;
-    align-items: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    padding: 17px 42px;
-  }
-  .button.button-log-in i {
-    color: #fff;
-    font-size: 27px;
-    margin-left: 17px;
-  }
-  .button.button-footer {
-    -webkit-clip-path: polygon(
-      calc(0px + 19px) 0,
-      calc(100% - 19px) 0,
-      100% 50%,
-      calc(100% - 19px) 100%,
-      calc(0px + 19px) 100%,
-      0 50%
-    );
-    clip-path: polygon(
-      calc(0px + 19px) 0,
-      calc(100% - 19px) 0,
-      100% 50%,
-      calc(100% - 19px) 100%,
-      calc(0px + 19px) 100%,
-      0 50%
-    );
-    font-weight: 900;
-    font-size: 20px;
-    padding: 25px 38px;
-    white-space: nowrap;
-  }
-  .button.button-footer i {
-    top: 3px;
-    left: -8px;
-  }
-  .button i {
-    position: relative;
-    font-weight: normal;
-  }
-  #explorer-button, #status-button {
-    z-index: 0;
-    height: 100%;
-    font-weight: bold;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-  }
-  #explorer-button:hover, #status-button:hover {
-    z-index: 9999;
-  }
+}
+.button.button-primary {
+  background: #5c49d0;
+}
+.button.button-primary.active,
+.button.button-primary:hover,
+.button.button-primary:active {
+  background: #8e56ff;
+}
+.button.button-primary-variant {
+  background: #7339e9;
+}
+.button.button-primary-variant.active,
+.button.button-primary-variant:hover,
+.button.button-primary-variant:active {
+  background: #8e56ff;
+}
+.button.button-regular {
+  background: #e93c84;
+}
+.button.button-regular:hover,
+.button.button-regular.active {
+  background: #f86694;
+}
+.button.button-load-more {
+  background: #1c1a31;
+}
+.button.button-load-more.active,
+.button.button-load-more:active,
+.button.button-load-more:hover {
+  background: #312e4f;
+}
+.button.outer-button:before {
+  position: absolute;
+  display: block;
+  content: "";
+  -webkit-clip-path: polygon(
+    11px 0,
+    0 50%,
+    11px 100%,
+    12px calc(100% - 1px),
+    1px 50%,
+    12px 1px,
+    calc(100% - 12px) 1px,
+    calc(100% - 1px) 50%,
+    calc(100% - 12px) calc(100% - 1px),
+    11px calc(100% - 1px),
+    11px 100%,
+    calc(100% - 11px) 100%,
+    100% 50%,
+    calc(100% - 11px) 0
+  );
+  clip-path: polygon(
+    11px 0,
+    0 50%,
+    11px 100%,
+    12px calc(100% - 1px),
+    1px 50%,
+    12px 1px,
+    calc(100% - 12px) 1px,
+    calc(100% - 1px) 50%,
+    calc(100% - 12px) calc(100% - 1px),
+    11px calc(100% - 1px),
+    11px 100%,
+    calc(100% - 11px) 100%,
+    100% 50%,
+    calc(100% - 11px) 0
+  );
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.button.button-log-in {
+  color: #efeafc;
+  display: -ms-inline-flexbox;
+  display: -webkit-inline-box;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 17px 42px;
+}
+.button.button-log-in i {
+  color: #fff;
+  font-size: 27px;
+  margin-left: 17px;
+}
+.button.button-footer {
+  -webkit-clip-path: polygon(
+    calc(0px + 19px) 0,
+    calc(100% - 19px) 0,
+    100% 50%,
+    calc(100% - 19px) 100%,
+    calc(0px + 19px) 100%,
+    0 50%
+  );
+  clip-path: polygon(
+    calc(0px + 19px) 0,
+    calc(100% - 19px) 0,
+    100% 50%,
+    calc(100% - 19px) 100%,
+    calc(0px + 19px) 100%,
+    0 50%
+  );
+  font-weight: 900;
+  font-size: 20px;
+  padding: 25px 38px;
+  white-space: nowrap;
+}
+.button.button-footer i {
+  top: 3px;
+  left: -8px;
+}
+.button i {
+  position: relative;
+  font-weight: normal;
+}
+#explorer-button, #status-button {
+  z-index: 0;
+  height: 100%;
+  font-weight: bold;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+#explorer-button:hover, #status-button:hover {
+  z-index: 9999;
+}

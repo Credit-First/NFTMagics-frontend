@@ -253,6 +253,7 @@ const CollectionCard = ({ item, empty, width, height }: { item: any, empty: any,
                                     </div>
                                 </div>
                                 <div className='logo'>
+                                    <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
                                     {collection.logo && (<Image loader={imgLoader} src={collection.logo} layout="fill" objectFit="fill" />)}
                                 </div>
                                 <div className='card-image-text-area'>
