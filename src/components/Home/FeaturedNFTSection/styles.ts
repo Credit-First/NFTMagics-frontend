@@ -41,15 +41,15 @@ export const LinkBar = styled('div')(({ theme }) => {
                         left: '100%',
                     },
                     '&:first-of-type': {
-                        background: '#e85f99',
+                        background: '#d900c0',
                         '&:after': {
-                            background: '#50bda1'
+                            background: '#40ffce'
                         }
                     },
                     '&:last-of-type': {
-                        background: '#f18867',
+                        background: '#ff5f2d',
                         '&:after': {
-                            background: '#65587f'
+                            background: '#9058ff'
                         }
                     }
                 },
@@ -121,15 +121,15 @@ export const LinkBar = styled('div')(({ theme }) => {
                         left: '100%',
                     },
                     '&:first-of-type': {
-                        background: '#e85f99',
+                        background: '#d900c0',
                         '&:after': {
-                            background: '#50bda1'
+                            background: '#40ffce'
                         }
                     },
                     '&:last-of-type': {
-                        background: '#f18867',
+                        background: '#ff5f2d',
                         '&:after': {
-                            background: '#65587f'
+                            background: '#9058ff'
                         }
                     }
                 },
