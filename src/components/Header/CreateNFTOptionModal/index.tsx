@@ -3,8 +3,19 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import Slide from '@mui/material/Slide';
+import { TransitionProps } from '@mui/material/transitions';
 import { Section, CreateNFTModal } from './styles';
 import Link from 'next/link';
+
+const Transition = React.forwardRef(function Transition(
+    props: TransitionProps & {
+        children: React.ReactElement<any, any>;
+    },
+    ref: React.Ref<unknown>,
+) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export default function CreateNFTOptionModal() {
     const [open, setOpen] = React.useState(false);
@@ -25,12 +36,16 @@ export default function CreateNFTOptionModal() {
                 Create NFT
             </button>
             <Dialog
-                maxWidth={'lg'}
-                fullScreen={fullScreen}
+                maxWidth={'md'}
                 open={open}
+                PaperProps={{
+                    style: { borderRadius: 20 }
+                }}
+                TransitionComponent={Transition}
                 onClose={handleClose}
                 aria-labelledby="create-nft-modal-title"
                 className='create-modal'
+                style={{ borderRadius: 20 }}
             >
                 <CreateNFTModal>
                     <div className="modal-body">

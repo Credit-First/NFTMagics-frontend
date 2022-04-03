@@ -65,19 +65,17 @@ export const CreateNFTModal = styled('div')(({theme}: {theme:any}) => {
       justifyContent: 'center',
       alignItems: 'center',
       position: 'relative',
-      background: 'white',
-      border: '2px solid transparent',
+      // border: '2px solid transparent',
       /* background-origin: border-box, */
       backgroundClip: 'padding-box, border-box',
       ...((md || sm)&& {
-        height: '100vh'
+        height: '100vh',
+        width: '100vw'
       }),
       '& .modal-title': {
         fontSize: '1.7rem',
-        fontWeight: 600,
         textAlign: 'center',
         padding: '40px 50px',
-        color: 'black',
         fontFamily: 'upheaval'
       },
       '& .modal-content': {
@@ -138,10 +136,10 @@ export const CreateNFTModal = styled('div')(({theme}: {theme:any}) => {
           }),
           '& .vertical-line': {
             backgroundColor: '#DCE2E6',
-            width: 1,
+            width: 2,
             height: '90%',
             position: 'absolute',
-            left: '50%',
+            left: 'calc(50% + 5px)',
             transform: 'translateX(-50%)',
           },
           '& .mark': {
@@ -149,7 +147,7 @@ export const CreateNFTModal = styled('div')(({theme}: {theme:any}) => {
             padding: '10px',
             borderRadius: '50%',
             fontSize: '24px',
-            color: 'white',
+            color: `${theme.palette.background.default}`,
             textAlign: 'center',
             position: 'relative',
             marginTop: '180px',
