@@ -2,16 +2,54 @@ import { styled } from '@mui/material/styles';
 
 export const GiftSection = styled('section')(({ theme }: { theme: any }) => {
     return ({
-        height: '100%',
+        height: 'calc(100vh - 80px)',
         width: '100%',
-        paddingTop: 500,
-        marginBottom: 50,
+        paddingTop: 550,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
         position: 'relative',
         background: 'url(/images/gift/background.jpg)',
         backgroundSize: '100% 100% !important',
+        '& .gift-list': {
+            position: 'absolute',
+            width: 'calc(100vw - 100px)',
+            top: 70,
+            left: 50,
+            right: 50,
+            fontSize: 30,
+            color: '#5c49d0',
+            '& .gift-count': {
+                display: 'flex',
+                justifyContent: 'flex-start',
+                alignItems: 'center',
+                '& .count': {
+                    marginLeft: 15,
+                    marginRight: 15,
+                    color: '#cf3464'
+                }
+            },
+            '& .gift-name-list': {
+                marginTop: 20,
+                listStyle: 'auto',
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'center',
+                '& .gift-item': {
+                    marginTop: 10,
+                    fontSize: 25,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    '& .gift-name': {
+                        marginRight: 10
+                    },
+                    '& .from-address': {
+                        marginLeft: 10
+                    }
+                }
+            }
+        },
         '& .dialog': {
             background: 'transparent !important',
             boxShadow: 'none',
@@ -24,14 +62,14 @@ export const GiftSection = styled('section')(({ theme }: { theme: any }) => {
             }
         },
         '& .floor': {
-            top: '50%',
+            top: '0%',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             zIndex: 1,
             height: '10em',
             position: 'relative',
-            width: '20em',
+            width: '10em',
             transformOrigin: '0% 0%',
             left: '7%',
             transform:
@@ -74,6 +112,7 @@ export const GiftSection = styled('section')(({ theme }: { theme: any }) => {
             fontWeight: 700,
             textShadow: '0 0 1em 0em rgba(250,250,0,1)',
             position: 'absolute',
+            color: 'black',
             transform: 'translateZ(1em) translateX(.6em) translateY(.5em) rotateX(-90deg) rotateY(45deg)',
         },
         '& .heart-gift': {
@@ -120,14 +159,14 @@ export const GiftSection = styled('section')(({ theme }: { theme: any }) => {
             width: '6.5em',
             transformStyle: 'preserve-3d',
             zIndex: 2,
-        },
-        '& .open': {
-            transform: 'translateZ(13em)',
-            animation: 'up 1s ease-out, floaty 2s 1s infinite linear',
-        },
-        '& .close': {
-            transform: 'translateZ(4em)',
-            animation: 'down 1s ease-out, wiggle 1.5s  1s infinite cubic-bezier(.2,1.2,.6,1.1)',
+            '&.open': {
+                transform: 'translateZ(13em)',
+                animation: 'up 1s ease-out, floaty 2s 1s infinite linear',
+            },
+            '&.close': {
+                transform: 'translateZ(4em)',
+                animation: 'down 1s ease-out, wiggle 1.5s  1s infinite cubic-bezier(.2,1.2,.6,1.1)',
+            },
         },
         '& .ltop': {
             height: '6.5em',

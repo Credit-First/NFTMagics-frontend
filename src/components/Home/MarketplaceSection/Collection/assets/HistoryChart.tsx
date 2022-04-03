@@ -83,21 +83,22 @@ function HistoryChart(props: any) {
                 <div className="recharts-container">
                     <ResponsiveContainer aspect={3} minWidth={100} minHeight={100}>
                         <LineChart
+                            height={100}
                             data={priceHistory.map((_item: any) => {
+                                if(_item.name !==  'purchase') return;
+
                                 let price = new BigNumber(0);
                                 if(_item.token == '') {
                                     price = new BigNumber(_item.price).multipliedBy(430).div(BIG_TEN.pow(18));
                                 }
-                                if(_item.token == Config.Token.BNB) {
+                                if(_item.token == Config.Token.BNB.address) {
                                     price = new BigNumber(_item.price).multipliedBy(430).div(BIG_TEN.pow(18));
                                 }
-                                if(_item.token == Config.Token.AYRA) {
+                                if(_item.token == Config.Token.AYRA.address) {
                                     price = new BigNumber(_item.price).multipliedBy(5).div(BIG_TEN.pow(20));
-                                    console.log(price.toString())
                                 }
-                                if(_item.token == Config.Token.ITHD) {
+                                if(_item.token == Config.Token.ITHD.address) {
                                     price = new BigNumber(_item.price).multipliedBy(4.2).div(BIG_TEN.pow(20));
-                                    console.log(price.toString())
                                 }
                                 let item = {
                                     duration: 'All',

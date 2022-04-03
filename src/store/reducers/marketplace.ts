@@ -7,6 +7,7 @@ interface MarketplaceType {
     featuredMarketItem: any,
     bewitchMarketItems: any,
     topMarketItems: any,
+    giftItems: any,
     error: any
 }
 
@@ -17,6 +18,7 @@ const initState: MarketplaceType = {
     featuredMarketItem: null,
     bewitchMarketItems: null,
     topMarketItems: null,
+    giftItems: [],
     error: null
 }
 
@@ -32,8 +34,10 @@ const marketplace = function (state = initState, action: any) {
             return { ...state, featuredMarketItem: action.data }
         case Actions.TYPE_UPDATE_BEWITCH_MARKETITEMS:
             return { ...state, bewitchMarketItems: action.data }
-            case Actions.TYPE_UPDATE_TOP_MARKETITEMS:
-                return { ...state, topMarketItems: action.data }
+        case Actions.TYPE_UPDATE_TOP_MARKETITEMS:
+            return { ...state, topMarketItems: action.data }
+        case Actions.TYPE_UPDATE_GIFT_ITEMS:
+            return { ...state, giftItems: action.data }
         case Actions.TYPE_ERROR_MARKETPLACE:
             return { ...state, error: action.data }
         default:

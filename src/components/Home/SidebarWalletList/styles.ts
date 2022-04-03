@@ -185,39 +185,51 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                         },
                     }
                 },
-                '& .token-list': {
-                    borderRadius: 10,
-                    borderBottom: 'none',
-                    border: `1px solid ${theme.palette.divider}`,
-                    margin: '0px 25px',
-                    paddingLeft: 0,
-                    '& .token-item': {
-                        width: '100%',
-                        '&:first-of-type': {
-                            borderTopLeftRadius: 0,
-                            borderTopRightRadius: 0,
-                        },
-                        '&:not(:last-of-type)': {
-                            borderBottom: `1px solid ${theme.palette.divider}`,
-                        },
-                        '& .token': {
-                            display: 'flex',
-                            justifyContent: 'space-between',
-                            alignItems: 'center',
-                            padding: 10,
-                            '& img': {
-                                width: 30,
-                                height: 30
+                '& .token-info': {
+                    margin: 20,
+                    '& .token-list': {
+                        borderRadius: 10,
+                        borderBottom: 'none',
+                        border: `1px solid ${theme.palette.divider}`,
+                        paddingLeft: 0,
+                        '& .token-item': {
+                            width: '100%',
+                            '&:first-of-type': {
+                                borderTopLeftRadius: 0,
+                                borderTopRightRadius: 0,
+                            },
+                            '&:not(:last-of-type)': {
+                                borderBottom: `1px solid ${theme.palette.divider}`,
+                            },
+                            '& .token': {
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                padding: 10,
+                                '& img': {
+                                    width: 30,
+                                    height: 30
+                                }
                             }
+                        },
+                    },
+                },
+                '& .reward-header': {
+                    '& p': {
+                        margin: 0,
+                        fontWeight: 500,
+                        fontSize: 15,
+                        color: 'rgb(112, 122, 131)',
+                        '& .wallet-info': {
+                            padding: '0px 5px',
+                            fontWeight: 700,
+                            color: 'rgb(32, 129, 226)',
+                            textDecoration: 'none',
                         }
                     },
                 },
                 '& .reward-info': {
-                    marginTop: 50,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    margin: 20,
                     '& .reward-token-list': {
                         display: 'flex',
                         flexDirection: 'column',
@@ -226,9 +238,7 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                         borderRadius: 10,
                         borderBottom: 'none',
                         border: `1px solid ${theme.palette.divider}`,
-                        margin: '0px 25px',
                         paddingLeft: 0,
-                        width: '50%',
                         '& .token-item': {
                             width: '100%',
                             '&:first-of-type': {
@@ -251,7 +261,8 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                         }
                     },
                     '& .button': {
-                        marginTop: 30
+                        marginTop: 30,
+                        width: '100%'
                     }
                 }
             },

@@ -129,13 +129,20 @@ export const TokenDropDownMenu = ({ disabled, setInputData, inputData }: { disab
     ]
 
     const handleClick = () => {
-        setOpen(!open);
+        !disabled && setOpen(!open);
     }
 
     const handleSelect = (item: any) => () => {
         setText(item.label);
         setInputData({ ...inputData, saleTokenType: item.value })
     }
+    React.useEffect(() => {
+        const tokenType = list.find(item => {
+            return item.value === inputData.saleTokenType;
+        })
+        setText(tokenType?.label);
+    },[inputData]);
+
     return (
         <DropdownMenu open={open} onClick={handleClick} width={120} disabled={disabled}>
             <button className='dropdownBtn' disabled={disabled}>

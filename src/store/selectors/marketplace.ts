@@ -4,4 +4,5 @@ export const selectMarketItem = ( state:any ) => state.marketplace.currentMarket
 export const selectFeaturedMarketItem = ( state:any ) => state.marketplace.featuredMarketItem;
 export const selectBewitchMarketItems = ( state:any ) => state.marketplace.bewitchMarketItems;
 export const selectTopMarketItems = ( state:any ) => state.marketplace.topMarketItems;
+export const selectGiftItems = ( state:any ) => state.marketplace.giftItems;
 export const selectErrorMarketplace = ( state:any ) => state.marketplace.error;

@@ -11,9 +11,6 @@ import { LoadingComponent } from '@/components/Loading';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en.json'
-TimeAgo.addDefaultLocale(en);
 
 const IMG_HEIGHT = 280;
 
@@ -80,6 +77,22 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                         width: '100%',
                         position: 'relative',
                         borderRadius: 'inherit',
+                        overflow: 'hidden',
+                        borderBottomLeftRadius: 0,
+                        borderBottomRightRadius: 0,
+                        '& .giftAddress': {
+                            position: 'absolute',
+                            zIndex: 1,
+                            transform: 'rotate(45deg)',
+                            height: 50,
+                            width: 120,
+                            bottom: '-10px',
+                            left: '-45px',
+                            paddingTop: 5,
+                            backgroundColor: '#cf3464',
+                            color: 'white',
+                            boxShadow: `${theme.palette.divider} 0px 0px 10px 0px`,
+                        },
                         '& .asset-media-image': {
                             height: IMG_HEIGHT,
                             width: width,
@@ -239,8 +252,8 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
     })
 })
 
-const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width: any, height: any }) => {
-    const timeAgo = new TimeAgo('en-US');
+const NFTCard = ({ item, empty, width, height, timeAgo }: { item: any, empty: any, width: any, height: any, timeAgo:any }) => {
+    
     const { account, library }: any = useWeb3React();
     const router = useRouter();
 
@@ -270,11 +283,11 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
     let token_name = 'BNB';
     let pastTime;
 
-    if(item.createDate) pastTime = timeAgo.format(new Date(item.createDate));
+    if (item.createDate) pastTime = timeAgo.format(new Date(item.createDate));
     else pastTime = timeAgo.format(new Date(item.createdAt));
-    
+
     let re = /ute|ond/gi;
-    pastTime = pastTime.toString().replace(re, ""); 
+    pastTime = pastTime.toString().replace(re, "");
 
     if (item?.saleToken == 1) {
         token_img = '/images/token/ayra.png';
@@ -301,6 +314,13 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                             <a className='card-image-card-link' onClick={handleLink("/marketplace/assets/")}>
                                 <div className='card-image-card-link-meida'>
                                     <div className='media-img'>
+                                        {
+                                            item.giftAddress !== "0x0000000000000000000000000000000000000000" && (
+                                                <div className='giftAddress'>
+                                                    GIFT
+                                                </div>
+                                            )
+                                        }
                                         {image && (
                                             <div className='asset-media-image'>
                                                 <Skeleton className='' sx={{ height: '100%', width: '100%', borderRadius: 'inherit', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }} animation="wave" variant="rectangular" />
@@ -312,6 +332,13 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                                         item.hastag !== '' && (
                                             <div className='hastag'>
                                                 {item.hastag}
+                                            </div>
+                                        )
+                                    }
+                                    {
+                                        item.giftAddress !== "0x0000000000000000000000000000000000000000" && (
+                                            <div className='giftAddress'>
+                                                AS GIFT
                                             </div>
                                         )
                                     }

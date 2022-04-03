@@ -22,6 +22,7 @@ import { TokenDropDownMenu } from './components';
 import AppConfig from "@/utils/AppConfig";
 import Config from '@/config/app';
 import Web3 from "web3";
+import BigNumber from 'bignumber.js';
 import { useWeb3React } from "@web3-react/core";
 import toast from "@/components/Toast";
 import "react-toastify/dist/ReactToastify.css";
@@ -50,9 +51,9 @@ export default function EditAssets() {
     const [loading, setLoading] = React.useState(false);
     const [pageLoading, setPadgeLoading] = React.useState(false);
     const [selected, setSelected] = React.useState({
-        salePriceSelected: '',
-        royaltySelected: '',
-        giftSelected: '',
+        salePriceSelected: false,
+        royaltySelected: false,
+        giftSelected: false,
     })
     const [itemData, setItemData] = React.useState({
         collectionId: 0,
@@ -60,19 +61,20 @@ export default function EditAssets() {
         tokenImg: '',
         saleToken: '',
         salePrice: 0,
+        usdPrice: 0,
         favorites: 0,
         image: null,
         minter: '',
         seller: '',
-        owner: '',
         giftAddress: '',
         itemId: 0,
         name: '',
         description: '',
         activeItem: false,
+        royalty: 0
     });
     const [inputData, setInputData] = React.useState({
-        saleTokenType: 0,
+        saleTokenType: '',
         salePrice: 0,
         royalty: 0,
         giftAddress: ''
@@ -94,6 +96,17 @@ export default function EditAssets() {
         }
     }, []);
     const handleSelected = (type: any) => (event: any) => {
+        if (type == 'giftSelected' && !event.target.checked) {
+            setInputData((value) => ({ ...value, giftAddress: '' }));
+        }
+        if (type == 'royaltySelected' && !event.target.checked) {
+            setInputData((value) => ({ ...value, royalty: 0 }));
+        }
+        if (type == 'salePriceSelected' && !event.target.checked) {
+            setInputData((value) => ({ ...value, salePrice: 0 }));
+            setInputData((value) => ({ ...value, saleTokenType: '' }));
+        }
+
         setSelected((value) => ({ ...value, [type]: event.target.checked }))
     }
     const handleInputChange = (type: any) => (event: any) => {
@@ -121,7 +134,7 @@ export default function EditAssets() {
     }
     const handleEditAction = async () => {
         if (!active) return notify('error', 'please connect your wallet!');
-        if (!selected.giftSelected && !selected.salePriceSelected) return notify('error', 'please input price or gift address');
+        if (!selected.giftSelected && !selected.salePriceSelected && !selected.royaltySelected) return notify('error', 'please input price, royalty or gift address');
         if (selected.salePriceSelected && (inputData.salePrice == 0 || !inputData.saleTokenType)) return notify('error', 'please input price or select token type');
         if (selected.giftSelected && (!inputData.giftAddress)) return notify('error', 'please input gift address');
 
@@ -134,10 +147,11 @@ export default function EditAssets() {
         setLoading(true);
 
         const salePrice = toWei(web3, inputData.salePrice);
-        const saleTokenType = inputData.saleTokenType
+        const saleTokenType = inputData.saleTokenType === '' ? '0x0000000000000000000000000000000000000000' : inputData.saleTokenType;
         const giftAddress = inputData.giftAddress === '' ? '0x0000000000000000000000000000000000000000' : inputData.giftAddress;
         const royalty = inputData.royalty;
 
+        console.log(inputData)
         try {
             await Market.methods
                 .updateMarketItem(
@@ -154,7 +168,7 @@ export default function EditAssets() {
                     handleItemChange('saleTokenType', inputData.saleTokenType);
 
                     setInputData({
-                        saleTokenType: 0,
+                        saleTokenType: '',
                         salePrice: 0,
                         royalty: 0,
                         giftAddress: ''
@@ -188,25 +202,28 @@ export default function EditAssets() {
     React.useEffect(() => {
         if (marketItem) {
             const salePrice = marketItem.price ? fromWei(web3, marketItem.price) : 0;
+            const usdPrice = new BigNumber(salePrice).multipliedBy(430).toFixed(2, BigNumber.ROUND_DOWN).toString();
             handleItemChange('collectionId', marketItem.collectionId);
             handleItemChange('collectionName', marketItem.collectionName);
             handleItemChange('tokenImg', tokenImg[marketItem.saleToken]);
-            handleItemChange('saleToken', marketItem.saleToken);
+            handleItemChange('saleToken', marketItem.saleToken === '0x0000000000000000000000000000000000000000' ? '' : marketItem.saleToken);
             handleItemChange('salePrice', salePrice);
             handleItemChange('favorites', marketItem.likes ? marketItem.likes : 0);
             handleItemChange('image', marketItem.image);
             handleItemChange('minter', marketItem.minter);
             handleItemChange('seller', marketItem.seller ? marketItem.seller : marketItem.minter);
-            handleItemChange('seller', marketItem.owner ? marketItem.owner : marketItem.minter);
+            handleItemChange('minter', marketItem.minter);
+            handleItemChange('usdPrice', usdPrice);
             handleItemChange('description', marketItem.description);
             handleItemChange('itemId', marketItem.itemId);
             handleItemChange('name', marketItem.name);
             handleItemChange('giftAddress', marketItem.giftAddress === '0x0000000000000000000000000000000000000000' ? '' : marketItem.giftAddress);
             handleItemChange('activeItem', marketItem.active);
-            setInputData((value) => ({ ...value, salePrice: 0 }));
-            setInputData((value) => ({ ...value, saleTokenType: 0 }));
-            setInputData((value) => ({ ...value, royalty: 0 }));
-            setInputData((value) => ({ ...value, giftAddress: '' }));
+            handleItemChange('royalty', marketItem.royalty);
+            setInputData((value) => ({ ...value, salePrice: salePrice }));
+            setInputData((value) => ({ ...value, saleTokenType: marketItem.saleToken === '0x0000000000000000000000000000000000000000' ? '' : marketItem.saleToken }));
+            setInputData((value) => ({ ...value, royalty: marketItem.royalty }));
+            setInputData((value) => ({ ...value, giftAddress: marketItem.giftAddress === '0x0000000000000000000000000000000000000000' ? '' : marketItem.giftAddress }));
 
             setPadgeLoading(false);
         }
@@ -267,15 +284,18 @@ export default function EditAssets() {
                                         {
                                             itemData.salePrice > 0 ? (
                                                 <>
-                                                    <div>
-                                                        {marketItem ? (
-                                                            <img src={itemData.tokenImg} width={40} height={40} />
-                                                        ) : (
-                                                            <Skeleton variant="text" style={{ width: 50, height: 50 }} />
-                                                        )}
+                                                    <div className='left-price'>
+                                                        <div>
+                                                            {marketItem ? (
+                                                                <img src={itemData.tokenImg} width={40} height={40} />
+                                                            ) : (
+                                                                <Skeleton variant="text" style={{ width: 50, height: 50 }} />
+                                                            )}
+                                                        </div>
+                                                        <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
+                                                        <div className='flat-price'>{itemData.salePrice ? '($' + itemData.usdPrice + ')' : ''}</div>
                                                     </div>
-                                                    <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
-                                                    <div className='flat-price'>{itemData.salePrice ? '($2.00)' : ''}</div>
+                                                    <div className='right-royalty'>royalty: {itemData.royalty}%</div>
                                                 </>
                                             ) : (
                                                 <div className='not-price'>The sale price is yet to be determined.</div>
@@ -297,7 +317,7 @@ export default function EditAssets() {
                                             <TokenDropDownMenu disabled={!selected.salePriceSelected} setInputData={setInputData} inputData={inputData} />
                                         </div>
                                     </div>
-                                    {itemData.owner === account && (
+                                    {itemData.minter === account && (
                                         <div className="tradeStation-royalty">
                                             <div className='sub'>
                                                 <div className="sub-title">Select royalty of your NFT in the marketplace.</div>
@@ -331,7 +351,7 @@ export default function EditAssets() {
                                                     <CopyToClipboard text={itemData.giftAddress}>
                                                         <Tooltip arrow title="Copy address">
                                                             <div>
-                                                                {itemData.giftAddress.substring(0, 15)} ... ${itemData.giftAddress.substring(itemData.giftAddress.length - 8)}
+                                                                {itemData.giftAddress}
                                                             </div>
                                                         </Tooltip>
                                                     </CopyToClipboard>
@@ -467,25 +487,28 @@ export default function EditAssets() {
                                 <div className='tradeStation-ask-label'>
                                     Current Price
                                 </div>
-                                <div className='price'>
-                                    {
-                                        itemData.salePrice > 0 ? (
-                                            <>
-                                                <div>
-                                                    {marketItem ? (
-                                                        <img src={itemData.tokenImg} width={40} height={40} />
-                                                    ) : (
-                                                        <Skeleton variant="text" style={{ width: 50, height: 50 }} />
-                                                    )}
-                                                </div>
-                                                <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
-                                                <div className='flat-price'>{itemData.salePrice ? '($2.00)' : ''}</div>
-                                            </>
-                                        ) : (
-                                            <div className='not-price'>The sale price is yet to be determined.</div>
-                                        )
-                                    }
-                                </div>
+                                    <div className='price'>
+                                        {
+                                            itemData.salePrice > 0 ? (
+                                                <>
+                                                    <div className='left-price'>
+                                                        <div>
+                                                            {marketItem ? (
+                                                                <img src={itemData.tokenImg} width={40} height={40} />
+                                                            ) : (
+                                                                <Skeleton variant="text" style={{ width: 50, height: 50 }} />
+                                                            )}
+                                                        </div>
+                                                        <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
+                                                        <div className='flat-price'>{itemData.salePrice ? '($' + itemData.usdPrice + ')' : ''}</div>
+                                                    </div>
+                                                    <div className='right-royalty'>royalty: {itemData.royalty}%</div>
+                                                </>
+                                            ) : (
+                                                <div className='not-price'>The sale price is yet to be determined.</div>
+                                            )
+                                        }
+                                    </div>
                             </div>
                             <div className='edit-container'>
                                 <div className="tradeStation-sale">

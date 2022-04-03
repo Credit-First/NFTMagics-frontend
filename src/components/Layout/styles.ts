@@ -23,7 +23,7 @@ export const LayoutSection = styled('div')(({theme}) => {
                 flex: '1 1 0%',
                 display: 'flex',
                 flexDirection: 'column',
-                minHeight: '100vh'
+                minHeight: 'calc(100vh - 80px)'
             }
         }
     })

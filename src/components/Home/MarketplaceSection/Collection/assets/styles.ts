@@ -333,20 +333,19 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                             },
                             '& .tradeStation-detail': {
                                 margin: 10,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-end',
                                 marginTop: 20,
                                 '& .gift-address': {
                                     cursor: 'pointer',
-                                    marginLeft: 30
+                                    marginLeft: 30,
+                                    display: 'flex',
+                                    justifyContent: 'flex-end'
                                 }
                             },
                             '& .item-action': {
                                 display: 'flex',
                                 marginTop: 30,
                                 '& button': {
-                                    width: 120,
+                                    width: 200,
                                     marginRight: 10
                                 }
                             }
@@ -653,12 +652,11 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
                         },
                         '& .tradeStation-detail': {
                             margin: 10,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-end',
                             marginTop: 20,
                             '& .gift-address': {
-                                cursor: 'pointer'
+                                cursor: 'pointer',
+                                display: 'flex',
+                                justifyContent: 'flex-end'
                             }
                         },
                         '& .item-action': {

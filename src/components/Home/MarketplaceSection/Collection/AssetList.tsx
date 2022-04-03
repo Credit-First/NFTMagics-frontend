@@ -3,6 +3,12 @@ import { makeStyles } from "@mui/styles";
 import { List, WindowScroller } from "react-virtualized";
 import useMediaQuery from '@mui/material/useMediaQuery';
 import NFTCard from "./Card";
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json';
+
+TimeAgo.addDefaultLocale(en);
+
+const timeAgo = new TimeAgo('en-US');
 
 const MIN_WIDTH = 920;
 const cardWidth = 300;
@@ -70,12 +76,12 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
                                             );
                                             for (let i = fromIndex; i < toIndex; i++) {
                                                 items.push(
-                                                    <NFTCard key={i} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight}/>
+                                                    <NFTCard key={i} timeAgo={timeAgo} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight}/>
                                                 );
                                             }
                                             const emptySize = itemsPerRow - items.length;
                                             for (let i = 0; i < emptySize; i++) {
-                                                items.push(<NFTCard key={i + toIndex} empty item={undefined} width={cardWidth} height={cardHeight}/>);
+                                                items.push(<NFTCard key={i + toIndex} timeAgo={timeAgo} empty item={undefined} width={cardWidth} height={cardHeight}/>);
                                             }
                                             return (
                                                 <div className={classes.row} key={key} style={style}>

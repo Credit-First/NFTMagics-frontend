@@ -35,6 +35,7 @@ import toast from "@/components/Toast";
 import "react-toastify/dist/ReactToastify.css";
 import Config from '@/config/app';
 import Web3 from "web3";
+import BigNumber from 'bignumber.js';
 import { useWeb3React } from "@web3-react/core";
 import { actionGetMarketItem } from '@/store/actions';
 import { selectMarketItem } from '@/store/selectors';
@@ -83,6 +84,7 @@ export default function Assets() {
         tokenId: 0,
         saleToken: '',
         salePrice: 0,
+        usdPrice: 0,
         favorites: 0,
         image: null,
         minter: '',
@@ -222,12 +224,14 @@ export default function Assets() {
     React.useEffect(() => {
         if (marketItem) {
             const salePrice = marketItem.price ? fromWei(web3, marketItem.price) : 0;
+            const usdPrice = new BigNumber(salePrice).multipliedBy(430).toFixed(2, BigNumber.ROUND_DOWN).toString();
             handleItemChange('collectionId', marketItem.collectionId);
             handleItemChange('collectionName', marketItem.collectionName);
             handleItemChange('tokenImg', tokenImg[marketItem.saleToken]);
             handleItemChange('tokenId', marketItem.tokenId);
             handleItemChange('saleToken', marketItem.saleToken);
             handleItemChange('salePrice', salePrice);
+            handleItemChange('usdPrice', usdPrice);
             handleItemChange('favorites', marketItem.likes ? marketItem.likes : 0);
             handleItemChange('image', marketItem.image);
             handleItemChange('minter', marketItem.minter);
@@ -480,7 +484,7 @@ export default function Assets() {
                                                             )}
                                                         </div>
                                                         <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
-                                                        <div className='flat-price'>{itemData.salePrice ? '($2.00)' : ''}</div>
+                                                        <div className='flat-price'>{itemData.salePrice ? '($' + itemData.usdPrice + ')' : ''}</div>
                                                         {
                                                             itemData.activeItem && (
                                                                 <div className='status'>Actived</div>
@@ -527,10 +531,18 @@ export default function Assets() {
                                                 ) : (
                                                     <div>
                                                         {
-                                                            itemData.activeItem ? (
-                                                                <button className='button button-primary' onClick={handleBuyAction}>Buy Now</button>
+                                                            !itemData.activeItem ? (
+                                                                <div>This Nft is sold by {itemData.seller}</div>
                                                             ) : (
-                                                                <div>This Nft is yet not sold</div>
+                                                                <button className='button button-primary' onClick={handleBuyAction}>
+                                                                    {
+                                                                        itemData.giftAddress === account ? (
+                                                                            <>Receive Gift</>
+                                                                        ) : (
+                                                                            <>Buy Now</>
+                                                                        )
+                                                                    }
+                                                                </button>
                                                             )
                                                         }
                                                     </div>
@@ -706,7 +718,7 @@ export default function Assets() {
                                                             )}
                                                         </div>
                                                         <div className='price-amount'>{marketItem ? itemData.salePrice : <Skeleton variant="text" style={{ width: 100, height: 50 }} />}</div>
-                                                        <div className='flat-price'>{itemData.salePrice ? '($2.00)' : ''}</div>
+                                                        <div className='flat-price'>{itemData.salePrice ? '($' + itemData.usdPrice + ')' : ''}</div>
                                                         {
                                                             itemData.activeItem && (
                                                                 <div className='status'>Actived</div>
@@ -752,10 +764,18 @@ export default function Assets() {
                                             ) : (
                                                 <div>
                                                     {
-                                                        itemData.activeItem ? (
+                                                        !itemData.activeItem ? (
                                                             <div>This Nft is sold by {itemData.seller}</div>
                                                         ) : (
-                                                            <button className='button button-primary'>Buy Now</button>
+                                                            <button className='button button-primary' onClick={handleBuyAction}>
+                                                                {
+                                                                    itemData.giftAddress === account ? (
+                                                                        <>Receive Gift</>
+                                                                    ) : (
+                                                                        <>Buy Now</>
+                                                                    )
+                                                                }
+                                                            </button>
                                                         )
                                                     }
                                                 </div>

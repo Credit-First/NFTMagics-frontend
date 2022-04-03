@@ -1,39 +1,33 @@
 import * as React from 'react';
 import { useRouter } from 'next/router';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Slide } from '@mui/material';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import { useState } from 'react';
 import { GiftSection } from './styles';
-import { LoadingComponent } from '@/components/Loading';
 import PageLoading from '@/components/PageLoading';
+import { actionGetGiftItems } from '@/store/actions';
+import { selectGiftItems } from '@/store/selectors';
+import toast from "@/components/Toast";
+import "react-toastify/dist/ReactToastify.css";
 
-const { useReducer } = React
-const TOGGLE_BOX = '[GiftBox] Toggle'
-const toggleBox = () => {
-  return { type: TOGGLE_BOX }
-}
-const DEFAULT = { open: false, wasOpen: false }
-const reducer = (
-  state = DEFAULT,
-  { type }: { type: any }
-) => {
-
-  switch (type) {
-    case TOGGLE_BOX: {
-      return {
-        open: !state.open,
-        wasOpen: state.open
-      }
-    }
-    default: return state
-  }
-}
+import { useWeb3React } from "@web3-react/core";
+import { useDispatch, useSelector } from 'react-redux';
+import clsx from 'clsx';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const GiftBox = () => {
   const router = useRouter()
   const { address } = router.query;
-  const [state, dispatch] = useReducer(reducer, DEFAULT);
+  const dispatch = useDispatch();
+  const giftItems = useSelector(selectGiftItems);
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = React.useState(false);
+  const [state, setState] = React.useState(false);
+  const { account } = useWeb3React();
+
+  const notify = React.useCallback((type, message) => {
+    toast({ type, message });
+  }, []);
 
   const handleLink = () => {
     setLoading(true);
@@ -42,31 +36,63 @@ const GiftBox = () => {
       query: { gift: true },
     })
   }
+  const toggleBox = () => {
+    setState(true);
+    setOpen(!open);
+  }
+  React.useEffect(() => {
+    dispatch(actionGetGiftItems({ account }));
+    AOS.init({ once: true });
+    AOS.refresh();
+  }, [account]);
+
+  React.useEffect(() => {
+    if (!account) return notify('error', 'please connect your wallet');
+  }, []);
 
   return (
     <>
       <GiftSection className="gift" >
+        {
+          giftItems.length > 0 && (
+            <div className='gift-list' data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+              <div className='gift-count'>
+                <div>you have received </div>
+                <div className='count'>{giftItems.length}</div>
+                <div>gifts</div>
+              </div>
+              <ul className='gift-name-list'>
+                {
+                  giftItems.map((item: any, key: any) => {
+                    return (
+                      <>
+                        <li key={key} className='gift-item'>
+                          <div className='gift-name'>{item.name}</div>
+                          <div>from:</div>
+                          <div className='from-address'>{item.owner.substring(0, 12)} ... {item.owner.substring(item.owner.length - 8)}</div>
+                        </li>
+                      </>
+                    )
+                  })
+                }
+              </ul>
+            </div>
+          )
+        }
         <div className="floor">
           <div className='shadow2'></div>
           <div className='shadow3'></div>
           <div className="box">
             {
-              state.open
+              open
                 ? (
                   <MailOutlineIcon className="icon_mail_alt heart-gift" onClick={handleLink} />
                 )
                 : <></>
             }
-            <div
-              className={
-                state.open ? 'lid open'
-                  : state.wasOpen ? 'lid close'
-                    : 'lid'
-              }
-              onClick={() => dispatch(toggleBox())}>
-
+            <div className={clsx('lid', open ? 'open' : (state ? 'close' : ''))} onClick={() => toggleBox()}>
               <div className="qmark">{
-                state.open ? '' : '?'
+                open ? '' : '?'
               }
               </div>
               <div className="face ltop"></div>
@@ -81,7 +107,7 @@ const GiftBox = () => {
         </div>
         <h2 className='gift-font' style={{ position: "absolute" }}>
           {
-            state.open ?
+            open ?
               <>
                 <span>S</span><span>u</span><span>r</span><span>p</span><span>r</span><span>i</span><span>s</span><span>e</span>
               </>

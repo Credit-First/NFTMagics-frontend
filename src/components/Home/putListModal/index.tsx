@@ -32,7 +32,7 @@ const tokenName = {
 export default function PutListModal({ modal, setModal, item, handleLoading }: { modal: any, setModal: any, item: any, handleLoading: any }) {
     const dispatch = useDispatch()
     const theme = useTheme();
-    const [summaryExpanded, setSummaryExpanded] = React.useState<string | false>('panel1');
+    const [summaryExpanded, setSummaryExpanded] = React.useState<string | false>('panel2');
     const [loadingApprove, setLoadingApprove] = React.useState(false);
     const [loadingConfirm, setLoadingConfirm] = React.useState(false);
 
@@ -68,7 +68,6 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
             Config.Market.abi as [],
             Config.Market.address as string
         );
-        console.log(item.tokenId, Config.Market.address)
 
         try {
             await Nft.methods.approve(
@@ -148,7 +147,7 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
                             <div className='content'>
                                 <div className='name'>{item.name}</div>
                                 <div className='description'>{item.description}</div>
-                                <div className='count'>1</div>
+                                {/* <div className='count'>1</div> */}
                             </div>
                             <div className='price'>
                                 <div className='title'>Price</div>
@@ -163,7 +162,7 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
                                         {tokenName[item.saleToken]}
                                     </div>
                                 </div>
-                                <div className='flat-price'>$2.00</div>
+                                <div className='flat-price'>${item.usdPrice}</div>
                             </div>
                         </div>
                         <div className='wallet-detail'>
@@ -183,7 +182,7 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
                                     Waiting for initialization...
                                 </AccordionDetails>
                             </Accordion> */}
-                            <Accordion expanded={true} disableGutters elevation={0}>
+                            <Accordion expanded={summaryExpanded === 'panel2'} onChange={handleSummaryChange('panel2')} disableGutters elevation={0}>
                                 <AccordionSummary aria-controls="panel2d-content" id="panel2d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                     <div className='title'>
                                         {loadingApprove && <CircularProgress size={24} />}

@@ -52,6 +52,9 @@
   .put-list-modal .item-detail .content .name {
     font-family: upheaval; 
   }
+  .gift-list * {
+    font-family: upheaval; 
+  }
   .hastag {
     font-family: coolvetica; 
   }

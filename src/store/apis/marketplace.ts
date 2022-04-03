@@ -98,6 +98,23 @@ export const getTopMarketItems = () => {
         });
     });
 };
+export const getGiftItems = (data:any) => {
+    return new Promise((resolve, reject) => {
+        axios.post('/api/v1/marketplace/fetch_giftItems', {
+            data
+        }).then(response => {
+            const response_data = response.data;
+            if (response_data.status) {
+                resolve(response_data.data);
+            }
+            else {
+                reject(response_data);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+};
 export const createMarketItem = (data: any) => {
     return new Promise((resolve, reject) => {
         axios.post('/api/v1/marketplace/create_marketItem', {

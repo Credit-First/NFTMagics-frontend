@@ -202,12 +202,14 @@ export default function SidebarWalletList(props: any) {// the function is being 
                 })
                 .then((_tx: any) => {
                     notify('success', 'You have claimed the reward');
+                    getReward();
                 })
         } catch (err: any) {
             if (err.code == 4001) notify('error', err.message);
             else notify('error', 'Error claim reward');
             console.log('Error claim reward : ', err);
         }
+        getReward();
     }
 
     const valueload = async () => {
@@ -267,8 +269,8 @@ export default function SidebarWalletList(props: any) {// the function is being 
 
         try {
             const reward = await Market.methods.rewards(account).call();
-            setRewardBNBValue(convertValuetoString(fromWei(web3, reward.BNB)).toString());
-            setRewardITHDValue(convertValuetoString(fromWei(web3, reward.atra)).toString());
+            setRewardBNBValue(convertValuetoString(fromWei(web3, reward.bnb)).toString());
+            setRewardITHDValue(convertValuetoString(fromWei(web3, reward.ayra)).toString());
             setRewardAYRAValue(convertValuetoString(fromWei(web3, reward.ithd)).toString());
         } catch (err: any) {
             if (err.code == 4001) notify('error', err.message);
@@ -336,7 +338,7 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                 </p>
                             </div>
                             <div className='body-content'>
-                                <div>
+                                <div className='token-info'>
                                     <ul className='token-list'>
                                         <li className='token-item'>
                                             <div className="token">
@@ -360,29 +362,36 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                 </div>
                                 {
                                     (rewardBNBValue !== '0' || rewardAYRAValue !== '0' || rewardITHDValue !== '0') && (
-                                        <div className='reward-info'>
-                                            <ul className='reward-token-list'>
-                                                <li className='token-item'>
-                                                    <div className="token">
-                                                        <img src="/images/token/bnb.png" className="tokenimg" ></img>
-                                                        <span>{rewardBNBValue} &nbsp;BNB</span>
-                                                    </div>
-                                                </li>
-                                                <li className='token-item'>
-                                                    <div className="token">
-                                                        <img src="/images/token/ayra.png" className="tokenimg" ></img>
-                                                        <span>{rewardAYRAValue} &nbsp;AYRA</span>
-                                                    </div>
-                                                </li>
-                                                <li className='token-item'>
-                                                    <div className="token">
-                                                        <img src="/images/token/ithd.png" className="tokenimg" ></img>
-                                                        <span>{rewardITHDValue} &nbsp;ITHD</span>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            <Button className='button button-regular' onClick={handleClaim}>Claim Reward</Button>
-                                        </div>
+                                        <>
+                                            <div className='reward-header'>
+                                                <p>
+                                                    Reward Amount
+                                                </p>
+                                            </div>
+                                            <div className='reward-info'>
+                                                <ul className='reward-token-list'>
+                                                    <li className='token-item'>
+                                                        <div className="token">
+                                                            <img src="/images/token/bnb.png" className="tokenimg" ></img>
+                                                            <span>{rewardBNBValue} &nbsp;BNB</span>
+                                                        </div>
+                                                    </li>
+                                                    <li className='token-item'>
+                                                        <div className="token">
+                                                            <img src="/images/token/ayra.png" className="tokenimg" ></img>
+                                                            <span>{rewardAYRAValue} &nbsp;AYRA</span>
+                                                        </div>
+                                                    </li>
+                                                    <li className='token-item'>
+                                                        <div className="token">
+                                                            <img src="/images/token/ithd.png" className="tokenimg" ></img>
+                                                            <span>{rewardITHDValue} &nbsp;ITHD</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <Button className='button button-regular' onClick={handleClaim}>Claim Reward</Button>
+                                            </div>
+                                        </>
                                     )
                                 }
                             </div>

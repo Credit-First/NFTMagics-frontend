@@ -101,7 +101,10 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'flex-end',
+                    width: '100%',
                     '& .button': {
+                        width: '100%',
+                        margin: 20,
                         fontSize: 20,
                         cursor: 'pointer',
                         textAlign: 'center',
@@ -209,22 +212,30 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             overFlow: 'hidden',
                             border: `1px solid ${theme.palette.divider}`,
                             '& .price': {
-                                fontSize: 25,
-                                padding: '20px 0px',
-                                alignItems: 'center',
                                 display: 'flex',
-                                fontWeight: 600,
-                                width: 'fit-content',
-                                maxWidth: '100%',
-                                marginRight: 10,
-                                '& .price-amount': {
-                                    margin: '0px 15px',
+                                justifyContent: 'space-between',
+                                alignItems: 'center',
+                                '& .left-price': {
+                                    fontSize: 25,
+                                    padding: '20px 0px',
+                                    alignItems: 'center',
+                                    display: 'flex',
                                     fontWeight: 600,
-                                    fontSize: 40
+                                    width: 'fit-content',
+                                    maxWidth: '100%',
+                                    marginRight: 10,
+                                    '& .price-amount': {
+                                        margin: '0px 15px',
+                                        fontWeight: 600,
+                                        fontSize: 40
+                                    },
+                                    '& .not-price': {
+                                        fontSize: 20,
+                                        color: `${theme.palette.divider}`
+                                    }
                                 },
-                                '& .not-price': {
-                                    fontSize: 20,
-                                    color: `${theme.palette.divider}`
+                                '& .right-royalty': {
+
                                 }
                             }
                         },
@@ -248,7 +259,7 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                                     display: 'flex',
                                     alignItems: 'center',
                                     '& .input-text': {
-                                        flex:1,
+                                        flex: 1,
                                         marginRight: 5
                                     },
                                 }
@@ -266,7 +277,7 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                                     display: 'flex',
                                     alignItems: 'center',
                                     '& .input-text': {
-                                        flex:1
+                                        flex: 1
                                     }
                                 }
                             },
@@ -291,9 +302,6 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             },
                             '& .tradeStation-detail': {
                                 margin: 5,
-                                display: 'flex',
-                                alignItems: 'center',
-                                justifyContent: 'flex-end',
                                 marginTop: 20,
                                 '& .gift-address': {
                                     cursor: 'pointer',
@@ -485,22 +493,30 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                         overFlow: 'hidden',
                         border: `1px solid ${theme.palette.divider}`,
                         '& .price': {
-                            fontSize: 25,
-                            padding: '20px 0px',
-                            alignItems: 'center',
                             display: 'flex',
-                            fontWeight: 600,
-                            width: 'fit-content',
-                            maxWidth: '100%',
-                            marginRight: 10,
-                            '& .price-amount': {
-                                margin: '0px 15px',
+                            justifyContent: 'space-between',
+                            alignItems: 'center',
+                            '& .left-price': {
+                                fontSize: 25,
+                                padding: '20px 0px',
+                                alignItems: 'center',
+                                display: 'flex',
                                 fontWeight: 600,
-                                fontSize: 40
+                                width: 'fit-content',
+                                maxWidth: '100%',
+                                marginRight: 10,
+                                '& .price-amount': {
+                                    margin: '0px 15px',
+                                    fontWeight: 600,
+                                    fontSize: 40
+                                },
+                                '& .not-price': {
+                                    fontSize: 20,
+                                    color: `${theme.palette.divider}`
+                                }
                             },
-                            '& .not-price': {
-                                fontSize: 20,
-                                color: `${theme.palette.divider}`
+                            '& .right-royalty': {
+
                             }
                         }
                     },
@@ -540,19 +556,20 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                                 justifyContent: 'space-between',
                                 marginTop: 20,
                                 '& .gift-address': {
-                                    cursor: 'pointer'
+                                    cursor: 'pointer',
+                                    display: 'flex',
+                                    justifyContent: 'flex-end'
                                 }
                             }
                         },
                         '& .tradeStation-detail': {
                             margin: 5,
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'flex-end',
                             marginTop: 20,
                             '& .gift-address': {
                                 cursor: 'pointer',
-                                marginLeft: 30
+                                marginLeft: 30,
+                                display: 'flex',
+                                justifyContent: 'flex-end'
                             }
                         },
                         '& .item-action': {
@@ -563,7 +580,10 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             display: 'flex',
                             borderTop: `1px solid ${theme.palette.divider}`,
                             justifyContent: 'center',
+                            width: '100%',
                             '& .button': {
+                                width: '100%',
+                                margin: 20,
                                 fontSize: 20,
                                 cursor: 'pointer',
                                 textAlign: 'center',
