@@ -56,7 +56,16 @@ export default function StickyHeadTable() {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+  const get_date_of_last_n_days_from_today = (n: any) => {
+    const date = new Date(n * 1000);
+    const pad = (n: any) => n.toString().padStart(2, '0');
 
+    const yyyy = date.getFullYear(),
+      mm = pad(date.getMonth() + 1),
+      dd = pad(date.getDate());
+
+    return `${yyyy}-${mm}-${dd}`;
+  }
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <TableContainer sx={{ maxHeight: 440 }}>
@@ -67,7 +76,7 @@ export default function StickyHeadTable() {
                 <TableCell
                   key={column.id}
                   align={column.align}
-                  style={{ minWidth: column.minWidth, zIndex: 0}}
+                  style={{ minWidth: column.minWidth, zIndex: 0 }}
                 >
                   {column.label}
                 </TableCell>
@@ -85,7 +94,8 @@ export default function StickyHeadTable() {
                       if (column.id == 'price' && value) value = value / 1e18;
                       if (column.id == 'from' && value) value = value.substring(0, 15) + '...' + value.substring(value.length - 8);
                       if (column.id == 'to' && value) value = value.substring(0, 15) + '...' + value.substring(value.length - 8);
-                      if (column.id == 'date' && value) value = new Date(value).toISOString();
+                      if (column.id == 'date' && value) value = get_date_of_last_n_days_from_today(value);
+
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === 'number'

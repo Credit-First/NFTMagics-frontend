@@ -289,7 +289,7 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                 },
                 '& .item-frame': {
                     margin: 20,
-                    '& .section': {
+                    '& .frame-section': {
                         border: `1px solid ${theme.palette.divider}`,
                         borderRadius: 10,
                         overFlow: 'hidden',
@@ -387,11 +387,13 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                 display: 'flex',
                 flexWrap: 'wrap',
                 margin: '0px',
-                padding: '0px 10px 10px 10px',
+                marginTop: 10,
                 '& .filter-pill': {
                     marginRight: 5,
                     '& .pill': {
                         alignItems: 'center',
+                        justifyContent: 'space-between',
+                        width: 200,
                         cursor: 'pointer',
                         display: 'flex',
                         minHeight: 35,
@@ -403,7 +405,7 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                         borderRadius: 10,
                         border: '1px solid rgb(229, 232, 235)',
                         overflow: 'hidden',
-                        '& .pill-delete': {
+                        '& .pill-item': {
                             alignItems: 'center',
                             backgroundColor: 'transparent',
                             display: 'flex',
@@ -423,7 +425,8 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                     display: 'flex',
                     color: 'rgb(32, 129, 226)',
                     cursor: 'pointer',
-                    opacity: 0.9
+                    opacity: 0.9,
+                    marginLeft: 10
                 }
             },
             '& .history-table': {
@@ -603,7 +606,7 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
             },
             '& .item-frame': {
                 margin: '5px 20px',
-                '& .section': {
+                '& .frame-section': {
                     border: `1px solid ${theme.palette.divider}`,
                     borderRadius: 10,
                     overFlow: 'hidden',
@@ -706,6 +709,8 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
                         margin: 5,
                         '& .pill': {
                             alignItems: 'center',
+                            justifyContent: 'space-between',
+                            width: 200,
                             cursor: 'pointer',
                             display: 'flex',
                             minHeight: 35,
@@ -717,7 +722,7 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
                             borderRadius: 10,
                             border: '1px solid rgb(229, 232, 235)',
                             overflow: 'hidden',
-                            '& .pill-delete': {
+                            '& .pill-item': {
                                 alignItems: 'center',
                                 backgroundColor: 'transparent',
                                 display: 'flex',
@@ -917,7 +922,7 @@ export const DropdownSelectMenu = styled('div')(({ theme, open }: { theme?: any,
                 }),
             },
             '& .menu-items': {
-                color: 'rgb(4, 17, 29)',
+                color: `${theme.palette.text.primary}`,
                 maxHeight: 0,
                 margin: 0,
                 padding: 0,
@@ -929,6 +934,7 @@ export const DropdownSelectMenu = styled('div')(({ theme, open }: { theme?: any,
                 }),
                 '& .item': {
                     backgroundColor: `${theme.palette.background.default}`,
+                    backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))',
                     alignItems: 'center',
                     borderTop: `1px solid ${theme.palette.divider}`,
                     display: 'flex',

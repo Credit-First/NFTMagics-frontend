@@ -61,7 +61,7 @@ function HistoryChart(props: any) {
     // };
 
     function formatDate(date:any) {
-        var d = new Date(date);
+        var d = new Date(date * 1000);
         if(!date) d = new Date();
 
         var month = '' + (d.getMonth() + 1),

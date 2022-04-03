@@ -138,8 +138,8 @@ export const CreateNFTModal = styled('div')(({theme}: {theme:any}) => {
             backgroundColor: '#DCE2E6',
             width: 2,
             height: '90%',
-            position: 'absolute',
             left: 'calc(50% + 5px)',
+            position: 'absolute',
             transform: 'translateX(-50%)',
           },
           '& .mark': {

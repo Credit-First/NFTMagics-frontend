@@ -462,7 +462,7 @@ export default function Assets() {
                             </button>
                         </section>
                         <div className='item-frame'>
-                            <section className='section'>
+                            <section className='frame-section'>
                                 <div className='tradeStation-main'>
                                     <div className='tradeStation-ask-label'>
                                         Price
@@ -605,27 +605,6 @@ export default function Assets() {
                             <div className='history-filter'>
                                 <HistoryFilterMenu itemId={itemData.itemId}/>
                             </div>
-                            <ul className='filter-pills'>
-                                {/* <li className='filter-pill'>
-                                    <div className='pill'>
-                                        <span>Listings</span>
-                                        <button className='pill-delete'>
-                                            <CloseIcon />
-                                        </button>
-                                    </div>
-                                </li>
-                                <li className='filter-pill'>
-                                    <div className='pill'>
-                                        <span>Sales</span>
-                                        <button className='pill-delete'>
-                                            <CloseIcon />
-                                        </button>
-                                    </div>
-                                </li>
-                                <div className='clear-all'>
-                                    <button>Clear All</button>
-                                </div> */}
-                            </ul>
                             <div className='history-table'>
                                 <HistoryTable />
                             </div>
@@ -709,7 +688,7 @@ export default function Assets() {
                     </section>
                     <div className='item-frame'>
                         <div>
-                            <section className='section'>
+                            <section className='frame-section'>
                                 <div className='tradeStation-main'>
                                     <div className='tradeStation-ask-label'>
                                         Price

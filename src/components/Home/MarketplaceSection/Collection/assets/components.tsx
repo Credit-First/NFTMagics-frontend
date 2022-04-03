@@ -2,12 +2,13 @@ import * as React from 'react';
 import { Checkbox } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import CloseIcon from '@mui/icons-material/Close';
 import Config from '@/config/app';
 import { DropdownMenu, DropdownSelectMenu } from './styles';
 import { useDispatch } from 'react-redux';
 import { actionGetLogList, actionGetPriceHistory } from '@/store/actions';
 
-export const HistoryDropDownMenu = ({itemId}:{itemId:any}) => {
+export const HistoryDropDownMenu = ({ itemId }: { itemId: any }) => {
     const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
     const [text, setText] = React.useState('All Time');
@@ -79,61 +80,89 @@ export const HistoryFilterMenu = ({ itemId }: { itemId: any }) => {
     }, [itemId, checked]);
 
     return (
-        <DropdownSelectMenu open={open}>
-            <section className='menu-container'>
-                <div className='menu-header' onClick={() => setOpen(!open)}>
-                    <div>filter</div>
-                    {open ? (<ExpandLessIcon />) : (<ExpandMoreIcon />)}
-                </div>
-                <div className='back' onClick={() => setOpen(!open)}></div>
-                <ul className='menu-items'>
-                    <li className='item' onClick={handleChange('all')}>
-                        <div className='option'>
-                            <Checkbox
-                                checked={checked['all']}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <div>
-                                All
+        <div>
+            <DropdownSelectMenu open={open}>
+                <section className='menu-container'>
+                    <div className='menu-header' onClick={() => setOpen(!open)}>
+                        <div>filter</div>
+                        {open ? (<ExpandLessIcon />) : (<ExpandMoreIcon />)}
+                    </div>
+                    <div className='back' onClick={() => setOpen(!open)}></div>
+                    <ul className='menu-items'>
+                        <li className='item' onClick={handleChange('all')}>
+                            <div className='option'>
+                                <Checkbox
+                                    checked={checked['all']}
+                                    inputProps={{ 'aria-label': 'controlled' }}
+                                />
+                                <div>
+                                    All
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li className='item' onClick={handleChange('list')}>
-                        <div className='option'>
-                            <Checkbox
-                                checked={checked['list']}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <div>
-                                List
+                        </li>
+                        <li className='item' onClick={handleChange('list')}>
+                            <div className='option'>
+                                <Checkbox
+                                    checked={checked['list']}
+                                    inputProps={{ 'aria-label': 'controlled' }}
+                                />
+                                <div>
+                                    List
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li className='item' onClick={handleChange('purchase')}>
-                        <div className='option'>
-                            <Checkbox
-                                checked={checked['purchase']}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <div>
-                                purchase
+                        </li>
+                        <li className='item' onClick={handleChange('purchase')}>
+                            <div className='option'>
+                                <Checkbox
+                                    checked={checked['purchase']}
+                                    inputProps={{ 'aria-label': 'controlled' }}
+                                />
+                                <div>
+                                    purchase
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                    <li className='item' onClick={handleChange('mint')}>
-                        <div className='option'>
-                            <Checkbox
-                                checked={checked['mint']}
-                                inputProps={{ 'aria-label': 'controlled' }}
-                            />
-                            <div>
-                                Mint
+                        </li>
+                        <li className='item' onClick={handleChange('mint')}>
+                            <div className='option'>
+                                <Checkbox
+                                    checked={checked['mint']}
+                                    inputProps={{ 'aria-label': 'controlled' }}
+                                />
+                                <div>
+                                    Mint
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </section>
-        </DropdownSelectMenu>
+                        </li>
+                    </ul>
+                </section>
+            </DropdownSelectMenu>
+            <ul className='filter-pills'>
+                <li className='filter-pill' style={{...(!checked.list && {display: 'none'})}} onClick={handleChange('list')}>
+                    <div className='pill'>
+                        <span>List</span>
+                        <button className='pill-item'>
+                            <CloseIcon />
+                        </button>
+                    </div>
+                </li>
+                <li className='filter-pill' style={{...(!checked.purchase && {display: 'none'})}} onClick={handleChange('purchase')}>
+                    <div className='pill'>
+                        <span>Purchase</span>
+                        <button className='pill-item'>
+                            <CloseIcon />
+                        </button>
+                    </div>
+                </li>
+                <li className='filter-pill' style={{...(!checked.mint && {display: 'none'})}} onClick={handleChange('mint')}>
+                    <div className='pill'>
+                        <span>Mint</span>
+                        <button className='pill-item'>
+                            <CloseIcon />
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </div>
     )
 }
 
