@@ -138,7 +138,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 color: `${theme.palette.text.primary}`,
                 padding: 20,
                 width: '100%',
-                height: 120,
+                height: 160,
                 marginBottom: 10,
                 '& .name': {
                     display: '-webkit-box',
@@ -230,7 +230,7 @@ const CollectionCard = ({ item, empty, width, height }: { item: any, empty: any,
             setCollectioin(collection => ({ ...collection, updatedAt: item.updatedAt }));
         }
 
-    }, [item]);
+    }, []);
 
     return (
         <>
@@ -238,9 +238,13 @@ const CollectionCard = ({ item, empty, width, height }: { item: any, empty: any,
                 item ? (
                     <CardDiv height={height} width={width}>
                         <article className='card-image-card'>
-                            <div className='card-edit' onClick={handleEdit}>
-                                <Edit />
-                            </div>
+                            {
+                                collection.owner == account && (
+                                    <div className='card-edit' onClick={handleEdit}>
+                                        <Edit />
+                                    </div>
+                                )
+                            }
                             <a className='card-image-card-link' onClick={handleLink()}>
                                 <div className='card-image-card-link-meida'>
                                     <div className='media-img'>

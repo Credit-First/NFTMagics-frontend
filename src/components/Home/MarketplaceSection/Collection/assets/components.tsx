@@ -1,55 +1,60 @@
 import * as React from 'react';
-import {
-    Button,
-    CircularProgress,
-    Checkbox,
-    Skeleton,
-} from '@mui/material';
+import { Checkbox } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Config from '@/config/app';
 import { DropdownMenu, DropdownSelectMenu } from './styles';
+import { useDispatch } from 'react-redux';
+import { actionGetLogList, actionGetPriceHistory } from '@/store/actions';
 
-export const HisttoryDropDownMenu = () => {
+export const HistoryDropDownMenu = ({itemId}:{itemId:any}) => {
+    const dispatch = useDispatch();
     const [open, setOpen] = React.useState(false);
     const [text, setText] = React.useState('All Time');
-    const handleClick = () => {
+    const handleOpen = () => {
         setOpen(!open);
     }
 
     const handleListClick = (text: any, key: any) => () => {
         setText(text);
+        dispatch(actionGetPriceHistory({ itemId, key }));
     }
 
+    React.useEffect(() => {
+        itemId && dispatch(actionGetPriceHistory({ itemId, key: 0 }));
+    }, [itemId]);
+
     return (
-        <DropdownMenu open={open} onClick={handleClick}>
-            <div className='dropdownBtn'>
+        <DropdownMenu open={open} onClick={handleOpen} width={200}>
+            <div className='dropdownBtn' >
                 {text}
                 <ExpandMoreIcon />
             </div>
             <div className='subMenuContent'>
                 <div className='submenu'>
                     <ul>
-                        <li onClick={handleListClick('Last 7 Days', 1)}><a href=''>Last 7 Days</a></li>
-                        <li onClick={handleListClick('Last 14 Days', 2)}><a href=''>Last 14 Days</a></li>
-                        <li onClick={handleListClick('Last 30 Days', 3)}><a href=''>Last 30 Days</a></li>
-                        <li onClick={handleListClick('Last 60 Days', 4)}><a href=''>Last 60 Days</a></li>
-                        <li onClick={handleListClick('Last 90 Days', 5)}><a href=''>Last 90 Days</a></li>
-                        <li onClick={handleListClick('Last 1 Year', 6)}><a href=''>Last Year</a></li>
-                        <li onClick={handleListClick('All Time', 0)}><a href=''>All Time</a></li>
+                        <li onClick={handleListClick('Last 7 Days', 1)}><a style={{ fontSize: 15 }}>Last 7 Days</a></li>
+                        <li onClick={handleListClick('Last 14 Days', 2)}><a style={{ fontSize: 15 }}>Last 14 Days</a></li>
+                        <li onClick={handleListClick('Last 30 Days', 4)}><a style={{ fontSize: 15 }}>Last 30 Days</a></li>
+                        <li onClick={handleListClick('Last 60 Days', 8)}><a style={{ fontSize: 15 }}>Last 60 Days</a></li>
+                        <li onClick={handleListClick('Last 90 Days', 12)}><a style={{ fontSize: 15 }}>Last 90 Days</a></li>
+                        <li onClick={handleListClick('Last 1 Year', 48)}><a style={{ fontSize: 15 }}>Last Year</a></li>
+                        <li onClick={handleListClick('All Time', 0)}><a style={{ fontSize: 15 }}>All Time</a></li>
                     </ul>
                 </div>
-                <div className='back' onClick={handleClick}></div>
+                <div className='back' onClick={handleOpen}></div>
             </div>
         </DropdownMenu>
     )
 }
 
-export const HisttoryFilterMenu = () => {
+export const HistoryFilterMenu = ({ itemId }: { itemId: any }) => {
+    const dispatch = useDispatch();
     const [checked, setChecked] = React.useState({
-        'listings': false,
-        'sales': false,
-        'transfer': false
+        'all': true,
+        'list': false,
+        'purchase': false,
+        'mint': false
     });
     const [open, setOpen] = React.useState(false);
 
@@ -68,6 +73,11 @@ export const HisttoryFilterMenu = () => {
         });
     };
 
+
+    React.useEffect(() => {
+        if (itemId > 0) dispatch(actionGetLogList({ itemId, checked }))
+    }, [itemId, checked]);
+
     return (
         <DropdownSelectMenu open={open}>
             <section className='menu-container'>
@@ -77,38 +87,47 @@ export const HisttoryFilterMenu = () => {
                 </div>
                 <div className='back' onClick={() => setOpen(!open)}></div>
                 <ul className='menu-items'>
-                    <li className='item'>
-                        <div className='option' onClick={handleChange('listings')}>
+                    <li className='item' onClick={handleChange('all')}>
+                        <div className='option'>
                             <Checkbox
-                                checked={checked['listings']}
+                                checked={checked['all']}
                                 inputProps={{ 'aria-label': 'controlled' }}
-                            // icon={<FavoriteBorder />}
-                            // checkedIcon={<Favorite />} 
                             />
                             <div>
-                                Listings
+                                All
                             </div>
                         </div>
                     </li>
-                    <li className='item'>
-                        <div className='option' onClick={handleChange('sales')}>
+                    <li className='item' onClick={handleChange('list')}>
+                        <div className='option'>
                             <Checkbox
-                                checked={checked['sales']}
+                                checked={checked['list']}
                                 inputProps={{ 'aria-label': 'controlled' }}
                             />
                             <div>
-                                Sales
+                                List
                             </div>
                         </div>
                     </li>
-                    <li className='item'>
-                        <div className='option' onClick={handleChange('transfer')}>
+                    <li className='item' onClick={handleChange('purchase')}>
+                        <div className='option'>
                             <Checkbox
-                                checked={checked['transfer']}
+                                checked={checked['purchase']}
                                 inputProps={{ 'aria-label': 'controlled' }}
                             />
                             <div>
-                                Transfer
+                                purchase
+                            </div>
+                        </div>
+                    </li>
+                    <li className='item' onClick={handleChange('mint')}>
+                        <div className='option'>
+                            <Checkbox
+                                checked={checked['mint']}
+                                inputProps={{ 'aria-label': 'controlled' }}
+                            />
+                            <div>
+                                Mint
                             </div>
                         </div>
                     </li>
@@ -123,7 +142,7 @@ export const TokenDropDownMenu = ({ disabled, setInputData, inputData }: { disab
     const [text, setText] = React.useState('BNB');
 
     const list = [
-        { label: 'BNB', value: Config.Token.WBNB.address },
+        { label: 'BNB', value: Config.Token.BNB.address },
         { label: 'AYRA', value: Config.Token.AYRA.address },
         { label: 'ITHD', value: Config.Token.ITHD.address },
     ]

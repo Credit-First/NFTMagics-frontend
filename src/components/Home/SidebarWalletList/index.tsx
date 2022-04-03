@@ -267,7 +267,7 @@ export default function SidebarWalletList(props: any) {// the function is being 
 
         try {
             const reward = await Market.methods.rewards(account).call();
-            setRewardBNBValue(convertValuetoString(fromWei(web3, reward.wbnb)).toString());
+            setRewardBNBValue(convertValuetoString(fromWei(web3, reward.BNB)).toString());
             setRewardITHDValue(convertValuetoString(fromWei(web3, reward.atra)).toString());
             setRewardAYRAValue(convertValuetoString(fromWei(web3, reward.ithd)).toString());
         } catch (err: any) {

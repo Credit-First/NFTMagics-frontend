@@ -138,6 +138,7 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             textOverflow: 'ellipsis',
                             whiteSpace: 'nowrap',
                             '& .item-link': {
+                                cursor: 'pointer',
                                 fontSize: 20,
                                 fontWeight: 600,
                                 textDecoration: 'none',
@@ -339,6 +340,7 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                         textOverflow: 'ellipsis',
                         whiteSpace: 'nowrap',
                         '& .item-link': {
+                            cursor: 'pointer',
                             fontSize: 20,
                             fontWeight: 600,
                             textDecoration: 'none',

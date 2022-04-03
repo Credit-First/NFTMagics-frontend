@@ -1,5 +1,10 @@
 [
     {
+        "inputs": [],
+        "stateMutability": "nonpayable",
+        "type": "constructor"
+    },
+    {
         "anonymous": false,
         "inputs": [
             {
@@ -55,6 +60,62 @@
             {
                 "indexed": true,
                 "internalType": "address",
+                "name": "minter",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "nftID",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "uri",
+                "type": "string"
+            }
+        ],
+        "name": "Minted",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "nftID",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bool",
+                "name": "isListed",
+                "type": "bool"
+            }
+        ],
+        "name": "NftListStatus",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
                 "name": "previousOwner",
                 "type": "address"
             },
@@ -66,6 +127,74 @@
             }
         ],
         "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "oldPrice",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "newPrice",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "nftID",
+                "type": "uint256"
+            }
+        ],
+        "name": "PriceUpdate",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "nftID",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "string",
+                "name": "uri",
+                "type": "string"
+            }
+        ],
+        "name": "Purchase",
         "type": "event"
     },
     {
@@ -94,45 +223,13 @@
         "type": "event"
     },
     {
-        "anonymous": false,
-        "inputs": [
+        "inputs": [],
+        "name": "_contractOwner",
+        "outputs": [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "to",
+                "internalType": "address payable",
+                "name": "",
                 "type": "address"
-            },
-            {
-                "indexed": false,
-                "internalType": "uint256[]",
-                "name": "newIds",
-                "type": "uint256[]"
-            }
-        ],
-        "name": "mintedNFT",
-        "type": "event"
-    },
-    {
-        "inputs": [],
-        "name": "COOLDOWN_TIME",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "DENOMINATOR",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -157,7 +254,13 @@
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "name": "ayraPrice",
         "outputs": [
             {
@@ -170,47 +273,14 @@
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "name": "ayraPriceWithHasTag",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "balanceAYRA",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "balanceBNB",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "balanceITHD",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -242,6 +312,25 @@
     },
     {
         "inputs": [],
+        "name": "baseURI",
+        "outputs": [
+            {
+                "internalType": "string",
+                "name": "",
+                "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "name": "bnbPrice",
         "outputs": [
             {
@@ -254,7 +343,13 @@
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "name": "bnbPriceWithHasTag",
         "outputs": [
             {
@@ -267,36 +362,16 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "claim",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "dev1Address",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "dev1Percent",
-        "outputs": [
+        "inputs": [
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "_id",
                 "type": "uint256"
             }
         ],
-        "stateMutability": "view",
+        "name": "buy",
+        "outputs": [],
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -319,141 +394,22 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "getMarketplace",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
-            {
-                "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardAYRAAmount",
-        "outputs": [
             {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardBNBAmount",
+        "name": "hasTag",
         "outputs": [
             {
-                "internalType": "uint256",
+                "internalType": "string",
                 "name": "",
-                "type": "uint256"
+                "type": "string"
             }
         ],
         "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardITHDAmount",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_marketplaceAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_royaltyPercent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_ownerPercent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_dev1Percent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "_ithdAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_ayraAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_bnbAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_dev1Address",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_limitAmount",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_bnbPrice",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_ayraPrice",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_ithdPrice",
-                "type": "uint256"
-            }
-        ],
-        "name": "initialize",
-        "outputs": [],
-        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -481,39 +437,13 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "isInitialize",
-        "outputs": [
-            {
-                "internalType": "bool",
-                "name": "",
-                "type": "bool"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
-                "internalType": "address",
-                "name": "_potentialWinner",
-                "type": "address"
-            }
-        ],
-        "name": "isRewardClaimable",
-        "outputs": [
-            {
-                "internalType": "bool",
+                "internalType": "uint256",
                 "name": "",
-                "type": "bool"
+                "type": "uint256"
             }
         ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
         "name": "ithdPrice",
         "outputs": [
             {
@@ -526,7 +456,13 @@
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
         "name": "ithdPriceWithHasTag",
         "outputs": [
             {
@@ -539,21 +475,33 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "limitAmount",
-        "outputs": [
+        "inputs": [
             {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
             }
         ],
+        "name": "listedMap",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
         "stateMutability": "view",
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "marketplaceAddress",
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "mintToken",
         "outputs": [
             {
                 "internalType": "address",
@@ -567,38 +515,83 @@
     {
         "inputs": [
             {
+                "internalType": "string",
+                "name": "_tokenURI",
+                "type": "string"
+            },
+            {
+                "internalType": "address",
+                "name": "_toAddress",
+                "type": "address"
+            },
+            {
                 "internalType": "uint256",
-                "name": "_collectionId",
+                "name": "count",
                 "type": "uint256"
             },
             {
+                "internalType": "address",
+                "name": "_paytoken",
+                "type": "address"
+            },
+            {
                 "internalType": "string",
-                "name": "_image",
+                "name": "_hash",
                 "type": "string"
             },
+            {
+                "internalType": "bool",
+                "name": "_putOnSale",
+                "type": "bool"
+            }
+        ],
+        "name": "mintWithHas",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [
             {
                 "internalType": "string",
                 "name": "_tokenURI",
                 "type": "string"
             },
             {
+                "internalType": "address",
+                "name": "_toAddress",
+                "type": "address"
+            },
+            {
                 "internalType": "uint256",
-                "name": "_amount",
+                "name": "count",
                 "type": "uint256"
             },
             {
                 "internalType": "address",
-                "name": "_mintToken",
+                "name": "_paytoken",
                 "type": "address"
             },
             {
                 "internalType": "bool",
-                "name": "_hasTag",
+                "name": "_putOnSale",
                 "type": "bool"
             }
         ],
-        "name": "mint",
-        "outputs": [],
+        "name": "mintWithOutHas",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
         "stateMutability": "payable",
         "type": "function"
     },
@@ -610,45 +603,6 @@
                 "internalType": "string",
                 "name": "",
                 "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "nftItems",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "itemId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "uri",
-                "type": "string"
-            },
-            {
-                "internalType": "address",
-                "name": "mintToken",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "minter",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "mintPrice",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -687,8 +641,14 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "ownerPercent",
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "price",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -704,19 +664,6 @@
         "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "royaltyPercent",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -784,71 +731,6 @@
             }
         ],
         "name": "setApprovalForAll",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_dev1Address",
-                "type": "address"
-            }
-        ],
-        "name": "setDev1Address",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_dev1Percent",
-                "type": "uint256"
-            }
-        ],
-        "name": "setDev1Percent",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_marketplaceAddress",
-                "type": "address"
-            }
-        ],
-        "name": "setMarketplace",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_ownerPercent",
-                "type": "uint256"
-            }
-        ],
-        "name": "setOwnerPercent",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_royaltyPercent",
-                "type": "uint256"
-            }
-        ],
-        "name": "setRoyaltyPercent",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -948,25 +830,6 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_owner",
-                "type": "address"
-            }
-        ],
-        "name": "tokensOfOwner",
-        "outputs": [
-            {
-                "internalType": "uint256[]",
-                "name": "",
-                "type": "uint256[]"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [],
         "name": "totalSupply",
         "outputs": [
@@ -1019,12 +882,23 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_withdrawAmount",
+                "name": "_tokenId",
                 "type": "uint256"
+            },
+            {
+                "internalType": "bool",
+                "name": "shouldBeListed",
+                "type": "bool"
             }
         ],
-        "name": "withdrawAYRA",
-        "outputs": [],
+        "name": "updateListingStatus",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     },
@@ -1032,25 +906,23 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_withdrawAmount",
+                "name": "_tokenId",
                 "type": "uint256"
-            }
-        ],
-        "name": "withdrawBNB",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
+            },
             {
                 "internalType": "uint256",
-                "name": "_withdrawAmount",
+                "name": "_price",
                 "type": "uint256"
             }
         ],
-        "name": "withdrawITHD",
-        "outputs": [],
+        "name": "updatePrice",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
         "stateMutability": "nonpayable",
         "type": "function"
     }

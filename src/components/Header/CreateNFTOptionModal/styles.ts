@@ -5,7 +5,7 @@ export const Section = styled('div')((theme) => {
   return ({
   })
 })
-export const CreateNFTModal = styled('div')((theme) => {
+export const CreateNFTModal = styled('div')(({theme}: {theme:any}) => {
 
   const sm = useMediaQuery('(max-width:600px)');
   const md = useMediaQuery('(max-width:900px)');
@@ -69,14 +69,16 @@ export const CreateNFTModal = styled('div')((theme) => {
       border: '2px solid transparent',
       /* background-origin: border-box, */
       backgroundClip: 'padding-box, border-box',
-      ...(md && {
+      ...((md || sm)&& {
         height: '100vh'
       }),
       '& .modal-title': {
         fontSize: '1.7rem',
         fontWeight: 600,
         textAlign: 'center',
-        padding: '40px 50px'
+        padding: '40px 50px',
+        color: 'black',
+        fontFamily: 'upheaval'
       },
       '& .modal-content': {
         display: 'flex',

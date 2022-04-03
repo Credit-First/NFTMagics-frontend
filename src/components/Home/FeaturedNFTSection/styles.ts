@@ -18,7 +18,7 @@ export const LinkBar = styled('div')(({ theme }) => {
             WebkitClipPath: 'polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0% 25% )',
             clipPath: 'polygon( 50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0% 25% )',
             transition: 'all 1s',
-            background: `${theme.palette.background.default}`,
+            background: `${theme.palette.divider}`,
             '& .border': {
                 display: 'none',
                 position: 'absolute',
@@ -182,7 +182,7 @@ export const Section = styled('div')(({ theme }) => {
 
     return ({
         display: 'flex',
-        height: 600,
+        height: 800,
         ...((sm || md) && {
             height: '100%',
         }),

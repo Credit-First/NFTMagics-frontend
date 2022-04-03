@@ -1,7 +1,6 @@
 
 import React from "react";
 import Image from "next/image";
-const watermark = window !== undefined ? require('watermarkjs') : null;
 import {
     Box,
     Button,
@@ -30,11 +29,16 @@ import { useDispatch, useSelector } from "react-redux";
 import Config from '@/config/app';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
+import BigNumber from 'bignumber.js';
 
 import { actionGetCollectionList } from "@/store/actions/collection";
 import { selectCollectionList } from "@/store/selectors";
 
 const ipfs = ipfsHttpClient({ url: 'https://ipfs.infura.io:5001/api/v0' })
+
+const BIG_TEN = new BigNumber(10);
+
+const watermark = window !== undefined ? require('watermarkjs') : null;
 
 export default function CreateSelfNFT() {
     return (
@@ -285,13 +289,13 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
     const { active, account, library }: any = useWeb3React();
     const dispatch = useDispatch();
     const [loading, setLoading] = React.useState(false);
-    const [total_price, setTotalPrice] = React.useState(0);
+    const [total_price, setTotalPrice] = React.useState('0');
 
     const notify = React.useCallback((type, message) => {
         toast({ type, message });
     }, []);
     const tokenType = [
-        Config.Token.WBNB.address,
+        Config.Token.BNB.address,
         Config.Token.AYRA.address,
         Config.Token.ITHD.address,
     ];
@@ -300,7 +304,7 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
         name: '',
         description: '',
         image: ipfsImage,
-        amount: 0,
+        amount: 1,
         hastag_flag: !!hastag,
         hastag: hastag,
         gift_address: '',
@@ -359,14 +363,14 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
                 );
                 balance = await ContractITHD.methods.balanceOf(account).call();
             }
-            let totalPrice = total_price * 1e18;
+            let totalPrice = new BigNumber(total_price).multipliedBy(BIG_TEN.pow(18));
 
-            if (parseInt(balance, 10) < totalPrice) {
+            if (parseInt(balance, 10) < Number(totalPrice)) {
                 setLoading(false);
                 return notify('error', "Don't have enough token");
             }
             if (mintData.mint_token_type != 0) {
-                totalPrice = 0;
+                totalPrice = new BigNumber(0);
             }
 
             NFT.events.mintedNFT({
@@ -386,7 +390,7 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
                     mintTokenAddress,
                     mintData.hastag_flag
                 )
-                .send({ from: account, value: totalPrice })
+                .send({ from: account, value: totalPrice.toString() })
                 .on('receipt', function (receipt: any) {
                     const newIds = receipt.events.mintedNFT.returnValues.newIds;
                     setLoading(false);
@@ -449,18 +453,18 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
         const mint_token_type = mintData.mint_token_type;
         const amount = mintData.amount;
         const hastag_flag = mintData.hastag_flag;
-        let price = 0;
+        let price = new BigNumber(0);
 
-        if ((mint_token_type == 0) && hastag_flag) price = Config.bnbPriceWithHasTag[amount];
-        if ((mint_token_type == 0) && !hastag_flag) price = Config.bnbPrice[amount];
-        if ((mint_token_type == 1) && hastag_flag) price = Config.ayraPriceWithHasTag[amount];
-        if ((mint_token_type == 1) && !hastag_flag) price = Config.ayraPrice[amount];
-        if ((mint_token_type == 2) && hastag_flag) price = Config.ithdPriceWithHasTag[amount];
-        if ((mint_token_type == 2) && !hastag_flag) price = Config.ithdPrice[amount];
+        if ((mint_token_type == 0) && hastag_flag) price = new BigNumber(Config.bnbPrice).multipliedBy(2);
+        if ((mint_token_type == 0) && !hastag_flag) price = new BigNumber(Config.bnbPrice);
+        if ((mint_token_type == 1) && hastag_flag) price = new BigNumber(Config.ayraPrice).multipliedBy(2);
+        if ((mint_token_type == 1) && !hastag_flag) price = new BigNumber(Config.ayraPrice);
+        if ((mint_token_type == 2) && hastag_flag) price = new BigNumber(Config.ithdPrice).multipliedBy(2);
+        if ((mint_token_type == 2) && !hastag_flag) price = new BigNumber(Config.ithdPrice);
 
-        setTotalPrice(price / 1e18);
+        let totalPrice = new BigNumber(price).multipliedBy(amount).dividedBy(BIG_TEN.pow(18));
+        setTotalPrice(totalPrice.toString());
     }, [mintData]);
-
     React.useEffect(() => {
         approveTokenToNFT();
         dispatch(actionGetCollectionList({ account: account }));
@@ -586,10 +590,10 @@ const AmountDropDownMenu = ({ setMintData, mintData }: { setMintData: any, mintD
     const [text, setText] = React.useState('1 NFT');
 
     const list = [
-        { label: '1 NFT', value: 0 },
-        { label: '5 NFTs', value: 1 },
-        { label: '10 NFTs', value: 2 },
-        { label: '20 NFTs', value: 3 },
+        { label: '1 NFT', value: 1 },
+        { label: '5 NFTs', value: 5 },
+        { label: '10 NFTs', value: 10 },
+        { label: '20 NFTs', value: 20 },
     ]
 
     const handleClick = () => {

@@ -51,6 +51,12 @@
     },
     {
         "anonymous": false,
+        "inputs": [],
+        "name": "GetWinner",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
         "inputs": [
             {
                 "indexed": true,
@@ -66,6 +72,12 @@
             }
         ],
         "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [],
+        "name": "StartLottery",
         "type": "event"
     },
     {
@@ -97,24 +109,155 @@
         "anonymous": false,
         "inputs": [
             {
-                "indexed": true,
-                "internalType": "address",
-                "name": "to",
-                "type": "address"
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "lotteryId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "firstTicketId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "secondTicketId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "thirdTicketId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "startDate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "endDate",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalAmountBNB",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalAmountAYRA",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "totalAmountITHD",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "ticketAmount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "firstWinnerAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "secondWinnerAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "thirdWinnerAddress",
+                        "type": "address"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct Lottery.lottery",
+                "name": "lottery",
+                "type": "tuple"
+            }
+        ],
+        "name": "endedLottery",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "lotteryId",
+                "type": "uint256"
             },
             {
                 "indexed": false,
                 "internalType": "uint256[]",
-                "name": "newIds",
+                "name": "ticketIds",
                 "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "buyToken",
+                "type": "address"
             }
         ],
-        "name": "mintedNFT",
+        "name": "purchaseTicket",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "id",
+                "type": "uint256"
+            }
+        ],
+        "name": "startedLottery",
         "type": "event"
     },
     {
         "inputs": [],
-        "name": "COOLDOWN_TIME",
+        "name": "AYRA",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "BNB",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "DENOMINATOR",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -127,7 +270,90 @@
     },
     {
         "inputs": [],
-        "name": "DENOMINATOR",
+        "name": "ITHD",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "_lotteryIds",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "_ticketIds",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "amountAyraDueTo",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "amountBnbDueTo",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "name": "amountIthdDueTo",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -158,20 +384,7 @@
     },
     {
         "inputs": [],
-        "name": "ayraPrice",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "ayraPriceWithHasTag",
+        "name": "ayraTicketPrice",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -242,7 +455,7 @@
     },
     {
         "inputs": [],
-        "name": "bnbPrice",
+        "name": "bnbTicketPrice",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -254,16 +467,26 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "bnbPriceWithHasTag",
-        "outputs": [
+        "inputs": [
             {
                 "internalType": "uint256",
-                "name": "",
+                "name": "lotteryId",
                 "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "buyToken",
+                "type": "address"
             }
         ],
-        "stateMutability": "view",
+        "name": "buyTicket",
+        "outputs": [],
+        "stateMutability": "payable",
         "type": "function"
     },
     {
@@ -275,10 +498,84 @@
     },
     {
         "inputs": [],
-        "name": "dev1Address",
+        "name": "computeWinner",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "feePercent",
         "outputs": [
             {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            }
+        ],
+        "name": "fetchMyTicket",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "lotteryId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "ticketId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "buyToken",
+                        "type": "address"
+                    }
+                ],
+                "internalType": "struct Lottery.ticket[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "firstPercent",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "firstWinner",
+        "outputs": [
+            {
+                "internalType": "address payable",
                 "name": "",
                 "type": "address"
             }
@@ -288,7 +585,7 @@
     },
     {
         "inputs": [],
-        "name": "dev1Percent",
+        "name": "firstWinnerTicketId",
         "outputs": [
             {
                 "internalType": "uint256",
@@ -319,100 +616,10 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "getMarketplace",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardAYRAAmount",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardBNBAmount",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_addr",
-                "type": "address"
-            }
-        ],
-        "name": "getRewardITHDAmount",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_marketplaceAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_royaltyPercent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_ownerPercent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "uint256",
-                "name": "_dev1Percent",
-                "type": "uint256"
-            },
-            {
-                "internalType": "address",
-                "name": "_ithdAddress",
+                "name": "_bnbAddress",
                 "type": "address"
             },
             {
@@ -422,32 +629,42 @@
             },
             {
                 "internalType": "address",
-                "name": "_bnbAddress",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "_dev1Address",
+                "name": "_ithdAddress",
                 "type": "address"
             },
             {
                 "internalType": "uint256",
-                "name": "_limitAmount",
+                "name": "_bnbTicketPrice",
                 "type": "uint256"
             },
             {
                 "internalType": "uint256",
-                "name": "_bnbPrice",
+                "name": "_ayraTicketPrice",
                 "type": "uint256"
             },
             {
                 "internalType": "uint256",
-                "name": "_ayraPrice",
+                "name": "_ithdTicketPrice",
                 "type": "uint256"
             },
             {
                 "internalType": "uint256",
-                "name": "_ithdPrice",
+                "name": "_firstPercent",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_secondPercent",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_thirdPercent",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_feePercent",
                 "type": "uint256"
             }
         ],
@@ -470,6 +687,19 @@
             }
         ],
         "name": "isApprovedForAll",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "isInProgress",
         "outputs": [
             {
                 "internalType": "bool",
@@ -514,51 +744,12 @@
     },
     {
         "inputs": [],
-        "name": "ithdPrice",
+        "name": "ithdTicketPrice",
         "outputs": [
             {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "ithdPriceWithHasTag",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "limitAmount",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "marketplaceAddress",
-        "outputs": [
-            {
-                "internalType": "address",
-                "name": "",
-                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -568,38 +759,79 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_collectionId",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "lotteries",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "lotteryId",
                 "type": "uint256"
             },
             {
-                "internalType": "string",
-                "name": "_image",
-                "type": "string"
-            },
-            {
-                "internalType": "string",
-                "name": "_tokenURI",
-                "type": "string"
+                "internalType": "uint256",
+                "name": "firstTicketId",
+                "type": "uint256"
             },
             {
                 "internalType": "uint256",
-                "name": "_amount",
+                "name": "secondTicketId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "thirdTicketId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "startDate",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "endDate",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalAmountBNB",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalAmountAYRA",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "totalAmountITHD",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "ticketAmount",
                 "type": "uint256"
             },
             {
                 "internalType": "address",
-                "name": "_mintToken",
+                "name": "firstWinnerAddress",
                 "type": "address"
             },
             {
-                "internalType": "bool",
-                "name": "_hasTag",
-                "type": "bool"
+                "internalType": "address",
+                "name": "secondWinnerAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "thirdWinnerAddress",
+                "type": "address"
             }
         ],
-        "name": "mint",
-        "outputs": [],
-        "stateMutability": "payable",
+        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -610,45 +842,6 @@
                 "internalType": "string",
                 "name": "",
                 "type": "string"
-            }
-        ],
-        "stateMutability": "view",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "name": "nftItems",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "itemId",
-                "type": "uint256"
-            },
-            {
-                "internalType": "string",
-                "name": "uri",
-                "type": "string"
-            },
-            {
-                "internalType": "address",
-                "name": "mintToken",
-                "type": "address"
-            },
-            {
-                "internalType": "address",
-                "name": "minter",
-                "type": "address"
-            },
-            {
-                "internalType": "uint256",
-                "name": "mintPrice",
-                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -687,13 +880,19 @@
         "type": "function"
     },
     {
-        "inputs": [],
-        "name": "ownerPercent",
-        "outputs": [
+        "inputs": [
             {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
+            }
+        ],
+        "name": "players",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -704,19 +903,6 @@
         "name": "renounceOwnership",
         "outputs": [],
         "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [],
-        "name": "royaltyPercent",
-        "outputs": [
-            {
-                "internalType": "uint256",
-                "name": "",
-                "type": "uint256"
-            }
-        ],
-        "stateMutability": "view",
         "type": "function"
     },
     {
@@ -771,6 +957,71 @@
         "type": "function"
     },
     {
+        "inputs": [],
+        "name": "secondPercent",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "secondWinner",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "secondWinnerTicketId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_ayraAddress",
+                "type": "address"
+            }
+        ],
+        "name": "setAYRAAddress",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_ayraTicketPrice",
+                "type": "uint256"
+            }
+        ],
+        "name": "setAYRATicketPrice",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
         "inputs": [
             {
                 "internalType": "address",
@@ -792,11 +1043,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_dev1Address",
+                "name": "_bnbAddress",
                 "type": "address"
             }
         ],
-        "name": "setDev1Address",
+        "name": "setBNBAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -805,11 +1056,37 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_dev1Percent",
+                "name": "_bnbTicketPrice",
                 "type": "uint256"
             }
         ],
-        "name": "setDev1Percent",
+        "name": "setBNBTicketPrice",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_feePercent",
+                "type": "uint256"
+            }
+        ],
+        "name": "setFeePercent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_firstPercent",
+                "type": "uint256"
+            }
+        ],
+        "name": "setFirstPercent",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -818,11 +1095,11 @@
         "inputs": [
             {
                 "internalType": "address",
-                "name": "_marketplaceAddress",
+                "name": "_ithdAddress",
                 "type": "address"
             }
         ],
-        "name": "setMarketplace",
+        "name": "setITHDAddress",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -831,11 +1108,11 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_ownerPercent",
+                "name": "_ithdTicketPrice",
                 "type": "uint256"
             }
         ],
-        "name": "setOwnerPercent",
+        "name": "setITHDTicketPrice",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -844,11 +1121,31 @@
         "inputs": [
             {
                 "internalType": "uint256",
-                "name": "_royaltyPercent",
+                "name": "_secondPercent",
                 "type": "uint256"
             }
         ],
-        "name": "setRoyaltyPercent",
+        "name": "setSecondPercent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_thirdPercent",
+                "type": "uint256"
+            }
+        ],
+        "name": "setThirdPercent",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "startLottery",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
@@ -880,6 +1177,79 @@
                 "internalType": "string",
                 "name": "",
                 "type": "string"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "thirdPercent",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "thirdWinner",
+        "outputs": [
+            {
+                "internalType": "address payable",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "thirdWinnerTicketId",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "tickets",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "lotteryId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "ticketId",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "buyToken",
+                "type": "address"
             }
         ],
         "stateMutability": "view",
@@ -948,19 +1318,13 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "address",
-                "name": "_owner",
-                "type": "address"
-            }
-        ],
-        "name": "tokensOfOwner",
+        "inputs": [],
+        "name": "totalLottery",
         "outputs": [
             {
-                "internalType": "uint256[]",
+                "internalType": "uint256",
                 "name": "",
-                "type": "uint256[]"
+                "type": "uint256"
             }
         ],
         "stateMutability": "view",
@@ -1016,40 +1380,8 @@
         "type": "function"
     },
     {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_withdrawAmount",
-                "type": "uint256"
-            }
-        ],
-        "name": "withdrawAYRA",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_withdrawAmount",
-                "type": "uint256"
-            }
-        ],
-        "name": "withdrawBNB",
-        "outputs": [],
-        "stateMutability": "nonpayable",
-        "type": "function"
-    },
-    {
-        "inputs": [
-            {
-                "internalType": "uint256",
-                "name": "_withdrawAmount",
-                "type": "uint256"
-            }
-        ],
-        "name": "withdrawITHD",
+        "inputs": [],
+        "name": "withdraw",
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"

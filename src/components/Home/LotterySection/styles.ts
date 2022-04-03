@@ -1,12 +1,7 @@
 import { styled } from '@mui/material/styles';
 import Dialog from '@mui/material/Dialog';
-import useMediaQuery from '@mui/material/useMediaQuery';
 
-export const Modal = styled(Dialog)(({ theme }: { theme: any }) => {
-
-    const sm = useMediaQuery('(max-width:600px)');
-    const md = useMediaQuery('(max-width:900px)');
-
+export const BuyModal = styled(Dialog)(({ theme, loading }: { theme?: any, loading?: any }) => {
     return ({
         '& .MuiBackdrop-root': {
             background: '#ffffff59'
@@ -15,88 +10,202 @@ export const Modal = styled(Dialog)(({ theme }: { theme: any }) => {
             background: 'none',
             boxShadow: 'none'
         },
-        // backgroundImage: 'linear-gradient(rgb(255 255 255 / 9%), rgb(137 137 137 / 99%))',
-        '& .modal-title': {
-            textAlign: 'center',
-            display: 'flex',
-            alignItem: 'center',
-            justifyContent: 'space-between',
-            padding: 10,
-            '& .title': {
-                padding: 10,
-                fontFamily: 'upheaval',
-            }
-        },
         '& .modal-body': {
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            color: 'white',
-            '& .left-arrow': {
-                cursor: 'pointer',
-                margin: 30,
-                borderRadius: '50%',
-                padding: 15,
-                minWidth: 50,
-                color: `${theme.palette.text.primary}`,
-                backgroundColor: `${theme.palette.background.default}`,
-                '&:hover': {
-                    boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`
-                }
-            },
-            '& .ticket-body': {
-                margin: 20,
-                position: 'relative',
-                boxShadow: '0px 0px 10px 5px grey',
-                '& .ticket': {
-                    width: 200,
-                    height: 500,
-                    position: 'relative',
-                },
-                '& .ticket-number': {
-                    position: 'absolute',
-                    display: 'flex',
+            minWidth: 280,
+            maxWidth: 320,
+            overflow: 'hidden',
+            background: 'rgb(39, 38, 44)',
+            boxShadow: 'rgb(14 14 44 / 10%) 0px 20px 36px -8px, rgb(0 0 0 / 5%) 0px 1px 1px',
+            border: '1px solid rgb(56, 50, 65)',
+            borderRadius: 32,
+            width: '100%',
+            maxHeight: '100vh',
+            zIndex: 100,
+            '& .modal-title': {
+                alignItems: 'center',
+                background: 'linear-gradient(166.77deg, rgb(59, 65, 85) 0%, rgb(58, 48, 69) 100%)',
+                borderBottom: '1px solid rgb(56, 50, 65)',
+                display: 'flex',
+                padding: '12px 24px',
+                '& .title': {
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    top: 50,
-                    padding: 5,
-                    width: '100%',
-                    fontSize: 25,
-                    fontWeight: 700,
-                    '& .number': {
-                        marginRight: 5
-                    },
+                    flex: '1 1 0%',
+                    display: 'flex',
+                    '& h2': {
+                        fontSize: 20,
+                        fontWeight: 600,
+                        lineHeight: 1.1,
+                        color: 'rgb(244, 238, 255)',
+                    }
                 },
                 '& button': {
-                    display: 'flex',
                     alignItems: 'center',
+                    border: 0,
+                    borderRadius: 16,
+                    cursor: 'pointer',
+                    display: 'inline-flex',
+                    fontSize: 16,
+                    fontWeight: 600,
                     justifyContent: 'center',
-                    width: '100%',
-                    padding: 10,
-                    border: '1px dotted white',
-                    background: '#e93c84',
-                    color: 'white',
-                    fontSize: 25,
-                    '&:hover': {
-                        fontWeight: 700,
-                        transition: 'all 0.3s',
-                    }
+                    letterSpacing: '0.03em',
+                    lineHeight: 1,
+                    opacity: 1,
+                    outline: 0,
+                    transition: 'background-color 0.2s ease 0s, opacity 0.2s ease 0s',
+                    height: 48,
+                    padding: '0px 10px',
+                    backgroundColor: 'transparent',
+                    color: 'rgb(31, 199, 212)',
+                    boxShadow: 'none',
                 }
             },
-            '& .right-arrow': {
-                cursor: 'pointer',
-                margin: 30,
-                borderRadius: '50%',
-                padding: 15,
-                minWidth: 50,
-                color: `${theme.palette.text.primary}`,
-                backgroundColor: `${theme.palette.background.default}`,
-                '&:hover': {
-                    boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`
+            '& .modal-content': {
+                flexDirection: 'column',
+                maxHeight: '90vh',
+                overflowY: 'auto',
+                display: 'flex',
+                padding: 24,
+                '& .content-title': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    marginBottom: 8,
+                    '& .textSubtle': {
+                        color: 'rgb(184, 173, 210)',
+                        fontSize: 16,
+                        fontWeight: 400,
+                        lineHeight: 1.5,
+                    },
+                    '& .ticket': {
+                        display: 'flex',
+                        alignItems: 'center',
+                        minWidth: 70,
+                        '& .text': {
+                            color: 'rgb(244, 238, 255)',
+                            fontSize: 16,
+                            fontWeight: 600,
+                            lineHeight: 1.5,
+                            marginRight: 4,
+                        },
+                        '& svg': {
+                            alignSelf: 'center',
+                            fill: 'rgb(244, 238, 255)',
+                            flexShrink: 0,
+                        }
+                    }
+                },
+                '& .content-input': {
+                    backgroundColor: 'rgb(55, 47, 71)',
+                    border: '1px solid rgb(38, 33, 48)',
+                    borderRadius: 16,
+                    boxShadow: 'rgb(74 74 104 / 10%) 0px 2px 2px -1px inset',
+                    padding: '8px 16px',
+                    '& .input-wraper': {
+                        display: 'flex',
+                        justifyContent: 'flex-end',
+                        alignItems: 'center',
+                        '& .input-number': {
+                            display: 'flex',
+                            alignItems: 'center',
+                            '&  input': {
+                                background: 'transparent',
+                                borderRadius: 0,
+                                boxShadow: 'none',
+                                paddingLeft: 0,
+                                paddingRight: 0,
+                                textAlign: 'right',
+                                border: 'none',
+                                backgroundColor: 'rgb(55, 47, 71)',
+                                color: 'rgb(244, 238, 255)',
+                                display: 'block',
+                                fontSize: 16,
+                                height: 40,
+                                outline: 0,
+                                padding: '0px 16px',
+                                width: '100%',
+                                '&:-webkit-inner-spin-button': {
+                                    WebkitAppearance: 'none',
+                                    margin: 0
+                                }
+                            }
+                        },
+                        '& .textSubtle': {
+                            color: 'rgb(184, 173, 210)',
+                            fontWeight: 400,
+                            lineHeight: 1.5,
+                            fontSize: 12,
+                            textAlign: 'right',
+                        }
+                    }
+                },
+                '& .divider': {
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-end',
+                    marginTop: 4,
+                    marginBottom: 12,
+                },
+                '& .content-detail': {
+                    display: 'flex',
+                    flexDirection: 'column',
+                    '& .pay': {
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        paddingTop: 8,
+                        marginBottom: 24,
+                        '& .textSubtle': {
+                            color: 'rgb(184, 173, 210)',
+                            fontSize: 16,
+                            fontWeight: 400,
+                            lineHeight: 1.5,
+                        },
+                        '& .price': {
+                            '& .text': {
+                                color: 'rgb(184, 173, 210)',
+                                fontSize: 16,
+                                fontWeight: 400,
+                                lineHeight: 1.5,
+                            }
+                        }
+                    },
+                    '& .buy-button': {
+                        alignItems: 'center',
+                        border: 0,
+                        borderRadius: 16,
+                        boxShadow: 'rgb(14 14 44 / 40%) 0px -1px 0px 0px inset',
+                        cursor: 'pointer',
+                        display: 'inline-flex',
+                        fontSize: 16,
+                        fontWeight: 600,
+                        justifyContent: 'center',
+                        letterSpacing: '0.03em',
+                        lineHeight: 1,
+                        opacity: 1,
+                        outline: 0,
+                        transition: 'background-color 0.2s ease 0s, opacity 0.2s ease 0s',
+                        height: 48,
+                        padding: '0px 24px',
+                        backgroundColor: 'rgb(31, 199, 212)',
+                        color: 'white',
+                        ...(loading && {
+                            opacity: 0.5
+                        })
+                    },
+                    '& .loading': {
+                        position: 'absolute',
+                        top: 'calc(50% - 5px)',
+                        left: 'calc(50% - 5px)'
+                    },
+                    '& .description': {
+                        color: 'rgb(184, 173, 210)',
+                        fontWeight: 400,
+                        lineHeight: 1.5,
+                        marginTop: 24,
+                        fontSize: 12,
+                    }
                 }
             }
-        },
-        '& .modal-actions': {
         }
     })
 })
@@ -207,7 +316,7 @@ export const HeaderSection = styled('section')(({ theme }: { theme: any }) => {
     })
 })
 
-export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
+export const TicketSection = styled('section')(({ theme, loading }: { theme?: any, loading?: any }) => {
     return ({
         marginTop: '-30px',
         '& .shape-content': {
@@ -253,7 +362,7 @@ export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
                 alignItems: 'flex-end',
                 justifyContent: 'center',
                 marginBottom: 8,
-                '& .time': {
+                '& .count-time': {
                     backgroundImage: 'linear-gradient(rgb(255, 216, 0) 0%, rgb(253, 171, 50) 100%)',
                     WebkitBackgroundClip: 'text',
                     WebkitTextFillColor: 'transparent',
@@ -302,7 +411,14 @@ export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
                     },
                     '& .right-date': {
                         fontFamily: 'Kanit',
-                        fontSize: 20
+                        fontWeight: 400,
+                        fontSize: 15,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        '& .date-time': {
+                            marginLeft: 10
+                        }
                     }
                 },
                 '& .dialog-content': {
@@ -316,18 +432,40 @@ export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
                             display: 'grid',
                             '& .prize-title': {
                                 fontSize: 20,
-                                fontWeight: 700
+                                fontWeight: 700,
                             },
                             '& .prize-pot': {
                                 fontSize: 40,
                                 fontWeight: 700,
                                 lineHeight: 1,
                                 color: 'rgb(154, 106, 255)',
+                                marginBottom: 10,
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'flex-end',
+                                '& .token-name': {
+                                    marginLeft: 10,
+                                    fontSize: 20,
+                                    fontWeight: 500
+                                }
+                            },
+                            '& .prize-empty': {
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
                                 marginBottom: 10
                             },
                             '& .ticket-title': {
                                 fontSize: 20,
                                 fontWeight: 700
+                            },
+                            '& .ticket-amount': {
+                                display: 'flex',
+                                alignItems: 'center',
+                                '& .ticket-count': {
+                                    marginLeft: 5,
+                                    marginRight: 5,
+                                }
                             }
                         },
                     },
@@ -336,6 +474,7 @@ export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
                         alignItems: 'center',
                         justifyContent: 'center',
                         padding: 20,
+                        position: 'relative',
                         '& button': {
                             alignItems: 'center',
                             border: 0,
@@ -357,13 +496,49 @@ export const TicketSection = styled('section')(({ theme }: { theme: any }) => {
                             backgroundColor: 'rgb(31, 199, 212)',
                             color: 'white',
                             maxWidth: 280,
+                            ...(loading && {
+                                opacity: 0.5
+                            })
+                        },
+                        '& .loading': {
+                            position: 'absolute',
+                            top: 'calc(50% - 5px)',
+                            left: 'calc(50% - 5px)'
                         }
                     }
                 },
                 '& .dialog-footer': {
                     '& .dialog-detail': {
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        flexDirection: 'column',
                         background: 'rgb(8, 6, 11)',
                         padding: 24,
+                        '& .detail-list': {
+                            marginTop: 20,
+                            '& .detail-item': {
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'flex-start',
+                                '& .ticket-number': {
+                                    width: 100,
+                                    textAlign: 'center'
+                                },
+                                '& .ticket-id': {
+                                    width: 300,
+                                    textAlign: 'center'
+                                },
+                                '& .buy-token': {
+                                    width: 200,
+                                    textAlign: 'center'
+                                },
+                                '& .winning': {
+                                    width: 200,
+                                    textAlign: 'center'
+                                }
+                            }
+                        }
                     },
                     '& .dialog-action': {
                         display: 'flex',
@@ -430,6 +605,7 @@ export const CheckSection = styled('section')(({ theme }: { theme: any }) => {
             '& .check-body': {
                 padding: 20,
                 '& .check-title': {
+                    textAlign: 'center',
                     color: 'white',
                     fontWeight: 700,
                     marginBottom: 30
@@ -516,15 +692,16 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                     height: 32,
                     padding: '0px 16px',
                 },
-                '& .all-history': {
-                    backgroundColor: 'rgb(184, 173, 210)',
-                    color: 'rgb(39, 38, 44)',
+                '& .history': {
+                    color: 'rgb(184, 173, 210)',
+                    '&.active': {
+                        backgroundColor: 'rgb(184, 173, 210)',
+                        color: 'rgb(39, 38, 44)',
+                    }
                 },
-                '& .your-history': {
-                    color: 'rgb(184, 173, 210)'
-                }
             },
-            '& .round-dialog': {
+            '& .round-dialog-all': {
+                display: 'none',
                 width: 756,
                 background: 'rgb(39, 38, 44)',
                 borderRadius: 24,
@@ -532,6 +709,9 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                 overflow: 'hidden',
                 position: 'relative',
                 padding: '1px 1px 3px',
+                '&.active': {
+                    display: 'block'
+                },
                 '& .round-dialog-title': {
                     fontSize: 20,
                     borderBottom: '1px solid rgb(56, 50, 65)',
@@ -552,6 +732,7 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                                 height: '100%',
                                 marginLeft: 10,
                                 padding: '4px 16px',
+                                textAlign: 'center',
                                 backgroundColor: 'rgb(55, 47, 71)',
                                 borderRadius: 16,
                                 boxShadow: 'rgb(74 74 104 / 10%) 0px 2px 2px -1px inset',
@@ -561,6 +742,25 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                                 outline: 0,
                                 border: '1px solid rgb(38, 33, 48)',
                             }
+                        },
+                        '& .navigator': {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            '& .prev-button': {
+                                border: '1px solid transparent',
+                                '&:hover': {
+                                    cursor: 'pointer',
+                                    border: '1px solid rgb(56, 50, 65)',
+                                },
+                            },
+                            '& .next-button': {
+                                border: '1px solid transparent',
+                                '&:hover': {
+                                    cursor: 'pointer',
+                                    border: '1px solid rgb(56, 50, 65)',
+                                },
+                            }
                         }
                     },
                     '& .round-date': {
@@ -569,6 +769,7 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                 },
                 '& .round-body': {
                     display: 'flex',
+                    flexDirection: 'column',
                     justifyContent: 'space-between',
                     padding: 20,
                     position: 'relative',
@@ -607,45 +808,134 @@ export const FinishedRoundSection = styled('section')(({ theme }: { theme: any }
                             width: '100%',
                         }
                     },
-                    '& .body-number': {
+                    '& .level': {
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: 10,
+                        '& .ticket-id': {
+                            fontSize: 30
+                        },
+                        '& .ticket-number': {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginRight: 50,
+                            '& .number-item': {
+                                width: 70,
+                                height: 70,
+                                position: 'relative',
+                                padding: '0px 2px',
+                                '& .number-bg': {
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    position: 'absolute',
+                                    '& .number-left': {
+                                        fontWeight: 700,
+                                        lineHeight: 1.5,
+                                        fontSize: 42,
+                                        color: 'rgb(0, 0, 0)',
+                                        textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
+                                        transform: 'rotate(-13deg)',
+                                    },
+                                    '& .number-right': {
+                                        fontWeight: 700,
+                                        lineHeight: 1.5,
+                                        fontSize: 42,
+                                        color: 'rgb(0, 0, 0)',
+                                        textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
+                                        transform: 'rotate(13deg)',
+                                    },
+                                    '& .number': {
+                                        fontWeight: 700,
+                                        lineHeight: 1.5,
+                                        fontSize: 42,
+                                        color: 'rgb(0, 0, 0)',
+                                        textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
+                                        transform: 'rotate(0deg)',
+                                    },
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            '& .round-dialog-yours': {
+                display: 'none',
+                width: 756,
+                background: 'rgb(39, 38, 44)',
+                borderRadius: 24,
+                color: 'rgb(244, 238, 255)',
+                overflow: 'hidden',
+                position: 'relative',
+                padding: '1px 1px 3px',
+                '&.active': {
+                    display: 'block'
+                },
+                '& .round-dialog-title': {
+                    fontSize: 20,
+                    borderBottom: '1px solid rgb(56, 50, 65)',
+                    background: 'rgb(39, 38, 44)',
+                    borderRadius: '24px 24px 0px 0px',
+                    padding: 24,
+                    '& .round-count-detail': {
+                        zIndex: 2,
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center',
-                        marginRight: 50,
-                        '& .number-item': {
-                            width: 70,
-                            height: 70,
-                            position: 'relative',
-                            padding: '0px 2px',
-                            '& .number-bg': {
-                                top: '50%',
-                                left: '50%',
-                                transform: 'translate(-50%, -50%)',
-                                position: 'absolute',
-                                '& .number-left': {
-                                    fontWeight: 700,
-                                    lineHeight: 1.5,
-                                    fontSize: 42,
-                                    color: 'rgb(0, 0, 0)',
-                                    textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
-                                    transform: 'rotate(-13deg)',
-                                },
-                                '& .number-right': {
-                                    fontWeight: 700,
-                                    lineHeight: 1.5,
-                                    fontSize: 42,
-                                    color: 'rgb(0, 0, 0)',
-                                    textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
-                                    transform: 'rotate(13deg)',
-                                },
-                                '& .number': {
-                                    fontWeight: 700,
-                                    lineHeight: 1.5,
-                                    fontSize: 42,
-                                    color: 'rgb(0, 0, 0)',
-                                    textShadow: 'white -0.75px -0.75px 0px, white 0.75px -0.75px 0px, white -0.75px 0.75px 0px, white 0.75px 0.75px 0px',
-                                    transform: 'rotate(0deg)',
-                                },
+                        justifyContent: 'space-between',
+                        '& .count-detail': {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            '& .round-count': {
+                                width: 60,
+                                height: '100%',
+                                marginLeft: 10,
+                                padding: '4px 16px',
+                                backgroundColor: 'rgb(55, 47, 71)',
+                                borderRadius: 16,
+                                boxShadow: 'rgb(74 74 104 / 10%) 0px 2px 2px -1px inset',
+                                color: 'rgb(244, 238, 255)',
+                                display: 'block',
+                                fontSize: 16,
+                                outline: 0,
+                                border: '1px solid rgb(38, 33, 48)',
+                            }
+                        }
+                    },
+                    '& .round-date': {
+                        fontSize: 12
+                    }
+                },
+                '& .round-body': {
+                    '& .detail-list': {
+                        marginTop: 20,
+                        padding: 20,
+                        '& .detail-item': {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
+                            paddingBottom: 5,
+                            '& .ticket-number': {
+                                width: 100,
+                                textAlign: 'center'
+                            },
+                            '& .lottery-id': {
+                                width: 300,
+                                textAlign: 'center'
+                            },
+                            '& .ticket-id': {
+                                width: 300,
+                                textAlign: 'center'
+                            },
+                            '& .buy-token': {
+                                width: 200,
+                                textAlign: 'center'
+                            },
+                            '& .winning': {
+                                width: 200,
+                                textAlign: 'center'
                             }
                         }
                     }
@@ -709,7 +999,7 @@ export const HowPlaySection = styled('section')(({ theme }: { theme: any }) => {
                     borderRadius: 24,
                     '& .pannel-content': {
                         width: '100%',
-                        padding: 24,
+                        padding: 25,
                         background: 'rgb(39, 38, 44)',
                         borderRadius: 24,
                         '& .pannel-content-step': {
@@ -741,47 +1031,112 @@ export const HowPlaySection = styled('section')(({ theme }: { theme: any }) => {
     })
 })
 
-export const Input = styled('div')(({ theme, disabled }: { theme?: any, disabled?: boolean }) => {
-    return ({
-        borderRadius: 10,
-        border: `1px solid ${theme.palette.divider}`,
+export const DropdownMenu = styled('div')(({ theme, open, width, disabled }: { theme?: any, open: any, width?: any, disabled?: any }) => ({
+    width: 70,
+    ...(width && {
+        width: width
+    }),
+    // overflowY: 'auto',
+    ...(open && {
+        zIndex: 10,
+    }),
+    ...(disabled && {
+        opacity: 0.5,
+    }),
+    '& .dropdownBtn': {
         display: 'flex',
+        justifyContent: 'space-between',
+        cursor: 'pointer',
         position: 'relative',
-        outline: 'none',
-        backgroundColor: 'white',
-        color: 'grey',
-        '&:focus-within': {
-            borderColor: 'transparent',
-            boxShadow: '0px 0px 7px 1px rgb(0 0 0 / 20%)',
-            ...(disabled && {
-                borderColor: `${theme.palette.divider}`,
-                boxShadow: 'none'
+        padding: 12,
+        width: '100%',
+        color: 'rgb(244, 238, 255)',
+        ...(open && {
+            borderBottomRightRadius: 0,
+            borderBottomLeftRadius: 0,
+        }),
+    },
+    '& .subMenuContent': {
+        width: 'inherit',
+        position: 'relative',
+        '& .back': {
+            display: 'none',
+            position: 'fixed',
+            top: 0,
+            right: 0,
+            left: 0,
+            bottom: 0,
+            ...(open && {
+                display: 'block',
+                zIndex: 10
             }),
         },
-        ...(disabled && {
-            opacity: 0.5,
-            color: `${theme.palette.divider}`,
-            boxShadow: 'none'
-        }),
-        '& .input-prefix': {
-            alignItems: 'center',
-            backgroundColor: 'transparent',
-            display: 'flex',
-            paddingLeft: 12,
-        },
-        '& input': {
-            backgroundColor: 'transparent',
-            border: 'none',
-            flex: '1 0 0%',
-            height: 48,
-            outline: 'none',
-            padding: '0px 12px 0px 0px',
-            minWidth: 0,
+        '& .submenu': {
+            position: 'absolute',
+            zIndex: 9,
             width: '100%',
-            '&:focus': {
-                border: 'none',
-                boxShadow: 'none'
+            display: 'none',
+            overflowY: 'auto',
+            backgroundImage: 'linear-gradient(166.77deg, rgb(59, 65, 85) 0%, rgb(58, 48, 69) 100%)',
+            borderRadius: 10,
+            transition: 'all 0.3s ease 0s',
+            boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`,
+            ...(open && {
+                transition: 'all 0.3s ease 0s',
+                display: 'block',
+                zIndex: 11,
+                borderTopRightRadius: 0,
+                borderTopLeftRadius: 0,
+            }),
+            '& ul': {
+                margin: 0,
+                padding: 0,
+                borderRadius: 10,
+                '& li': {
+                    cursor: 'pointer',
+                    borderBottom: `1px solid ${theme.palette.divider}`,
+                    '& a': {
+                        padding: 10,
+                        display: 'flex',
+                        justifyContent: 'flex-start',
+                        alignItems: 'center',
+                        textDecoration: 'none',
+                        color: 'rgb(244, 238, 255)',
+                        minHeight: 45,
+                        '& .icon': {
+                            width: 20,
+                            height: 20,
+                            marginRight: 10
+                        },
+                        '& svg': {
+                            marginRight: 10
+                        },
+                        '& .collection-logo': {
+                            position: 'relative',
+                            width: 50,
+                            height: 50,
+                            border: `2px solid white`,
+                            borderRadius: '50%',
+                            boxShadow: `grey 0px 0px 5px 0px`,
+                            marginRight: 10,
+                            '& img': {
+                                borderRadius: '50%',
+                                width: '100%',
+                                height: '100%'
+                            }
+                        }
+                    },
+                    '&:hover a': {
+                        transition: 'all 0.3s ease 0s',
+                        boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`,
+                    },
+                },
+                '& li:last-of-type': {
+                    border: 'none',
+                    borderBottomRightRadius: 10,
+                    borderBottomLeftRadius: 10,
+                },
             }
         }
-    })
-});
+    }
+}))

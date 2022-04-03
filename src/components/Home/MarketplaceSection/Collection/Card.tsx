@@ -11,6 +11,9 @@ import { LoadingComponent } from '@/components/Loading';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en);
 
 const IMG_HEIGHT = 300;
 
@@ -109,7 +112,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
             },
             '& .card-image-text-area': {
                 display: 'flex',
-                flexDirection: 'column', 
+                flexDirection: 'column',
                 '& .header': {
                     display: 'flex',
                     justifyContent: 'center',
@@ -232,6 +235,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
 })
 
 const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width: any, height: any }) => {
+    const timeAgo = new TimeAgo('en-US');
     const { account, library }: any = useWeb3React();
     const router = useRouter();
 
@@ -256,9 +260,17 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
     }
 
     const image = item?.image;
+    const price = fromWei(web3, item.price);
     let token_img = '/svg/bnb.svg';
     let token_name = 'BNB';
-    const price = fromWei(web3, item.price)
+
+    let pastTime;
+
+    if(item.createDate) pastTime = timeAgo.format(new Date(item.createDate));
+    else pastTime = timeAgo.format(new Date(item.createdAt));
+    
+    let re = /ute|ond/gi;
+    pastTime = pastTime.toString().replace(re, ""); 
 
     if (item?.saleToken == 1) {
         token_img = '/images/token/ayra.png';
@@ -293,7 +305,7 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                                         )}
                                     </div>
                                     <div className='hastag'>
-                                            hastag
+                                        hastag
                                     </div>
                                 </div>
                                 <footer className='card-image-text-area'>
@@ -310,10 +322,12 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                                                 <>
                                                     <div>Price</div>
                                                     <div className='amount'>
-                                                        <img className='img' src={token_img} />
+                                                        {price > 0 && (
+                                                            <img className='img' src={token_img} />
+                                                        )}
                                                         {price > 0 ? price : '---'}
                                                     </div>
-                                                    <div>7 days ago</div>
+                                                    <div>{pastTime}</div>
                                                 </>
                                             ) : (
                                                 <>
@@ -336,7 +350,7 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                                             </div>
                                         </div>
                                         <div className='like'>
-                                            <FavoriteBorderIcon className='like-img'/>
+                                            <FavoriteBorderIcon className='like-img' />
                                             <span>10</span>
                                         </div>
                                     </div>

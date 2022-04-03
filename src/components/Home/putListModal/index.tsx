@@ -18,13 +18,13 @@ import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
 import { actionGetMarketItem } from '@/store/actions';
 const tokenImg = {
-    [Config.Token.WBNB.address]: '/images/token/bnb.png',
+    [Config.Token.BNB.address]: '/images/token/bnb.png',
     [Config.Token.AYRA.address]: '/images/token/ayra.png',
     [Config.Token.ITHD.address]: '/images/token/ithd.png'
 }
 
 const tokenName = {
-    [Config.Token.WBNB.address]: 'BNB',
+    [Config.Token.BNB.address]: 'BNB',
     [Config.Token.AYRA.address]: 'AYRA',
     [Config.Token.ITHD.address]: 'ITHD'
 }
@@ -94,7 +94,6 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
                                 handleLoading('sale', false);
                                 handleLoading('gift', false);
                                 setModal(false);
-                                dispatch(actionGetMarketItem({ itemId: item.itemId }));
                             })
                             .then((_tx: any) => {
                                 notify('success', 'You have put the NFT on Marketplace');
@@ -108,6 +107,7 @@ export default function PutListModal({ modal, setModal, item, handleLoading }: {
                         handleLoading('gift', false);
                         setModal(false);
                     }
+                    dispatch(actionGetMarketItem({ itemId: item.itemId }));
                 });
         } catch (err:any) {
             if(err.code == 4001) notify('error', err.message);

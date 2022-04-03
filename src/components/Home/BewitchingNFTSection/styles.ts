@@ -4,7 +4,7 @@ export const Section = styled('section')(({ theme }: { theme: any }) => {
     return ({
         marginRight: '10%',
         marginLeft: '10%',
-        marginTop: '10%',
+        marginTop: '5%',
         marginBottom: '5%',
         textAlign: 'center',
         [theme.breakpoints.down('sm')]: {

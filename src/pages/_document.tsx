@@ -18,10 +18,10 @@ class MyDocument extends Document {
     return (
       <Html lang={AppConfig.locale} translate="no">
         <Head>
-          <script
+          {/* <script
             async
             src="https://www.googletagmanager.com/gtag/js?id=G-WSWRTVLRTD"
-          ></script>
+          ></script> */}
           <script
             dangerouslySetInnerHTML={{
               __html: `

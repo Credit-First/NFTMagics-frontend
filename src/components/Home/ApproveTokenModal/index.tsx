@@ -15,7 +15,7 @@ import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
 
 const tokenImg = {
-    [Config.Token.WBNB.address]: '/images/token/bnb.png',
+    [Config.Token.BNB.address]: '/images/token/bnb.png',
     [Config.Token.AYRA.address]: '/images/token/ayra.png',
     [Config.Token.ITHD.address]: '/images/token/ithd.png'
 }
@@ -49,7 +49,7 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
 
         const contract = new web3.eth.Contract(token_abi, token_address);
         await contract.methods
-            .approve(Config.Market.address, '100000000000000000000000000')
+            .approve(onAddress, '100000000000000000000000000')
             .send({ from: account })
             .once('transactionHash', () => {
                 notify('info', 'Approving purchase with Token');

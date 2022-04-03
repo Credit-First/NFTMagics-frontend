@@ -142,8 +142,8 @@ export default function CreateCollection() {
                         .send({ from: account })
                         .on('receipt', function (receipt: any) {
                             setLoading(false);
-                            router.push('/marketplace/collections');
                             dispatch(actionGetCollectionList({}));
+                            router.push('/marketplace/collections');
                         })
                         .then((_tx: any) => {
                             notify('success', 'You have updated the collection');
@@ -160,8 +160,8 @@ export default function CreateCollection() {
                         .send({ from: account })
                         .on('receipt', function (receipt: any) {
                             setLoading(false);
-                            router.push('/marketplace/collections');
                             dispatch(actionGetCollectionList({}));
+                            router.push('/marketplace/collections');
                         })
                         .then((_tx: any) => {
                             notify('success', 'You have created the collection');
@@ -195,7 +195,19 @@ export default function CreateCollection() {
     }, [collectionItem])
 
     React.useEffect(() => {
-        collectionId && dispatch(actionGetCollectionItem({ collectionId }));
+        if(collectionId) dispatch(actionGetCollectionItem({ collectionId }));
+        else {
+            setImagePreview({
+                banner: null,
+                logo: null,
+                featured: null
+            });
+            setImage({
+                banner: null,
+                logo: null,
+                featured: null,
+            })
+        }
     }, [collectionId]);
 
     React.useEffect(() => {
@@ -323,7 +335,7 @@ export default function CreateCollection() {
                     <div className='collection-action'>
                         <Button className="button button-regular" onClick={handleUpdateAction} disabled={loading}>
                             {inputData.itemId ? 'Update' : 'Create'}
-                            <span>Collection</span>
+                            <span style={{marginLeft: 5}}>Collection</span>
                         </Button>
                         {loading && (
                             <CircularProgress className='loading' size={24} />

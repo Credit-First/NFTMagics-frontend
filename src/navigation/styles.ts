@@ -61,7 +61,10 @@ export const Header = styled('div')((theme) => {
         '& .menu-search': {
           display: 'flex',
           justifyContent: 'flex-start',
-          alignItems: 'center'
+          alignItems: 'center',
+          ...(md && {
+            display: 'none'
+          }),
         },
         '& .menu-group': {
           display: 'flex',

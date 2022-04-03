@@ -1,14 +1,22 @@
 [
     {
+        "anonymous": false,
         "inputs": [
             {
-                "internalType": "contract NFTMagics",
-                "name": "nftCtxAddress",
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
                 "type": "address"
             }
         ],
-        "stateMutability": "nonpayable",
-        "type": "constructor"
+        "name": "OwnershipTransferred",
+        "type": "event"
     },
     {
         "anonymous": false,
@@ -17,6 +25,30 @@
                 "indexed": false,
                 "internalType": "uint256",
                 "name": "id",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "seller",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "price",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "token",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "date",
                 "type": "uint256"
             }
         ],
@@ -81,6 +113,18 @@
                 "internalType": "uint256",
                 "name": "collectionId",
                 "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "minter",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "date",
+                "type": "uint256"
             }
         ],
         "name": "marketItemCreated",
@@ -115,9 +159,21 @@
             },
             {
                 "indexed": false,
+                "internalType": "address",
+                "name": "token",
+                "type": "address"
+            },
+            {
+                "indexed": false,
                 "internalType": "string",
                 "name": "tokenURI",
                 "type": "string"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "date",
+                "type": "uint256"
             }
         ],
         "name": "purchase",
@@ -184,6 +240,12 @@
             {
                 "indexed": false,
                 "internalType": "address",
+                "name": "owner",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
                 "name": "saleToken",
                 "type": "address"
             },
@@ -198,10 +260,42 @@
                 "internalType": "uint256",
                 "name": "royalty",
                 "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "date",
+                "type": "uint256"
             }
         ],
         "name": "updatedMarketItem",
         "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "AYRA",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "BNB",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
     },
     {
         "inputs": [],
@@ -218,10 +312,10 @@
     },
     {
         "inputs": [],
-        "name": "_contractOwner",
+        "name": "ITHD",
         "outputs": [
             {
-                "internalType": "address payable",
+                "internalType": "address",
                 "name": "",
                 "type": "address"
             }
@@ -297,6 +391,11 @@
             {
                 "internalType": "uint256",
                 "name": "count",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "createDate",
                 "type": "uint256"
             }
         ],
@@ -428,6 +527,11 @@
                         "internalType": "uint256",
                         "name": "count",
                         "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "createDate",
+                        "type": "uint256"
                     }
                 ],
                 "internalType": "struct NFTMarketplace.collection[]",
@@ -511,6 +615,67 @@
     {
         "inputs": [
             {
+                "internalType": "address",
+                "name": "_nftCtxAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardPercent1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_transactionPercent1",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_rewardPercent2",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_transactionPercent2",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_ithdAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_ayraAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_bnbAddress",
+                "type": "address"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "isInitialize",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
                 "internalType": "uint256",
                 "name": "",
                 "type": "uint256"
@@ -575,6 +740,39 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "nftContractAddress",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {
@@ -649,7 +847,7 @@
             },
             {
                 "internalType": "uint256",
-                "name": "wbnb",
+                "name": "bnb",
                 "type": "uint256"
             },
             {
@@ -711,6 +909,19 @@
             }
         ],
         "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
         "type": "function"
     },
     {

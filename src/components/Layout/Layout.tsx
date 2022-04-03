@@ -3,10 +3,10 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 import { LayoutSection } from '@/components/Layout/styles';
+import Footer from '@/components/Footer';
 
 const MainMenu = dynamic(() => import('@/navigation/Header'));
 const SidebarWalletList = dynamic(() => import('@/components/Home/SidebarWalletList/index'));
-const Footer = dynamic(() => import('@/components/Footer/index'));
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [openwalletlist, setOpenwalletlist] = React.useState(false);
@@ -34,8 +34,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className='section'>
             {children}
           </div>
+          <Footer />
         </main>
-        <Footer />
       </div>
     </LayoutSection>
   );

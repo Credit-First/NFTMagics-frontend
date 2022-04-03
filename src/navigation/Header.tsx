@@ -58,7 +58,7 @@ export default function HeaderComponent(props: any) {
           <div className='menu-group'>
             <div className='menu-button-group'>
               <ExplorerMenu />
-              <StatusMenu />
+              {/* <StatusMenu /> */}
               <div className='createNFT-button'>
                 <CreateNFTOptionModal />
               </div>

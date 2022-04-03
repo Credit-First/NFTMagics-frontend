@@ -123,7 +123,7 @@ export const TokenDropDownMenu = ({ disabled, setInputData, inputData }: { disab
     const [text, setText] = React.useState('');
 
     const list = [
-        { label: 'BNB', value: Config.Token.WBNB.address },
+        { label: 'BNB', value: Config.Token.BNB.address },
         { label: 'AYRA', value: Config.Token.AYRA.address },
         { label: 'ITHD', value: Config.Token.ITHD.address },
     ]

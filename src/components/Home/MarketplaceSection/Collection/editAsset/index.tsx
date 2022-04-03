@@ -32,7 +32,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PageLoading from '@/components/PageLoading';
 
 const tokenImg = {
-    [Config.Token.WBNB.address]: '/images/token/bnb.png',
+    [Config.Token.BNB.address]: '/images/token/bnb.png',
     [Config.Token.AYRA.address]: '/images/token/ayra.png',
     [Config.Token.ITHD.address]: '/images/token/ithd.png'
 }
@@ -238,7 +238,7 @@ export default function EditAssets() {
                                                 <OpenInNewIcon />
                                             </a>
                                         </button>
-                                        <button><ShareIcon /></button>
+                                        {/* <button><ShareIcon /></button> */}
                                         <button><MoreVertIcon /></button>
                                     </div>
                                 </div>
@@ -393,7 +393,7 @@ export default function EditAssets() {
                     <section className='item-header'>
                         <div className='item-info'>
                             <div className='item-detail'>
-                                <a className='item-link' href=''>Nft Magics</a>
+                                <a className='item-link' onClick={handleCollectionLink}>{itemData.collectionName ? itemData.collectionName : <Skeleton variant="text" style={{ width: '50%' }} />}</a>
                             </div>
                             <div className='item-toolbar'>
                                 <div className='button-group'>
@@ -406,7 +406,7 @@ export default function EditAssets() {
                                             <OpenInNewIcon />
                                         </a>
                                     </button>
-                                    <button><ShareIcon /></button>
+                                    {/* <button><ShareIcon /></button> */}
                                     <button><MoreVertIcon /></button>
                                 </div>
                             </div>

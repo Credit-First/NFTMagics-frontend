@@ -13,7 +13,7 @@ import { selectTopMarketItems } from '@/store/selectors';
 import Config from '@/config/app';
 
 const tokenImg = {
-    [Config.Token.WBNB.address]: '/images/token/bnb.png',
+    [Config.Token.BNB.address]: '/images/token/bnb.png',
     [Config.Token.AYRA.address]: '/images/token/ayra.png',
     [Config.Token.ITHD.address]: '/images/token/ithd.png'
 }

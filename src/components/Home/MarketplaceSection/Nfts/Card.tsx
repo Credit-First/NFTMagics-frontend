@@ -11,6 +11,9 @@ import { LoadingComponent } from '@/components/Loading';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
+import TimeAgo from 'javascript-time-ago';
+import en from 'javascript-time-ago/locale/en.json'
+TimeAgo.addDefaultLocale(en);
 
 const IMG_HEIGHT = 280;
 
@@ -237,6 +240,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
 })
 
 const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width: any, height: any }) => {
+    const timeAgo = new TimeAgo('en-US');
     const { account, library }: any = useWeb3React();
     const router = useRouter();
 
@@ -264,8 +268,13 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
     const price = fromWei(web3, item.price)
     let token_img = '/svg/bnb.svg';
     let token_name = 'BNB';
-    let createAt = item.createAt;
+    let pastTime;
+
+    if(item.createDate) pastTime = timeAgo.format(new Date(item.createDate));
+    else pastTime = timeAgo.format(new Date(item.createdAt));
     
+    let re = /ute|ond/gi;
+    pastTime = pastTime.toString().replace(re, ""); 
 
     if (item?.saleToken == 1) {
         token_img = '/images/token/ayra.png';
@@ -275,7 +284,7 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
         token_img = '/images/token/ithd.png';
         token_name = 'ITHD';
     }
-    
+
     const imgLoader = ({ src, width, quality }: { src: any, width?: any, quality?: any }) => {
         return `https://ipfs.infura.io/ipfs/${src}?w=${width || 300}&q=${quality || 75}`
     }
@@ -321,10 +330,12 @@ const NFTCard = ({ item, empty, width, height }: { item: any, empty: any, width:
                                                 <>
                                                     <div>Price</div>
                                                     <div className='amount'>
-                                                        <img className='img' src={token_img} />
+                                                        {price > 0 && (
+                                                            <img className='img' src={token_img} />
+                                                        )}
                                                         {price > 0 ? price : '---'}
                                                     </div>
-                                                    <div>7 days ago</div>
+                                                    <div>{pastTime}</div>
                                                 </>
                                             ) : (
                                                 <>

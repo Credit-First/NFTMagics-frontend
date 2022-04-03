@@ -27,7 +27,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import HistoryChart from './HistoryChart';
 import HistoryTable from './HistoryTable';
 import { OwnerSticky, LargeSection, SmallSection, Accordion, AccordionSummary, AccordionDetails } from './styles';
-import { HisttoryDropDownMenu, HisttoryFilterMenu } from './components';
+import { HistoryDropDownMenu, HistoryFilterMenu } from './components';
 
 import ImageViewer from 'react-simple-image-viewer';
 import AppConfig from "@/utils/AppConfig";
@@ -45,7 +45,7 @@ import PutListModal from '@/components/Home/putListModal';
 import PageLoading from '@/components/PageLoading';
 
 const tokenImg = {
-    [Config.Token.WBNB.address]: '/images/token/bnb.png',
+    [Config.Token.BNB.address]: '/images/token/bnb.png',
     [Config.Token.AYRA.address]: '/images/token/ayra.png',
     [Config.Token.ITHD.address]: '/images/token/ithd.png'
 }
@@ -110,7 +110,7 @@ export default function Assets() {
         }
     }, []);
     const allowanceBalanceof = async (tokenType: any, onAddress: any) => {
-        if (tokenType != Config.Token.AYRA.address || tokenType != Config.Token.ITHD.address) return true;
+        if (tokenType == Config.Token.BNB.address) return true;
         let token_abi = Config.Token.AYRA.abi;
         let token_address = Config.Token.AYRA.address;
 
@@ -192,7 +192,7 @@ export default function Assets() {
         handleLoading('sale', true);
 
         let value = itemData.salePrice * 1e18;
-        if (itemData.saleToken !== Config.Token.WBNB.address) value = 0;
+        if (itemData.saleToken !== Config.Token.BNB.address) value = 0;
 
         try {
             await Market.methods
@@ -201,9 +201,9 @@ export default function Assets() {
                 )
                 .send({ from: account, value: value })
                 .on('receipt', async (receipt: any) => {
-                    dispatch(actionGetMarketItem({ itemId: itemId }));
                     handleLoading('sale', false);
                     handleItemChange('activeItem', false);
+                    handleItemChange('seller', account);
                 })
                 .then((_tx: any) => {
                     notify('success', 'You have bought the NFT on Marketplace');
@@ -214,6 +214,7 @@ export default function Assets() {
             console.log('Error buying the NFT : ', err);
             handleLoading('sale', false);
         }
+        dispatch(actionGetMarketItem({ itemId: itemId }));
 
         handleLoading('sale', false);
     }
@@ -337,7 +338,7 @@ export default function Assets() {
                                     </div>
                                 </AccordionDetails>
                             </Accordion>
-                            <Accordion expanded={summaryExpanded === 'summarypanel2'} onChange={handleSummaryChange('summarypanel2')} disableGutters elevation={0}>
+                            {/* <Accordion expanded={summaryExpanded === 'summarypanel2'} onChange={handleSummaryChange('summarypanel2')} disableGutters elevation={0}>
                                 <AccordionSummary aria-controls="summarypanel2d-content" id="summarypanel2d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                     <Typography><LabelIcon style={{ marginRight: 5 }} />Properties</Typography>
                                 </AccordionSummary>
@@ -375,7 +376,7 @@ export default function Assets() {
                                         Karafuru is home to 5,555 generative arts where colors reign supreme. Leave the drab reality and enter the world of Karafuru by Museum of Toys.
                                     </Typography>
                                 </AccordionDetails>
-                            </Accordion>
+                            </Accordion> */}
                             <Accordion expanded={summaryExpanded === 'summarypanel4'} onChange={handleSummaryChange('summarypanel4')} disableGutters elevation={0}>
                                 <AccordionSummary aria-controls="summarypanel4d-content" id="summarypanel4d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                     <Typography><BallotIcon style={{ marginRight: 5 }} />Detail</Typography>
@@ -434,7 +435,7 @@ export default function Assets() {
                                                 <OpenInNewIcon />
                                             </a>
                                         </button>
-                                        <button><ShareIcon /></button>
+                                        {/* <button><ShareIcon /></button> */}
                                         <button><MoreVertIcon /></button>
                                     </div>
                                 </div>
@@ -549,7 +550,7 @@ export default function Assets() {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <div className='history-interface'>
-                                        <HisttoryDropDownMenu />
+                                        <HistoryDropDownMenu itemId={itemData.itemId}/>
                                     </div>
                                     <div className='history-graph'>
                                         <HistoryChart />
@@ -557,7 +558,7 @@ export default function Assets() {
                                 </AccordionDetails>
                             </Accordion>
                         </div>
-                        <div className='item-listing'>
+                        {/* <div className='item-listing'>
                             <Accordion expanded={listingExpanded === 'listingpanel1'} onChange={handleListingChange('listingpanel1')} disableGutters elevation={0}>
                                 <AccordionSummary aria-controls="listingpanel1d-content" id="listingpanel1d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                     <Typography><LocalOfferIcon style={{ marginRight: 5 }} />Listings</Typography>
@@ -567,15 +568,15 @@ export default function Assets() {
                                         <div className='list-empty'>
                                             <div className='empty-img flex justify-center'>
                                                 <img src='/svg/empty-bids.svg' width={140} height={140} />
-                                                {/* <img src={'/svg/empty-bids.svg'} width={40} height={40} /> */}
-                                                {/* <Skeleton variant="circular" width={40} height={40} /> */}
+                                                <img src={'/svg/empty-bids.svg'} width={40} height={40} />
+                                                <Skeleton variant="circular" width={40} height={40} />
                                             </div>
                                             <div className='no-text flex justify-center'>No Offers yet</div>
                                         </div>
                                     </div>
                                 </AccordionDetails>
                             </Accordion>
-                        </div>
+                        </div> */}
                         {/* <div className='item-orders'>
                             <Accordion expanded={orderExpanded === 'orderpanel1'} onChange={handleOrderChange('orderpanel1')} disableGutters elevation={0}>
                                 <AccordionSummary aria-controls="orderpanel1d-content" id="orderpanel1d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
@@ -602,10 +603,10 @@ export default function Assets() {
                         </AccordionSummary>
                         <AccordionDetails sx={{ padding: 0 }}>
                             <div className='history-filter'>
-                                <HisttoryFilterMenu />
+                                <HistoryFilterMenu itemId={itemData.itemId}/>
                             </div>
                             <ul className='filter-pills'>
-                                <li className='filter-pill'>
+                                {/* <li className='filter-pill'>
                                     <div className='pill'>
                                         <span>Listings</span>
                                         <button className='pill-delete'>
@@ -623,10 +624,10 @@ export default function Assets() {
                                 </li>
                                 <div className='clear-all'>
                                     <button>Clear All</button>
-                                </div>
+                                </div> */}
                             </ul>
                             <div className='history-table'>
-                                {/* <HistoryTable /> */}
+                                <HistoryTable />
                             </div>
                         </AccordionDetails>
                     </Accordion>
@@ -651,7 +652,7 @@ export default function Assets() {
                                             <OpenInNewIcon />
                                         </a>
                                     </button>
-                                    <button><ShareIcon /></button>
+                                    {/* <button><ShareIcon /></button> */}
                                     <button><MoreVertIcon /></button>
                                 </div>
                             </div>
@@ -793,7 +794,7 @@ export default function Assets() {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='history-interface'>
-                                    <HisttoryDropDownMenu />
+                                    <HistoryDropDownMenu itemId={itemData.itemId}/>
                                 </div>
                                 <div className='history-graph'>
                                     <HistoryChart />
@@ -801,7 +802,7 @@ export default function Assets() {
                             </AccordionDetails>
                         </Accordion>
                     </div>
-                    <div className='item-listing'>
+                    {/* <div className='item-listing'>
                         <Accordion expanded={listingExpanded === 'listingpanel1'} onChange={handleListingChange('listingpanel1')} disableGutters elevation={0}>
                             <AccordionSummary aria-controls="listingpanel1d-content" id="listingpanel1d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                 <Typography><LocalOfferIcon style={{ marginRight: 5 }} />Listings</Typography>
@@ -811,15 +812,15 @@ export default function Assets() {
                                     <div className='list-empty'>
                                         <div className='empty-img flex justify-center'>
                                             <img src='/svg/empty-bids.svg' width={140} height={140} />
-                                            {/* <img src={'/svg/empty-bids.svg'} width={40} height={40} /> */}
-                                            {/* <Skeleton variant="circular" width={40} height={40} /> */}
+                                            <img src={'/svg/empty-bids.svg'} width={40} height={40} />
+                                            <Skeleton variant="circular" width={40} height={40} />
                                         </div>
                                         <div className='no-text flex justify-center'>No Offers yet</div>
                                     </div>
                                 </div>
                             </AccordionDetails>
                         </Accordion>
-                    </div>
+                    </div> */}
                     {/* <div className='item-orders'>
                         <Accordion expanded={orderExpanded === 'orderpanel1'} onChange={handleOrderChange('orderpanel1')} disableGutters elevation={0}>
                             <AccordionSummary aria-controls="orderpanel1d-content" id="orderpanel1d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
@@ -837,42 +838,42 @@ export default function Assets() {
                             </AccordionDetails>
                         </Accordion>
                     </div> */}
-                    {/* <div className='item-trading-history'>
+                    <div className='item-trading-history'>
                         <Accordion expanded={tradeHistoryExpanded === 'tradeHistorypanel1'} onChange={handleTradeHistoryChange('tradeHistorypanel1')} disableGutters elevation={0}>
                             <AccordionSummary aria-controls="tradeHistorypanel1d-content" id="tradeHistorypanel1d-header" expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}>
                                 <Typography><SwapVertIcon style={{ marginRight: 5 }} />Item Activity</Typography>
                             </AccordionSummary>
                             <AccordionDetails sx={{ padding: 0 }}>
                                 <div className='history-filter'>
-                                    <HisttoryFilterMenu />
+                                    <HistoryFilterMenu itemId={itemData.itemId}/>
                                 </div>
                                 <ul className='filter-pills'>
-                                    <li className='filter-pill'>
-                                        <div className='pill'>
-                                            <span>Listings</span>
-                                            <button className='pill-delete'>
-                                                <CloseIcon />
-                                            </button>
-                                        </div>
-                                    </li>
-                                    <li className='filter-pill'>
-                                        <div className='pill'>
-                                            <span>Sales</span>
-                                            <button className='pill-delete'>
-                                                <CloseIcon />
-                                            </button>
-                                        </div>
-                                    </li>
-                                    <div className='clear-all'>
-                                        <button>Clear All</button>
+                                    {/* <li className='filter-pill'>
+                                    <div className='pill'>
+                                        <span>Listings</span>
+                                        <button className='pill-delete'>
+                                            <CloseIcon />
+                                        </button>
                                     </div>
+                                </li>
+                                <li className='filter-pill'>
+                                    <div className='pill'>
+                                        <span>Sales</span>
+                                        <button className='pill-delete'>
+                                            <CloseIcon />
+                                        </button>
+                                    </div>
+                                </li>
+                                <div className='clear-all'>
+                                    <button>Clear All</button>
+                                </div> */}
                                 </ul>
                                 <div className='history-table'>
                                     <HistoryTable />
                                 </div>
                             </AccordionDetails>
                         </Accordion>
-                    </div> */}
+                    </div>
                 </div>
             </SmallSection>
             <ApproveTokenModal modal={approveModal} setModal={setApproveModal} approveTokenType={itemData.saleToken} onAddress={Config.Market.address} />
