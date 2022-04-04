@@ -142,6 +142,7 @@ export const LargeSection = styled('div')(({ theme, loading }: { theme?: any, lo
                             whiteSpace: 'nowrap',
                             '& .item-link': {
                                 cursor: 'pointer',
+                                color: 'rgb(24, 104, 183)',
                                 fontSize: 20,
                                 fontWeight: 600,
                                 textDecoration: 'none',
@@ -349,6 +350,7 @@ export const SmallSection = styled('div')(({ theme, loading }: { theme?: any, lo
                         whiteSpace: 'nowrap',
                         '& .item-link': {
                             cursor: 'pointer',
+                            color: 'rgb(24, 104, 183)',
                             fontSize: 20,
                             fontWeight: 600,
                             textDecoration: 'none',

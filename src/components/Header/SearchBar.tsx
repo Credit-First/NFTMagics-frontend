@@ -1,6 +1,9 @@
 import * as React from 'react';
-import { useTheme, styled, alpha } from '@mui/material/styles';
+import { useRouter } from 'next/router';
+import { useDispatch } from 'react-redux';
+import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
+import { actionGetMarketplace } from '@/store/actions';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -47,15 +50,31 @@ const StyledInputBase = styled('input')(({ theme }) => ({
 }));
 
 export default function SearchBar() {
-    const theme = useTheme();
+    const dispatch = useDispatch();
+    const router = useRouter()
 
+    const [searchText, setSearchText] = React.useState('');
+
+    const sleep = (ms: any) => {
+        return new Promise(resolve => setTimeout(resolve, ms))
+    }
+
+    const handleSearch = async (event: any) => {
+        if (event.keyCode == 13) {
+            await sleep(1000);
+            router.push({
+              pathname: `/marketplace/all`,
+              query: { search: searchText },
+            })
+        }
+    }
     return (
         <Search>
             <SearchIconWrapper>
                 <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-                placeholder="Search…"
+                placeholder="Search…" onKeyDown={handleSearch} onChange={e => setSearchText(e.target.value)} value={searchText}
             />
         </Search>
     );

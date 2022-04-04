@@ -165,7 +165,7 @@ export default function Assets() {
     }
     const handleCollectionLink = () => {
         setPadgeLoading(true);
-        router.push(`/marketplace/collection/${itemData.collectionId}`);
+        router.push(`/marketplace/collection/${itemData.collectionId}/get`);
     }
     const handlePutAction = (type: any) => async () => {
         if (!active) return notify('error', 'please connect your wallet!');

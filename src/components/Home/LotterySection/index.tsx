@@ -277,7 +277,7 @@ const LotterySection = () => {
         const amountBnbDueTo = await LOTTERY.methods.amountBnbDueTo(account).call();
         const amountAyraDueTo = await LOTTERY.methods.amountAyraDueTo(account).call();
         const amountIthdDueTo = await LOTTERY.methods.amountIthdDueTo(account).call();
-            console.log(amountBnbDueTo, amountAyraDueTo, amountIthdDueTo)
+
         if (
             amountBnbDueTo > 0 ||
             amountAyraDueTo > 0 ||

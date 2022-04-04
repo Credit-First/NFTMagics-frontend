@@ -24,7 +24,6 @@ import { SearchModalDropdownMenu, SearchSortDropDowonMenu, SearchToggleButton } 
 import AssetList from './AssetList';
 import { actionGetMarketplace, actionGetCollectionItem } from '@/store/actions';
 import { selectMarketplace, selectCollectionItem } from '@/store/selectors';
-import Web3 from "web3";
 
 export default function Collection() {
     const router = useRouter()

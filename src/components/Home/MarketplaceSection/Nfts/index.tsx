@@ -29,7 +29,7 @@ import Web3 from "web3";
 export default function Nft() {
     // const theme = useTheme();
     const router = useRouter()
-    const { collectionId, address, gift } = router.query;
+    const { collectionId, address, gift, search } = router.query;
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const [sideBaropen, setsideBarOpen] = React.useState(true);
@@ -117,6 +117,13 @@ export default function Nft() {
             dispatch(actionGetMarketplace({ forGift: true, account: address, collectionId }));
         }
     }, [gift]);
+
+    React.useEffect(() => {
+        if( search ) {
+            setSelectFilterItem(value => ({ ...value, name: search }));
+            dispatch(actionGetMarketplace({ name: search }));
+        }
+    }, [search]);
 
     React.useEffect(() => {
         setAssetList(marketplace);
