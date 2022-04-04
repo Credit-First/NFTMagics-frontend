@@ -84,6 +84,17 @@ export function actionGetGiftItems(data:any) {
             });
     }
 }
+export function actionAddFavorites(data:any) {
+    return (dispatch: any) => {
+        apis.addFavorites(data)
+            .then((data) => {
+                return dispatch(actionUpdateMarketItem(data));
+            })
+            .catch(error => {
+                return dispatch(actionSetErrorMarketplace(error));
+            });
+    }
+}
 export const actionUpdateMarketInfo = (data: any) => ({
     type: TYPE_UPDATE_MARKET_INFO,
     data

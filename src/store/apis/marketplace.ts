@@ -132,3 +132,20 @@ export const createMarketItem = (data: any) => {
         });
     });
 };
+export const addFavorites = (data: any) => {
+    return new Promise((resolve, reject) => {
+        axios.post('/api/v1/marketplace/add_favorites', {
+            data
+        }).then(response => {
+            const response_data = response.data;
+            if (response_data.status) {
+                resolve(response_data.data);
+            }
+            else {
+                reject(response_data);
+            }
+        }).catch(err => {
+            reject(err);
+        });
+    });
+};

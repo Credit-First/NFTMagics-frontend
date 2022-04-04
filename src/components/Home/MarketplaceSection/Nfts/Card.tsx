@@ -9,8 +9,12 @@ import {
 } from '@mui/material';
 import { LoadingComponent } from '@/components/Loading';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import toast from "@/components/Toast";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch, useSelector } from "react-redux";
 import Web3 from "web3";
 import { useWeb3React } from "@web3-react/core";
+import { actionAddFavorites } from '@/store/actions';
 
 const IMG_HEIGHT = 280;
 
@@ -256,9 +260,15 @@ const NFTCard = ({ item, empty, width, height, timeAgo }: { item: any, empty: an
     
     const { account, library }: any = useWeb3React();
     const router = useRouter();
+    const dispatch = useDispatch();
+    const [favorite, setFavorite] = React.useState(0);
 
     let web3 = new Web3();
     if (library) web3 = new Web3(library.provider);
+
+    const notify = React.useCallback((type, message) => {
+        toast({ type, message });
+    }, []);
 
     const fromWei = React.useCallback((web3, val) => {
         if (val) {
@@ -304,6 +314,20 @@ const NFTCard = ({ item, empty, width, height, timeAgo }: { item: any, empty: an
     const handleLink = (path: any) => (event: any) => {
         router.push(`/marketplace/assets/${item.itemId}/get`);
     };
+    const handleAddFavorites = () => {
+        if(!account) return notify('error', 'please connect wallet');
+
+        if(item.likes.account.includes(account)) return notify('info', 'you have already add favorite');
+
+        dispatch(actionAddFavorites({itemId: item.itemId, account}));
+        
+        setFavorite(favorite + 1);
+        item.likes.account.push(account);
+        notify('success', 'you have added favorite');
+    }
+    React.useEffect(() => {
+        setFavorite(item.likes.account.length);
+    },[]);
 
     return (
         <>
@@ -311,8 +335,8 @@ const NFTCard = ({ item, empty, width, height, timeAgo }: { item: any, empty: an
                 item ? (
                     <CardDiv height={height} width={width}>
                         <article className='card-image-card'>
-                            <a className='card-image-card-link' onClick={handleLink("/marketplace/assets/")}>
-                                <div className='card-image-card-link-meida'>
+                            <a className='card-image-card-link'>
+                                <div className='card-image-card-link-meida' onClick={handleLink("/marketplace/assets/")}>
                                     <div className='media-img'>
                                         {
                                             item.giftAddress !== "0x0000000000000000000000000000000000000000" && (
@@ -378,15 +402,15 @@ const NFTCard = ({ item, empty, width, height, timeAgo }: { item: any, empty: an
                                             <div className='token-info'>
                                                 <span>{token_name}</span>
                                             </div>
-                                            <div className='link'>
+                                            <div className='link' onClick={handleLink("/marketplace/assets/")}>
                                                 {
                                                     item.seller === account ? ('View') : ('Buy now')
                                                 }
                                             </div>
                                         </div>
-                                        <div className='like'>
+                                        <div className='like' onClick={handleAddFavorites}>
                                             <FavoriteBorderIcon className='like-img' />
-                                            <span>{item.likes || 0}</span>
+                                            <span>{favorite}</span>
                                         </div>
                                     </div>
                                 </footer>
