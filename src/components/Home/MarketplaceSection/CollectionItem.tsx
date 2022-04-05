@@ -138,7 +138,7 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 color: `${theme.palette.text.primary}`,
                 padding: 20,
                 width: '100%',
-                height: 160,
+                height: 100,
                 marginBottom: 10,
                 '& .name': {
                     display: '-webkit-box',
