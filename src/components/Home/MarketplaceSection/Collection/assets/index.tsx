@@ -232,7 +232,7 @@ export default function Assets() {
             handleItemChange('saleToken', marketItem.saleToken);
             handleItemChange('salePrice', salePrice);
             handleItemChange('usdPrice', usdPrice);
-            handleItemChange('favorites', marketItem.likes ? marketItem.likes : 0);
+            handleItemChange('favorites', marketItem.likes.account ? marketItem.likes.account.length : 0);
             handleItemChange('image', marketItem.image);
             handleItemChange('minter', marketItem.minter);
             handleItemChange('seller', marketItem.seller ? marketItem.seller : marketItem.minter);
@@ -277,13 +277,11 @@ export default function Assets() {
                         <article className='item-media-frame'>
                             <header>
                                 <div className='header-left'>
-                                    {
-                                        itemData.tokenImg ? (
-                                            <img src={itemData.tokenImg} />
-                                        ) : (
-                                            <Skeleton variant="text" style={{ width: '50%' }} />
-                                        )
-                                    }
+                                    {marketItem ? (
+                                        <img src={itemData.tokenImg} width={40} height={40} />
+                                    ) : (
+                                        <Skeleton variant="text" style={{ width: 50, height: 50 }} />
+                                    )}
                                 </div>
                                 <div className='header-right'>
                                     <FavoriteBorderIcon />
@@ -462,7 +460,7 @@ export default function Assets() {
                             <button className='favorite-by'>
                                 <FavoriteIcon className='icon' />
                                 <div className='count'>{itemData.favorites ? itemData.favorites : <Skeleton variant="text" style={{ width: '50%' }} />}</div>
-                                <div>favorites</div>
+                                <div style={{ marginLeft: 10 }}>favorites</div>
                             </button>
                         </section>
                         <div className='item-frame'>
@@ -562,7 +560,7 @@ export default function Assets() {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     <div className='history-interface'>
-                                        <HistoryDropDownMenu itemId={itemData.itemId}/>
+                                        <HistoryDropDownMenu itemId={itemData.itemId} />
                                     </div>
                                     <div className='history-graph'>
                                         <HistoryChart />
@@ -615,7 +613,7 @@ export default function Assets() {
                         </AccordionSummary>
                         <AccordionDetails sx={{ padding: 0 }}>
                             <div className='history-filter'>
-                                <HistoryFilterMenu itemId={itemData.itemId}/>
+                                <HistoryFilterMenu itemId={itemData.itemId} />
                             </div>
                             <div className='history-table'>
                                 <HistoryTable />
@@ -655,13 +653,11 @@ export default function Assets() {
                     <article className='item-media-frame'>
                         <header>
                             <div className='header-left'>
-                                {
-                                    itemData.tokenImg ? (
-                                        <img src={itemData.tokenImg} />
-                                    ) : (
-                                        <Skeleton variant="text" style={{ width: '50%' }} />
-                                    )
-                                }
+                                {marketItem ? (
+                                    <img src={itemData.tokenImg} width={40} height={40} />
+                                ) : (
+                                    <Skeleton variant="text" style={{ width: 50, height: 50 }} />
+                                )}
                             </div>
                             <div className='header-right'>
                                 <FavoriteBorderIcon />
@@ -695,7 +691,7 @@ export default function Assets() {
                         <button className='favorite-by'>
                             <FavoriteIcon className='icon' />
                             <div className='count'>{itemData.favorites ? itemData.favorites : <Skeleton variant="text" style={{ width: '50%' }} />}</div>
-                            <div>favorites</div>
+                            <div style={{ marginLeft: 10 }}>favorites</div>
                         </button>
                     </section>
                     <div className='item-frame'>
@@ -793,7 +789,7 @@ export default function Assets() {
                             </AccordionSummary>
                             <AccordionDetails>
                                 <div className='history-interface'>
-                                    <HistoryDropDownMenu itemId={itemData.itemId}/>
+                                    <HistoryDropDownMenu itemId={itemData.itemId} />
                                 </div>
                                 <div className='history-graph'>
                                     <HistoryChart />
@@ -844,7 +840,7 @@ export default function Assets() {
                             </AccordionSummary>
                             <AccordionDetails sx={{ padding: 0 }}>
                                 <div className='history-filter'>
-                                    <HistoryFilterMenu itemId={itemData.itemId}/>
+                                    <HistoryFilterMenu itemId={itemData.itemId} />
                                 </div>
                                 <ul className='filter-pills'>
                                     {/* <li className='filter-pill'>
