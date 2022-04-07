@@ -32,6 +32,9 @@ const Account = () => {
     if (path === "/collection") {
       router.push(`/account/${account}/collection`);
     }
+    if (path === "/nft") {
+      router.push(`/account/${account}/all`);
+    }
     if (path === "/gift") {
       router.push(`/account/${account}/gift`);
     }
@@ -79,6 +82,14 @@ const Account = () => {
                   <AppsIcon />
                 </div>
                 My Collections
+              </a>
+          </li>
+          <li>
+              <a onClick={handleLink("/nft")}>
+                <div className='menu-image'>
+                  <AppsIcon />
+                </div>
+                My Nfts
               </a>
           </li>
           <li>

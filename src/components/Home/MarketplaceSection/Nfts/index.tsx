@@ -129,6 +129,9 @@ export default function Nft() {
         setAssetList(marketplace);
     }, [marketplace]);
 
+    React.useEffect(() => {
+        dispatch(actionGetMarketplace({ account: address }));
+    }, [address]);
     return (
         <Section>
             <div className='collection-wraper'>
