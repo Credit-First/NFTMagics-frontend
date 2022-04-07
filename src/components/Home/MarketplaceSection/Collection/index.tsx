@@ -27,12 +27,13 @@ import { selectMarketplace, selectCollectionItem } from '@/store/selectors';
 
 export default function Collection() {
     const router = useRouter()
-    const { collectionId } = router.query;
+    const { collectionId, gift, address, search, favorite}: any = router.query;
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const collectionItem = useSelector(selectCollectionItem);
     const [sideBaropen, setsideBarOpen] = React.useState(false);
     const [searchText, setSearchText] = React.useState('');
+    const [sortFilter, setSortFilter] = React.useState(-1);
     const [selectFilterItem, setSelectFilterItem] = React.useState({
         sales: false,
         forGift: false,
@@ -104,7 +105,6 @@ export default function Collection() {
         if (item === 'followings') {
             setSelectFilterItem(value => ({ ...value, followings: !selectFilterItem.followings }));
         }
-        dispatch(actionGetMarketplace({ [item]: true, collectionId }));
     }
 
     const handleReadMore = () => {
@@ -121,16 +121,35 @@ export default function Collection() {
     const handleSearch = async (event: any) => {
         if (event.keyCode == 13) {
             await sleep(1000);
-            dispatch(actionGetMarketplace({ ...selectFilterItem, name: searchText, collectionId }));
+            getData();
         }
     }
-    
+
     const handleChangePrice = (event: any, newValue: any) => {
         setRangePrice(newValue);
     };
 
     const handleSearchPrice = () => {
-        dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
+        getData();
+    }
+
+    const handleSortFilter = (key:any) => {
+        setSortFilter(key);
+    }
+
+    const getData = () => {
+        if (collectionId) dispatch(actionGetCollectionItem({ collectionId }));
+        if (gift) setSelectFilterItem(value => ({ ...value, forGift: true }));
+        if (search) setSearchText(search)
+        dispatch(actionGetMarketplace({
+            ...selectFilterItem,
+            forGift: !!gift || selectFilterItem.forGift,
+            followings: (!!favorite || selectFilterItem.followings) && favorite,
+            account: address,
+            collectionId: collectionId,
+            name: searchText,
+            sort: sortFilter
+        }));
     }
 
     React.useEffect(() => {
@@ -142,74 +161,77 @@ export default function Collection() {
     }, [collectionItem]);
 
     React.useEffect(() => {
-        collectionId && dispatch(actionGetMarketplace({ collectionId }));
-        collectionId && dispatch(actionGetCollectionItem({ collectionId }));
-    }, [collectionId]);
+        getData();
+    }, [collectionId, address, gift, search, selectFilterItem, rangePrice, favorite, sortFilter]);
 
     return (
         <Section>
-            <CollectionHeader readmore={readMore ? 1 : 0}>
-                <div className='collection-banner'>
-                    <Skeleton className='' sx={{ height: '100%', width: '100%', borderRadius: 'inherit', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }} animation="wave" variant="rectangular" />
-                    {
-                        collection.banner && (
-                            <Image loader={imgLoader} src={collection.banner} layout="fill" objectFit="fill" />
-                        )
-                    }
-                </div>
-                <div className='collection-info'>
-                    <div className='collection-logo'>
-                        <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
-                        {
-                            collection.logo && (
-                                <Image loader={imgLoader} src={collection.logo} layout="fill" objectFit="fill" />
-                            )
-                        }
-                    </div>
-                    <div className='collection-title'>{collection.name || <Skeleton variant="text" />}</div>
-                    <div className='collection-owner'>
-                        <div>Created by</div>
-                        {collection.owner && (
-                            <div className='name'>
-                                {collection.owner.toString().substring(0, 15)} ... {collection.owner.toString().substring(collection.owner.length - 8)}
-                            </div>
-                        )}
-                    </div>
-                    <div className='collection-toolbar'>
-                        <div className='button-group'>
-                            <button>
-                                <div className='value'>{collectionItem ? (<div>{collection.total_nfts}</div>) : <Skeleton variant="text" />}</div>
-                                <div>items</div>
-                            </button>
-                            <button>
-                                <div className='value'>{collectionItem ? (<div>{collection.total_owners}</div>) : <Skeleton variant="text" />}</div>
-                                <div>owners</div>
-                            </button>
-                            <button>
-                                <div className='value'>{collectionItem ? (<div>{collection.floor_price / 1e18}</div>) : <Skeleton variant="text" />}</div>
-                                <div>floor price</div>
-                            </button>
-                            <button>
-                                <div className='value'>{collectionItem ? (<div>{collection.max_price / 1e18}</div>) : <Skeleton variant="text" />}</div>
-                                <div>max price</div>
-                            </button>
+            {
+                collectionId && (
+                    <CollectionHeader readmore={readMore ? 1 : 0}>
+                        <div className='collection-banner'>
+                            <Skeleton className='' sx={{ height: '100%', width: '100%', borderRadius: 'inherit', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }} animation="wave" variant="rectangular" />
+                            {
+                                collection.banner && (
+                                    <Image loader={imgLoader} src={collection.banner} layout="fill" objectFit="fill" />
+                                )
+                            }
                         </div>
-                    </div>
-                    <div className='collection-description' >
-                        <p>
-                            {collection.description}
-                        </p>
-                    </div>
-                    <div className='collection-description-more'>
-                        <button className='read-more' onClick={handleReadMore}>
-                            {readMore ? <ExpandLessIcon /> : <ExpandMoreIcon />}
-                        </button>
-                    </div>
-                </div>
-            </CollectionHeader>
+                        <div className='collection-info'>
+                            <div className='collection-logo'>
+                                <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
+                                {
+                                    collection.logo && (
+                                        <Image loader={imgLoader} src={collection.logo} layout="fill" objectFit="fill" />
+                                    )
+                                }
+                            </div>
+                            <div className='collection-title'>{collection.name || <Skeleton variant="text" />}</div>
+                            <div className='collection-owner'>
+                                <div>Created by</div>
+                                {collection.owner && (
+                                    <div className='name'>
+                                        {collection.owner.toString().substring(0, 15)} ... {collection.owner.toString().substring(collection.owner.length - 8)}
+                                    </div>
+                                )}
+                            </div>
+                            <div className='collection-toolbar'>
+                                <div className='button-group'>
+                                    <button>
+                                        <div className='value'>{collectionItem ? (<div>{collection.total_nfts}</div>) : <Skeleton variant="text" />}</div>
+                                        <div>items</div>
+                                    </button>
+                                    <button>
+                                        <div className='value'>{collectionItem ? (<div>{collection.total_owners}</div>) : <Skeleton variant="text" />}</div>
+                                        <div>owners</div>
+                                    </button>
+                                    <button>
+                                        <div className='value'>{collectionItem ? (<div>{collection.floor_price / 1e18}</div>) : <Skeleton variant="text" />}</div>
+                                        <div>floor price</div>
+                                    </button>
+                                    <button>
+                                        <div className='value'>{collectionItem ? (<div>{collection.max_price / 1e18}</div>) : <Skeleton variant="text" />}</div>
+                                        <div>max price</div>
+                                    </button>
+                                </div>
+                            </div>
+                            <div className='collection-description' >
+                                <p>
+                                    {collection.description}
+                                </p>
+                            </div>
+                            <div className='collection-description-more'>
+                                <button className='read-more' onClick={handleReadMore}>
+                                    {readMore ? <ExpandLessIcon /> : <ExpandMoreIcon />}
+                                </button>
+                            </div>
+                        </div>
+                    </CollectionHeader>
+                )
+            }
             <div className='collection-wraper'>
                 <CssBaseline />
-                <div className='collection-body' style={{}}>
+                <div className='collection-body'>
                     <div className='sticky'>
                         <Drawer className='drawer' open={sideBaropen}>
                             <div className='drawer-header'>
@@ -283,10 +305,10 @@ export default function Collection() {
                             </div>
                             <div className='assets-search-view-dropdowns'>
                                 <div className='assets-search-view-modal-dropdown'>
-                                    <SearchModalDropdownMenu />
+                                    {/* <SearchModalDropdownMenu /> */}
                                 </div>
                                 <div className='assets-search-view-sort-dropdown'>
-                                    <SearchSortDropDowonMenu />
+                                    <SearchSortDropDowonMenu setSort={handleSortFilter}/>
                                 </div>
                                 <div className='assets-search-view-toggle-dropdown'>
                                     <SearchToggleButton />
@@ -294,7 +316,7 @@ export default function Collection() {
                             </div>
                         </div>
                         <div className='assets-container'>
-                            {marketplace && assetList.length > 0 ? (
+                            { assetList.length > 0 ? (
                                 <AssetList assetList={assetList} sideBarOpen={sideBaropen} />
                             ) : (
                                 <div className='no-items'>

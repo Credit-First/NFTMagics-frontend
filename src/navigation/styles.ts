@@ -113,7 +113,6 @@ export const Header = styled('div')((theme) => {
           cursor: 'pointer',
           height: '100%',
           display: 'flex',
-          paddingLeft: 20,
           alignItems: 'center',
         },
       },

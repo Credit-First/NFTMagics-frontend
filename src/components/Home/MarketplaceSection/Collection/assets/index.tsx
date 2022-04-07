@@ -196,10 +196,13 @@ export default function Assets() {
         let value = itemData.salePrice * 1e18;
         if (itemData.saleToken !== Config.Token.BNB.address) value = 0;
 
+        let affiliateLink = localStorage.getItem('magic-affiliate-link');
+        if(!affiliateLink) affiliateLink = '0x0000000000000000000000000000000000000000';
         try {
             await Market.methods
                 .buyMarketItem(
-                    itemId
+                    itemId,
+                    // affiliateLink
                 )
                 .send({ from: account, value: value })
                 .on('receipt', async (receipt: any) => {
@@ -224,7 +227,10 @@ export default function Assets() {
     React.useEffect(() => {
         if (marketItem) {
             const salePrice = marketItem.price ? fromWei(web3, marketItem.price) : 0;
-            const usdPrice = new BigNumber(salePrice).multipliedBy(430).toFixed(2, BigNumber.ROUND_DOWN).toString();
+            let decimal = Config.bnbToUsd;
+            if(marketItem.saleToken == Config.Token.AYRA.address) decimal = Config.ayraToUsd;
+            if(marketItem.saleToken == Config.Token.ITHD.address) decimal = Config.ithdToUsd;
+            const usdPrice = new BigNumber(salePrice).multipliedBy(decimal).toFixed(2, BigNumber.ROUND_DOWN).toString();
             handleItemChange('collectionId', marketItem.collectionId);
             handleItemChange('collectionName', marketItem.collectionName);
             handleItemChange('tokenImg', tokenImg[marketItem.saleToken]);

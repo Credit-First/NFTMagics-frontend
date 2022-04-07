@@ -29,7 +29,7 @@ import Web3 from "web3";
 export default function Nft() {
     // const theme = useTheme();
     const router = useRouter()
-    const { collectionId, address, gift, search } = router.query;
+    const { collectionId, address, gift, search } : any = router.query;
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const [sideBaropen, setsideBarOpen] = React.useState(true);
@@ -95,7 +95,7 @@ export default function Nft() {
     const handleSearch = async (event: any) => {
         if (event.keyCode == 13) {
             await sleep(1000);
-            dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
+            getData();
         }
     }
 
@@ -104,34 +104,28 @@ export default function Nft() {
     };
 
     const handleSearchPrice = () => {
-        dispatch(actionGetMarketplace({ ...selectFilterItem, rangePrice, name: searchText, collectionId }));
+        getData();
     }
     
-    React.useEffect(() => {
-        dispatch(actionGetMarketplace({ ...selectFilterItem, account: address, collectionId }));
-    }, [selectFilterItem]);
-
-    React.useEffect(() => {
-        if( gift ) {
-            setSelectFilterItem(value => ({ ...value, forGift: true }));
-            dispatch(actionGetMarketplace({ forGift: true, account: address, collectionId }));
-        }
-    }, [gift]);
-
-    React.useEffect(() => {
-        if( search ) {
-            setSelectFilterItem(value => ({ ...value, name: search }));
-            dispatch(actionGetMarketplace({ name: search }));
-        }
-    }, [search]);
-
+    const getData = () => {
+        if (gift) setSelectFilterItem(value => ({ ...value, forGift: true }));
+        if (search) setSearchText(search)
+        dispatch(actionGetMarketplace({
+            ...selectFilterItem,
+            forGift: !!gift || selectFilterItem.forGift,
+            account: address,
+            collectionId,
+            name: searchText
+        }));
+    }
     React.useEffect(() => {
         setAssetList(marketplace);
     }, [marketplace]);
 
     React.useEffect(() => {
-        dispatch(actionGetMarketplace({ account: address }));
-    }, [address]);
+        getData();
+    }, [collectionId, address, gift, searchText, selectFilterItem, rangePrice]);
+
     return (
         <Section>
             <div className='collection-wraper'>

@@ -70,6 +70,9 @@ const CreateCustom = ({ setImage, handleNext }: { setImage: any, handleNext: any
                 load();
             }, 100)
         }
+        return () => {
+            if (editor) editor.close();
+        }
     }, [theme.palette.mode, isMobile])
 
     return (

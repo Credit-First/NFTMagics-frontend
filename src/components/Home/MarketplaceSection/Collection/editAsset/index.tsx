@@ -202,7 +202,10 @@ export default function EditAssets() {
     React.useEffect(() => {
         if (marketItem) {
             const salePrice = marketItem.price ? fromWei(web3, marketItem.price) : 0;
-            const usdPrice = new BigNumber(salePrice).multipliedBy(430).toFixed(2, BigNumber.ROUND_DOWN).toString();
+            let decimal = Config.bnbToUsd;
+            if(marketItem.saleToken == Config.Token.AYRA.address) decimal = Config.ayraToUsd;
+            if(marketItem.saleToken == Config.Token.ITHD.address) decimal = Config.ithdToUsd;
+            const usdPrice = new BigNumber(salePrice).multipliedBy(decimal).toFixed(2, BigNumber.ROUND_DOWN).toString();
             handleItemChange('collectionId', marketItem.collectionId);
             handleItemChange('collectionName', marketItem.collectionName);
             handleItemChange('tokenImg', tokenImg[marketItem.saleToken]);

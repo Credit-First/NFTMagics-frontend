@@ -325,6 +325,12 @@ export const Main = styled('div')(({ theme, open }: DrawerProps) => {
                     width: '100%',
                     flexDirection: 'column'
                 },
+                '& .assets-search-view-modal-dropdown': {
+                    position: 'relative'
+                },
+                '& .assets-search-view-sort-dropdown': {
+                    position: 'relative'
+                }
             }
         },
         '& .no-items': {
@@ -338,105 +344,115 @@ export const Main = styled('div')(({ theme, open }: DrawerProps) => {
     })
 })
 
-export const DropdownMenu = styled('div')(({ theme, open, width }: { theme?: any, open: any, width?: any }) => ({
-    ...(width && {
-        width: width
-    }),
-    overflowY: 'auto',
-    ...(open && {
-        zIndex: 10,
-    }),
-    [theme.breakpoints.down('md')]: {
-        marginTop: 5,
-        marginBottom: 5,
-        width: '100%',
-    },
-    marginRight: 5,
-    '& .dropdownBtn': {
-        display: 'flex',
-        justifyContent: 'space-between',
-        cursor: 'pointer',
-        position: 'relative',
-        padding: 10,
-        borderRadius: 5,
-        height: 48,
-        border: `1px solid ${theme.palette.divider}`,
-        ...(open && {
-            borderBottomRightRadius: 0,
-            borderBottomLeftRadius: 0,
+export const DropdownMenu = styled('div')(({ theme, open, width }: { theme?: any, open: any, width?: any }) => {
+
+    const sm = useMediaQuery('(max-width:600px)');
+    const md = useMediaQuery('(max-width:900px)');
+
+    return ({
+        width: 200,
+        ...(width && {
+            width: width
         }),
-    },
-    '& .subMenuContent': {
-        width: 'inherit',
-        '& .back': {
-            display: 'none',
-            position: 'fixed',
-            top: 0,
-            right: 0,
-            left: 0,
-            bottom: 0,
-            width: '100vw',
-            height: '100vh',
+        ...((md || sm) && {
+            width: '100%'
+        }),
+        overflowY: 'auto',
+        ...(open && {
+            zIndex: 10,
+        }),
+        [theme.breakpoints.down('md')]: {
+            marginTop: 5,
+            marginBottom: 5,
+            width: '100%',
+        },
+        marginRight: 5,
+        '& .dropdownBtn': {
+            display: 'flex',
+            justifyContent: 'space-between',
+            cursor: 'pointer',
+            position: 'relative',
+            padding: 10,
+            borderRadius: 5,
+            height: 48,
+            border: `1px solid ${theme.palette.divider}`,
             ...(open && {
-                display: 'block',
-                zIndex: 10
+                borderBottomRightRadius: 0,
+                borderBottomLeftRadius: 0,
             }),
         },
-        '& .submenu': {
-            position: 'absolute',
-            zIndex: 9,
+        '& .subMenuContent': {
             width: 'inherit',
-            display: 'none',
-            overflowY: 'auto',
-            backgroundColor: `${theme.palette.background.default}`,
-            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))',
-            borderBottomRightRadius: 10,
-            borderBottomLeftRadius: 10,
-            transition: 'all 0.3s ease 0s',
-            boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`,
-            ...(open && {
-                transition: 'all 0.3s ease 0s',
-                display: 'block',
-                zIndex: 11
-            }),
-            '& ul': {
-                margin: 0,
-                padding: 0,
+            '& .back': {
+                display: 'none',
+                position: 'fixed',
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
+                width: '100vw',
+                height: '100vh',
+                ...(open && {
+                    display: 'block',
+                    zIndex: 10
+                }),
+            },
+            '& .submenu': {
+                position: 'absolute',
+                zIndex: 9,
+                width: 'inherit',
+                display: 'none',
+                overflowY: 'auto',
+                backgroundColor: `${theme.palette.background.default}`,
+                backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))',
                 borderBottomRightRadius: 10,
                 borderBottomLeftRadius: 10,
-                '& li': {
-                    cursor: 'pointer',
-                    borderBottom: `1px solid ${theme.palette.divider}`,
-                    '& a': {
-                        padding: 15,
-                        display: 'flex',
-                        textDecoration: 'none',
-                        color: `${theme.palette.text.primary}`,
-                        '& .menu-image': {
-                            height: 24,
-                            width: 24,
-                            marginRight: 8,
-                            alignItems: 'center',
-                            display: 'flex',
-                            justifyContent: 'center',
-                            maxHeight: '100%',
-                            maxWidth: '100%',
-                            overflow: 'hidden',
-                            position: 'relative',
-                            borderRadius: 10,
-                        }
-                    },
-                    '&:hover a': {
-                        transition: 'all 0.3s ease 0s',
-                        boxShadow: `0px 0px 8px 6px ${theme.palette.divider}`,
-                    },
-                },
-                '& li:last-of-type': {
-                    border: 'none',
+                transition: 'all 0.3s ease 0s',
+                boxShadow: `0px 0px 10px 0px ${theme.palette.divider}`,
+                ...(open && {
+                    transition: 'all 0.3s ease 0s',
+                    display: 'block',
+                    zIndex: 11
+                }),
+                '& ul': {
+                    margin: 0,
+                    padding: 0,
                     borderBottomRightRadius: 10,
                     borderBottomLeftRadius: 10,
-                },
+                    '& li': {
+                        cursor: 'pointer',
+                        borderBottom: `1px solid ${theme.palette.divider}`,
+                        '& a': {
+                            padding: 15,
+                            display: 'flex',
+                            textDecoration: 'none',
+                            color: `${theme.palette.text.primary}`,
+                            '& .menu-image': {
+                                height: 24,
+                                width: 24,
+                                marginRight: 8,
+                                alignItems: 'center',
+                                display: 'flex',
+                                justifyContent: 'center',
+                                maxHeight: '100%',
+                                maxWidth: '100%',
+                                overflow: 'hidden',
+                                position: 'relative',
+                                borderRadius: 10,
+                            }
+                        },
+                        '&:hover a': {
+                            transition: 'all 0.3s ease 0s',
+                            boxShadow: `0px 0px 8px 6px ${theme.palette.divider}`,
+                        },
+                    },
+                    '& li:last-of-type': {
+                        border: 'none',
+                        borderBottomRightRadius: 10,
+                        borderBottomLeftRadius: 10,
+                    },
+                }
             }
         }
-    }
-}))
+    })
+})

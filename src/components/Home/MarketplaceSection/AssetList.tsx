@@ -29,12 +29,13 @@ const VirtualizedPage = ({ assetList }: { assetList: any }) => {
     const [mounted, setMounted] = React.useState(false);
     const classes = useStyles();
 
-    const sm = useMediaQuery('(max-width:600px)');
     const md = useMediaQuery('(max-width:950px)');
-    const lg = useMediaQuery('(max-width:1200px)');
-    
+
     React.useEffect(() => {
         setMounted(true)
+        return () => {
+            setMounted(false)
+        }
     }, [])
     return (
         <div>
@@ -50,41 +51,39 @@ const VirtualizedPage = ({ assetList }: { assetList: any }) => {
                         const rowCount = Math.ceil(assetList.length / itemsPerRow);
 
                         return (
-                            <React.Fragment>
-                                <div ref={registerChild} className={classes.cardArea}>
-                                    <List
-                                        autoHeight
-                                        width={rowWidth}
-                                        height={height}
-                                        isScrolling={isScrolling}
-                                        scrollTop={scrollTop}
-                                        rowCount={rowCount}
-                                        rowHeight={cardHeight + rowHeigthMargin}
-                                        rowRenderer={({ index, key, style }) => {
-                                            const items = [];
-                                            const fromIndex = index * itemsPerRow;
-                                            const toIndex = Math.min(
-                                                fromIndex + itemsPerRow,
-                                                assetList.length
+                            <div ref={registerChild} className={classes.cardArea}>
+                                <List
+                                    autoHeight
+                                    width={rowWidth}
+                                    height={height}
+                                    isScrolling={isScrolling}
+                                    scrollTop={scrollTop}
+                                    rowCount={rowCount}
+                                    rowHeight={cardHeight + rowHeigthMargin}
+                                    rowRenderer={({ index, key, style }) => {
+                                        const items = [];
+                                        const fromIndex = index * itemsPerRow;
+                                        const toIndex = Math.min(
+                                            fromIndex + itemsPerRow,
+                                            assetList.length
+                                        );
+                                        for (let i = fromIndex; i < toIndex; i++) {
+                                            items.push(
+                                                <CollectionItem key={i} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight} />
                                             );
-                                            for (let i = fromIndex; i < toIndex; i++) {
-                                                items.push(
-                                                    <CollectionItem key={i} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight}/>
-                                                );
-                                            }
-                                            const emptySize = itemsPerRow - items.length;
-                                            for (let i = 0; i < emptySize; i++) {
-                                                items.push(<CollectionItem key={i + toIndex} empty item={undefined} width={cardWidth} height={cardHeight}/>);
-                                            }
-                                            return (
-                                                <div className={classes.row} key={key} style={style}>
-                                                    {items}
-                                                </div>
-                                            );
-                                        }}
-                                    />
-                                </div>
-                            </React.Fragment>
+                                        }
+                                        const emptySize = itemsPerRow - items.length;
+                                        for (let i = 0; i < emptySize; i++) {
+                                            items.push(<CollectionItem key={i + toIndex} empty item={undefined} width={cardWidth} height={cardHeight} />);
+                                        }
+                                        return (
+                                            <div className={classes.row} key={key} style={style}>
+                                                {items}
+                                            </div>
+                                        );
+                                    }}
+                                />
+                            </div>
                         );
                     }}
                 </WindowScroller>

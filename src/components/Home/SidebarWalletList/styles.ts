@@ -8,7 +8,7 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
         right: 0,
         bottom: 0,
         top: 80,
-        width: '400px',
+        width: 380,
         zIndex: 90,
         backgroundColor: `${theme.palette.background.default}`,
         color: 'text.primary',
@@ -48,6 +48,9 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
+                    '& .header-text': {
+                        marginLeft: 10,
+                    }
                 },
                 '& .header-title-right': {
                     cursor: 'default',
@@ -173,7 +176,6 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                         border: 'none',
                         width: '100%',
                         fontWeight: 600,
-                        padding: '16px',
                         textAlign: 'left',
                         fontSize: '100%',
                         borderTop: `1px solid ${theme.palette.divider}`,
@@ -269,12 +271,102 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
             '& .body-footer': {
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                '& .affiliate-link': {
+                    width: '100%',
+                    '& .link-header': {
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        '& p': {
+                            margin: 0,
+                            fontWeight: 500,
+                            fontSize: 15,
+                            color: 'rgb(112, 122, 131)',
+                            '& .wallet-info': {
+                                padding: '0px 5px',
+                                fontWeight: 700,
+                                color: 'rgb(32, 129, 226)',
+                                textDecoration: 'none',
+                            }
+                        },
+                    },
+                    '& .link-detail': {
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        margin: 20,
+                        '& .link-input': {
+                            flex: 1,
+                            '& .input-text': {
+                                borderTopRightRadius: 0,
+                                borderBottomRightRadius: 0
+                            }
+                        },
+                        '& .link-copy': {
+                            cursor: 'pointer',
+                            borderRadius: 10,
+                            borderTopLeftRadius: 0,
+                            borderBottomLeftRadius: 0,
+                            background: '#0cb8eb',
+                            color: 'white',
+                            height: 35,
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            fontSize: 12,
+                            padding: 15,
+                            '&:hover': {
+                                background: '#69cdeb',
+                            }
+                        }
+                    }
+                }
             }
         }
     })
 })
 
+export const Input = styled('div')(({ theme, disabled }: { theme?: any, disabled?: boolean }) => {
+    return ({
+        borderRadius: 10,
+        border: `1px solid ${theme.palette.divider}`,
+        display: 'flex',
+        position: 'relative',
+        outline: 'none',
+        '&:focus-within': {
+            borderColor: 'transparent',
+            boxShadow: '0px 0px 7px 1px rgb(0 0 0 / 20%)',
+            ...(disabled && {
+                borderColor: `${theme.palette.divider}`,
+                boxShadow: 'none'
+            }),
+        },
+        ...(disabled && {
+            opacity: 0.5,
+            boxShadow: 'none'
+        }),
+        '& .input-prefix': {
+            alignItems: 'center',
+            backgroundColor: 'transparent',
+            display: 'flex',
+            paddingLeft: 12,
+        },
+        '& input': {
+            backgroundColor: 'transparent',
+            border: '1px solid transparent',
+            flex: '1 0 0%',
+            height: 35,
+            outline: 'none',
+            padding: '0px 12px 0px 0px',
+            minWidth: 0,
+            '&:focus': {
+                border: 'none',
+                boxShadow: 'none'
+            }
+        }
+    })
+});
 export const DropdownMenu = styled('div')(({ theme, open, width }: { theme?: any, open: any, width?: any }) => ({
     width: 200,
     ...(width && {

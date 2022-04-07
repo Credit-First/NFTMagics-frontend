@@ -47,7 +47,7 @@ export const Section = styled('div')((theme: any) => {
                 fontWeight: 700,
                 fontSize: 20,
                 color: '#fff',
-                padding: '5px 18px',
+                padding: '15px 20px',
                 transition: 'all 0.3s',
             }
         }

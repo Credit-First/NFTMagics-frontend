@@ -381,8 +381,6 @@ const MintStep = ({ handleNext, ipfsImage, hastag }: { handleNext: any, ipfsImag
                 })
                 .on('error', console.error);
 
-                console.log('dfdfdf', totalPrice.toString());
-            console.log(mintData.collectionId, ipfsImage, ipfsUrl, mintData.amount, mintTokenAddress, mintData.hastag_flag)
             await NFT.methods
                 .mint(
                     mintData.collectionId,

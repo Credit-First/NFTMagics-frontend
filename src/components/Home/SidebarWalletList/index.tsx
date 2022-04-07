@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useRouter } from 'next/router';
 import { styled } from "@mui/material/styles"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Button, Avatar, Alert, Tooltip, Link, CircularProgress } from '@mui/material';
@@ -15,7 +16,8 @@ import toast from "@/components/Toast";
 import "react-toastify/dist/ReactToastify.css";
 
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import { SidebarWalletLSection, DropdownMenu, StyledBadge } from './styles';
+import { SidebarWalletLSection, DropdownMenu, StyledBadge, Input } from './styles';
+import AffiliateSetModal from '@/components/Home/AffiliateSetModal';
 
 import Config from '@/config/app';
 import { Wallets, ConnectedWallet } from '@/config/assets/constants/wallets';
@@ -50,6 +52,8 @@ const Overlay = styled('div')(({ theme, openwalletlist }: { theme?: any, openwal
 })
 
 export default function SidebarWalletList(props: any) {// the function is being called multiple times
+    const router = useRouter();
+    const { ref } = router.query;
     const { openwalletlist, setToggleWalletList } = props;
     const [BNBValue, setBNBValue] = React.useState('0');
     const [AYRAValue, setAYRAValue] = React.useState('0');
@@ -62,29 +66,21 @@ export default function SidebarWalletList(props: any) {// the function is being 
     const [activatingConnector, setActivatingConnector] = React.useState(undefined);
     const [isSelectingWallet, setIsSelectingWallet] = React.useState(true);
     const cWallet = ConnectedWallet();
+    const [affiliateLink, setAffiliateLink] = React.useState('');
+    const [affiliateLinkCopied, setAffiliateLinkCopied] = React.useState(false);
+    const [referalModal, setReferalModal] = React.useState(false);
 
     const notify = React.useCallback((type, message) => {
         toast({ type, message });
     }, []);
 
-    // ** Effects
-    React.useEffect(() => {
-        if (activatingConnector && activatingConnector === connector) {
-            setActivatingConnector(undefined);
-        }
-    }, [activatingConnector, connector]);
-    // log the walletconnect URI
-    React.useEffect(() => {
-        const logURI = (uri: any) => {
-            console.log("WalletConnect URI", uri);
-        };
-        walletconnect.on(URI_AVAILABLE, logURI);
-
-        return () => {
-            walletconnect.off(URI_AVAILABLE, logURI);
-        };
-    }, []);
-
+    const handleChangeAffiliateLink = (event: any) => {
+        setAffiliateLink(event.target.value);
+    }
+    const handleAffiliateCopy = () => {
+        setAffiliateLinkCopied(true);
+        notify('success', 'Affiliate link is copied!');
+    }
     useInactiveListener(!triedEager);
 
     const onConnectWallet = (item: any) => async () => {
@@ -224,31 +220,6 @@ export default function SidebarWalletList(props: any) {// the function is being 
             Config.Token.AYRA.address
         );
 
-        // const approve = async (contract: any) => {
-        //     const allowanceBalanceof = await contract.methods
-        //         .allowance(account, Config.NFT.address)
-        //         .call();
-        // if (Math.floor(allowanceBalanceof / 1e18) < 100) {
-        //     await contract.methods
-        //         .approve(Config.NFT.address, '100000000000000000000000000')
-        //         .send({ from: account })
-        //         .once('transactionHash', () => {
-        //             notify('info', 'Approving purchase with Token');
-        //         })
-        //         .then((_tx: any) => {
-        //             notify('success', 'You have approved the purchase with Token');
-        //         })
-        //         .catch((e: any) => {
-        //             if (e.code === 4001) {
-        //                 notify('error', 'You need to approve the spending of Token in your wallet');
-        //             }
-        //         });
-        // }
-        // }
-
-        // await approve(ContractITHD);
-        // await approve(ContractAYRA);
-
         const bnbValue = await web3.eth.getBalance(account);
         const ithdValue = await ContractITHD.methods.balanceOf(account).call();
         const ayraValue = await ContractAYRA.methods.balanceOf(account).call();
@@ -278,14 +249,36 @@ export default function SidebarWalletList(props: any) {// the function is being 
             console.log('Error get reward : ', err);
         }
     }
+    // ** Effects
     React.useEffect(() => {
-        console.log('wallet', active);
+        if (activatingConnector && activatingConnector === connector) {
+            setActivatingConnector(undefined);
+        }
+    }, [activatingConnector, connector]);
+    // log the walletconnect URI
+    React.useEffect(() => {
+        const logURI = (uri: any) => {
+            console.log("WalletConnect URI", uri);
+        };
+        walletconnect.on(URI_AVAILABLE, logURI);
+
+        return () => {
+            walletconnect.off(URI_AVAILABLE, logURI);
+        };
+    }, []);
+
+    React.useEffect(() => {
+        if (ref) setReferalModal(true);
+    }, [ref]);
+
+    React.useEffect(() => {
         if (active) {
             valueload();
             getReward();
         } else {
             setIsSelectingWallet(true);
         }
+        setAffiliateLink(`https://nftmagics-frontend.herokuapp.com/?ref=${account}`);
     }, [account, active, error])
 
     return (
@@ -302,7 +295,8 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                                             variant="dot"
                                         >
-                                            <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar>
+                                            {/* <Avatar sx={{ bgcolor: deepOrange[500] }}>N</Avatar> */}
+                                            <AccountCircleIcon fontSize='large' />
                                         </StyledBadge>
                                         <WalletDropDownMenu onDeactiveWallet={onDeactiveWallet} account={account} cWallet={cWallet} />
                                     </div>
@@ -396,6 +390,26 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                 }
                             </div>
                             <div className='body-footer'>
+                                <div className='affiliate-link'>
+                                    <div className='link-header'>
+                                        <p>Refferal Link</p>
+                                        <div style={{ ...(!affiliateLinkCopied && { display: 'none' }) }}>copied</div>
+                                    </div>
+                                    <div className='link-detail'>
+                                        <div className='link-input'>
+                                            <Input className="input-text">
+                                                <div className='input-prefix'></div>
+                                                <input value={affiliateLink} onChange={handleChangeAffiliateLink} autoCapitalize="off" autoComplete="off" autoCorrect="off" data-testid="Input" id="affiliateLink" name="affiliateLink" placeholder="" spellCheck="false" type="text"></input>
+                                            </Input>
+                                        </div>
+                                        <div className='link-copy'>
+                                            <CopyToClipboard text={affiliateLink}
+                                                onCopy={handleAffiliateCopy}>
+                                                <span>Copy</span>
+                                            </CopyToClipboard>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -405,7 +419,7 @@ export default function SidebarWalletList(props: any) {// the function is being 
                             <span className='header-title'>
                                 <div className='header-title-left'>
                                     <AccountCircleIcon fontSize='large' />
-                                    <div>My Wallet</div>
+                                    <span className='header-text'>My Wallet</span>
                                 </div>
                             </span>
                         </div>
@@ -425,7 +439,7 @@ export default function SidebarWalletList(props: any) {// the function is being 
                         <div className='sidebar-wallet-body'>
                             <div className='body-header'>
                                 <p>
-                                    Connect with one of our available
+                                    Connect with one of available
                                     <a className="" href="" target="_blank" aria-expanded="false">
                                         <span className="wallet-info">wallet</span>
                                     </a>
@@ -506,7 +520,9 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                             <div className='wallet-info'></div>
                                         </button>
                                     </li>
-                                    <button className='more-options'>Show more options</button>
+                                    <li className='wallet-item'>
+                                        <button className='more-options'>Show more options</button>
+                                    </li>
                                 </ul>
                             </div>
                             <div className='body-footer'>
@@ -518,6 +534,7 @@ export default function SidebarWalletList(props: any) {// the function is being 
                 )}
             </SidebarWalletLSection>
             <Overlay openwalletlist={openwalletlist ? 1 : 0} onClick={setToggleWalletList}></Overlay>
+            <AffiliateSetModal modal={referalModal} setModal={setReferalModal} refLink={ref} />
         </>
     )
 }

@@ -38,5 +38,8 @@ export default {
     ithdPrice: 29000000000000000000,
     bnbTicketPrice: 1050000000000000,
     ayraTicketPrice: 10000000000000000000,
-    ithdTicketPrice: 14500000000000000000
+    ithdTicketPrice: 14500000000000000000,
+    bnbToUsd: 370,
+    ayraToUsd: 0.025,
+    ithdToUsd: 0.017,
 }

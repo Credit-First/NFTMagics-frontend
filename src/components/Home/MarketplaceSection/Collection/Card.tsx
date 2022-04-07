@@ -9,11 +9,10 @@ import {
 } from '@mui/material';
 import { LoadingComponent } from '@/components/Loading';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import Web3 from "web3";
-import { useWeb3React } from "@web3-react/core";
-import TimeAgo from 'javascript-time-ago';
-import en from 'javascript-time-ago/locale/en.json';
-TimeAgo.addDefaultLocale(en);
+import toast from "@/components/Toast";
+import "react-toastify/dist/ReactToastify.css";
+import { useDispatch } from "react-redux";
+import { actionAddFavorites } from '@/store/actions';
 
 const IMG_HEIGHT = 300;
 
@@ -255,13 +254,22 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
     })
 })
 
-const NFTCard = ({ item, empty, width, height, timeAgo}: { item: any, empty: any, width: any, height: any, timeAgo: any }) => {
+const NFTCard = ({ item, empty, width, height, timeAgo, account, web3 }: { item: any, empty: any, width: any, height: any, timeAgo: any, account: any, web3: any }) => {
 
-    const { account, library }: any = useWeb3React();
+    if (empty) {
+        return (
+            <EmptyCard width={width} height={height}>
+                {/* <LoadingComponent /> */}
+            </EmptyCard>
+        );
+    }
     const router = useRouter();
+    const dispatch = useDispatch();
+    const [favorite, setFavorite] = React.useState(0);
 
-    let web3 = new Web3();
-    if (library) web3 = new Web3(library.provider);
+    const notify = React.useCallback((type, message) => {
+        toast({ type, message });
+    }, []);
 
     const fromWei = React.useCallback((web3, val) => {
         if (val) {
@@ -271,14 +279,6 @@ const NFTCard = ({ item, empty, width, height, timeAgo}: { item: any, empty: any
             return "0"
         }
     }, []);
-
-    if (empty) {
-        return (
-            <EmptyCard width={width} height={height}>
-                {/* <LoadingComponent /> */}
-            </EmptyCard>
-        );
-    }
 
     const image = item?.image;
     const price = fromWei(web3, item.price);
@@ -293,11 +293,11 @@ const NFTCard = ({ item, empty, width, height, timeAgo}: { item: any, empty: any
     let re = /ute|ond/gi;
     pastTime = pastTime.toString().replace(re, "");
 
-    if (item?.saleToken == 1) {
+    if (item.saleToken == 1) {
         token_img = '/images/token/ayra.png';
         token_name = 'AYRA';
     }
-    if (item?.saleToken == 2) {
+    if (item.saleToken == 2) {
         token_img = '/images/token/ithd.png';
         token_name = 'ITHD';
     }
@@ -309,14 +309,29 @@ const NFTCard = ({ item, empty, width, height, timeAgo}: { item: any, empty: any
         router.push(`/marketplace/assets/${item.itemId}/get`);
     };
 
+    const handleAddFavorites = () => {
+        if (!account) return notify('error', 'please connect wallet');
+
+        if (item.likes.account.includes(account)) return notify('info', 'you have already add favorite');
+
+        dispatch(actionAddFavorites({ itemId: item.itemId, account }));
+
+        setFavorite(favorite + 1);
+        item.likes.account.push(account);
+        notify('success', 'you have added favorite');
+    }
+    React.useEffect(() => {
+        setFavorite(item.likes.account.length + 10);
+    }, []);
+
     return (
         <>
             {
                 item ? (
                     <CardDiv height={height} width={width}>
                         <article className='card-image-card'>
-                            <a className='card-image-card-link' onClick={handleLink}>
-                                <div className='card-image-card-link-meida'>
+                            <a className='card-image-card-link'>
+                                <div className='card-image-card-link-meida' onClick={handleLink}>
                                     <div className='media-img'>
                                         {
                                             item.giftAddress !== "0x0000000000000000000000000000000000000000" && (
@@ -375,15 +390,15 @@ const NFTCard = ({ item, empty, width, height, timeAgo}: { item: any, empty: any
                                             <div className='token-info'>
                                                 <span>{token_name}</span>
                                             </div>
-                                            <div className='link'>
+                                            <div className='link' onClick={handleLink}>
                                                 {
                                                     item.seller === account ? ('View') : ('Buy now')
                                                 }
                                             </div>
                                         </div>
                                         <div className='like'>
-                                            <FavoriteBorderIcon className='like-img' />
-                                            <span>10</span>
+                                            <FavoriteBorderIcon className='like-img' onClick={handleAddFavorites} />
+                                            <span>{favorite}</span>
                                         </div>
                                     </div>
                                 </footer>

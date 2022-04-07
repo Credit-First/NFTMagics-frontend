@@ -5,10 +5,10 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import NFTCard from "./Card";
 import TimeAgo from 'javascript-time-ago';
 import en from 'javascript-time-ago/locale/en.json';
+import Web3 from "web3";
+import { useWeb3React } from "@web3-react/core";
 
-TimeAgo.addDefaultLocale(en);
-
-const timeAgo = new TimeAgo('en-US');
+TimeAgo.addLocale(en);
 
 const MIN_WIDTH = 920;
 const cardWidth = 300;
@@ -32,15 +32,20 @@ const useStyles = makeStyles(() => ({
 }));
 
 const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOpen: any }) => {
+    const timeAgo = new TimeAgo('en-US');
     const [mounted, setMounted] = React.useState(false);
     const classes = useStyles();
-    
+
+    const { account, library }: any = useWeb3React();
+
+    let web3 = new Web3();
+    if (library) web3 = new Web3(library.provider);
+
     const sm = useMediaQuery('(max-width:600px)');
     const md = useMediaQuery('(max-width:950px)');
-    const lg = useMediaQuery('(max-width:1200px)');
-    
+
     React.useEffect(() => {
-        setMounted(true)
+        setMounted(true);
     }, [])
     return (
         <div>
@@ -57,41 +62,39 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
                         const rowCount = Math.ceil(assetList.length / itemsPerRow);
 
                         return (
-                            <React.Fragment>
-                                <div ref={registerChild} className={classes.cardArea}>
-                                    <List
-                                        autoHeight
-                                        width={rowWidth}
-                                        height={height}
-                                        isScrolling={isScrolling}
-                                        scrollTop={scrollTop}
-                                        rowCount={rowCount}
-                                        rowHeight={cardHeight + rowHeigthMargin}
-                                        rowRenderer={({ index, key, style }) => {
-                                            const items = [];
-                                            const fromIndex = index * itemsPerRow;
-                                            const toIndex = Math.min(
-                                                fromIndex + itemsPerRow,
-                                                assetList.length
+                            <div ref={registerChild} className={classes.cardArea}>
+                                <List
+                                    autoHeight
+                                    width={rowWidth}
+                                    height={height}
+                                    isScrolling={isScrolling}
+                                    scrollTop={scrollTop}
+                                    rowCount={rowCount}
+                                    rowHeight={cardHeight + rowHeigthMargin}
+                                    rowRenderer={({ index, key, style }) => {
+                                        const items = [];
+                                        const fromIndex = index * itemsPerRow;
+                                        const toIndex = Math.min(
+                                            fromIndex + itemsPerRow,
+                                            assetList.length
+                                        );
+                                        for (let i = fromIndex; i < toIndex; i++) {
+                                            items.push(
+                                                <NFTCard key={i} timeAgo={timeAgo} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight} account={account} web3={web3}/>
                                             );
-                                            for (let i = fromIndex; i < toIndex; i++) {
-                                                items.push(
-                                                    <NFTCard key={i} timeAgo={timeAgo} item={assetList[i]} empty={undefined} width={cardWidth} height={cardHeight}/>
-                                                );
-                                            }
-                                            const emptySize = itemsPerRow - items.length;
-                                            for (let i = 0; i < emptySize; i++) {
-                                                items.push(<NFTCard key={i + toIndex} timeAgo={timeAgo} empty item={undefined} width={cardWidth} height={cardHeight}/>);
-                                            }
-                                            return (
-                                                <div className={classes.row} key={key} style={style}>
-                                                    {items}
-                                                </div>
-                                            );
-                                        }}
-                                    />
-                                </div>
-                            </React.Fragment>
+                                        }
+                                        const emptySize = itemsPerRow - items.length;
+                                        for (let i = 0; i < emptySize; i++) {
+                                            items.push(<NFTCard key={i + toIndex} timeAgo={timeAgo} empty item={undefined} width={cardWidth} height={cardHeight} account={account} web3={web3} />);
+                                        }
+                                        return (
+                                            <div className={classes.row} key={key} style={style}>
+                                                {items}
+                                            </div>
+                                        );
+                                    }}
+                                />
+                            </div>
                         );
                     }}
                 </WindowScroller>

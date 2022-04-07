@@ -8,6 +8,8 @@ import ViewComfySharpIcon from '@mui/icons-material/ViewComfySharp';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import { DropdownMenu } from './styles';
+import { useDispatch } from 'react-redux';
+import { actionGetMarketplace } from '@/store/actions';
 
 export const SearchModalDropdownMenu = () => {
   const [open, setOpen] = React.useState(false);
@@ -30,12 +32,12 @@ export const SearchModalDropdownMenu = () => {
         <div className='submenu'>
           <ul>
             <li onClick={handleListClick('Recently Sold', 1)}>
-              <a href=''>
+              <a>
                 Recently Sold
               </a>
             </li>
-            <li onClick={handleListClick('All Items', 2)}><a href=''>All Items</a></li>
-            <li onClick={handleListClick('Bundles', 3)}><a href=''>Bundles</a></li>
+            <li onClick={handleListClick('All Items', 2)}><a>All Items</a></li>
+            <li onClick={handleListClick('Bundles', 3)}><a>Bundles</a></li>
           </ul>
         </div>
         <div className='back' onClick={handleClick}></div>
@@ -44,7 +46,8 @@ export const SearchModalDropdownMenu = () => {
   )
 }
 
-export const SearchSortDropDowonMenu = () => {
+export const SearchSortDropDowonMenu = ({ setSort }: { setSort: any }) => {
+  const dispatch = useDispatch();
   const [open, setOpen] = React.useState(false);
   const [text, setText] = React.useState('Recently sold');
   const handleClick = () => {
@@ -53,6 +56,7 @@ export const SearchSortDropDowonMenu = () => {
 
   const handleListClick = (text: any, key: any) => () => {
     setText(text);
+    setSort(key);
   }
 
   return (
@@ -64,13 +68,13 @@ export const SearchSortDropDowonMenu = () => {
       <div className='subMenuContent'>
         <div className='submenu'>
           <ul>
-            <li onClick={handleListClick('Recently Sold', 1)}>
-              <a href=''>
+            <li>
+              <a onClick={handleListClick('Recently Sold', -1)}>
                 Recently Sold
               </a>
             </li>
-            <li onClick={handleListClick('Oldest', 2)}><a href=''>Oldest</a></li>
-            <li onClick={handleListClick('Lastest', 3)}><a href=''>Lastest</a></li>
+            <li><a onClick={handleListClick('Oldest', 1)}>Oldest</a></li>
+            <li><a onClick={handleListClick('Lastest', -1)}>Lastest</a></li>
           </ul>
         </div>
         <div className='back' onClick={handleClick}></div>

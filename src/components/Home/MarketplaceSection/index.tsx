@@ -21,7 +21,8 @@ import PageLoading from '@/components/PageLoading';
 
 export default function Marketplace() {
     const router = useRouter();
-    const { address } = router.query;
+    const { active, address } = router.query;
+    
     const { account }: any = useWeb3React();
     const dispatch = useDispatch();
     const collectionList = useSelector(selectCollectionList);
@@ -69,14 +70,19 @@ export default function Marketplace() {
         setLoading(true);
         router.push('/marketplace/collection/create');
     }
+    const getData = () => {
+        if(address && (address === account)) dispatch(actionGetCollectionList({account: address}));
+        else dispatch(actionGetCollectionList({}));
+        dispatch(actionGetMarketInfo());
+    }
     React.useEffect(() => {
         if (collectionList.length > 0) {
             let previewCollection = collectionList[0];
 
             setPreview(previewCollection);
+            setAssetList(collectionList);
         }
 
-        setAssetList(collectionList);
     }, [collectionList]);
 
     React.useEffect(() => {
@@ -86,10 +92,8 @@ export default function Marketplace() {
     }, [marketInfo]);
 
     React.useEffect(() => {
-        if(address && (address === account)) dispatch(actionGetCollectionList({account: address}));
-        else dispatch(actionGetCollectionList({}));
-        dispatch(actionGetMarketInfo());
-    }, []);
+        getData();
+    }, [address]);
 
     return (
         <Section>
@@ -158,7 +162,7 @@ export default function Marketplace() {
             </MarketplaceHeader>
             <div className='marketplace-wraper'>
                 <CssBaseline />
-                <div className='marketplace-body' style={{}}>
+                <div className='marketplace-body'>
                     <Main>
                         {/* <div className='assets-search-view-header'>
                             <div className='assets-search-view-container'>

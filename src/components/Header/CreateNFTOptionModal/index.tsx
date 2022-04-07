@@ -7,6 +7,7 @@ import Slide from '@mui/material/Slide';
 import { TransitionProps } from '@mui/material/transitions';
 import { Section, CreateNFTModal } from './styles';
 import Link from 'next/link';
+import PageLoading from '@/components/PageLoading';
 
 const Transition = React.forwardRef(function Transition(
     props: TransitionProps & {
@@ -18,8 +19,9 @@ const Transition = React.forwardRef(function Transition(
 });
 
 export default function CreateNFTOptionModal() {
-    const [open, setOpen] = React.useState(false);
     const theme = useTheme();
+    const [open, setOpen] = React.useState(false);
+    const [loading, setLoading] = React.useState(false);
     const fullScreen = useMediaQuery(theme.breakpoints.down('lg'));
 
     const handleClickOpen = () => {
@@ -30,6 +32,10 @@ export default function CreateNFTOptionModal() {
         setOpen(false);
     };
 
+    const handleLink = () => {
+        setLoading(true);
+        setOpen(false);
+    }
     return (
         <Section>
             <button className='button button-primary' onClick={handleClickOpen}>
@@ -54,7 +60,7 @@ export default function CreateNFTOptionModal() {
                         </div>
                         <div className='modal-content'>
                             <Link href={'/createself'}>
-                                <a href="" className='select-item'>
+                                <a href="" className='select-item' onClick={handleLink}>
                                     <img src="/images/design/self-logo.png" alt="" />
                                     <button>YOUR SELF</button>
                                 </a>
@@ -66,7 +72,7 @@ export default function CreateNFTOptionModal() {
                                 </div>
                             </div>
                             <Link href={'/create'}>
-                                <a className='select-item'>
+                                <a className='select-item' onClick={handleLink}>
                                     <img src="/images/design/desingn-logo.png" alt="" />
                                     <button>DESIGN NOW</button>
                                 </a>
@@ -80,6 +86,7 @@ export default function CreateNFTOptionModal() {
                     </div>
                 </CreateNFTModal>
             </Dialog>
+            <PageLoading loading={loading} />
         </Section>
     );
 }

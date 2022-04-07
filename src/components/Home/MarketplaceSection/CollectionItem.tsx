@@ -136,20 +136,21 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                 alignItems: 'center',
                 justifyContent: 'flex-start',
                 color: `${theme.palette.text.primary}`,
-                padding: 20,
-                width: '100%',
-                height: 100, 
+                padding: 10,
                 marginBottom: 10,
                 '& .name': {
-                    display: '-webkit-box',
-                    textOverflow: 'ellipsis',
-                    whiteSpace: 'break-spaces',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
+                    fontWeight: 600,
+                    fontSize: 16,
+                    textTransform: 'none',
                     overflow: 'hidden',
+                    textOverflow: 'ellipsis',
+                    whiteSpace: 'nowrap',
+                    textAlign: 'center',
+                    maxWidth: 200,
+                    marginTop: 2,
                 },
                 '& .owner': {
-                    padding: 10,
+                    padding: 5,
                     fontSize: 13,
                     color: `${theme.palette.text.primary}`,
                     opacity: 0.7
@@ -160,9 +161,12 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
                     display: '-webkit-box',
                     textOverflow: 'ellipsis',
                     whiteSpace: 'break-spaces',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
                     overflow: 'hidden',
+                    maxWidth: '80%',
+                    height: 75,
+                    textAlign: 'center',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
                 }
             },
             '&:hover': {
@@ -180,19 +184,6 @@ const CardDiv = styled('div')(({ theme, width, height }: { theme?: any, width: a
 const CollectionCard = ({ item, empty, width, height }: { item: any, empty: any, width: any, height: any }) => {
     const router = useRouter();
     const { account }: any = useWeb3React();
-
-    const [collection, setCollectioin] = React.useState({
-        banner: '',
-        createdAt: '',
-        description: '',
-        featured: '',
-        itemId: 2,
-        logo: '',
-        name: '',
-        owner: '',
-        count: 0,
-        updatedAt: ''
-    });
 
     const notify = React.useCallback((type, message) => {
         toast({ type, message });
@@ -216,57 +207,42 @@ const CollectionCard = ({ item, empty, width, height }: { item: any, empty: any,
         if (!account) return notify('error', 'please connect your wallet');
         router.push(`/marketplace/collection/${item.itemId}/edit`);
     }
-    React.useEffect(() => {
-        if (item) {
-            setCollectioin(collection => ({ ...collection, banner: item.banner }));
-            setCollectioin(collection => ({ ...collection, featured: item.featured }));
-            setCollectioin(collection => ({ ...collection, logo: item.logo }));
-            setCollectioin(collection => ({ ...collection, name: item.name }));
-            setCollectioin(collection => ({ ...collection, description: item.description }));
-            setCollectioin(collection => ({ ...collection, itemId: item.itemId }));
-            setCollectioin(collection => ({ ...collection, owner: item.owner }));
-            setCollectioin(collection => ({ ...collection, count: item.count }));
-            setCollectioin(collection => ({ ...collection, createdAt: item.createdAt }));
-            setCollectioin(collection => ({ ...collection, updatedAt: item.updatedAt }));
-        }
-
-    }, []);
 
     return (
         <>
             {
                 item ? (
                     <CardDiv height={height} width={width}>
-                        <article className='card-image-card'>
+                        <div className='card-image-card'>
                             {
-                                collection.owner == account && (
+                                item.owner == account && (
                                     <div className='card-edit' onClick={handleEdit}>
                                         <Edit />
                                     </div>
-                                )  
+                                )
                             }
                             <a className='card-image-card-link' onClick={handleLink()}>
                                 <div className='card-image-card-link-meida'>
                                     <div className='media-img'>
-                                        {collection.featured && (
+                                        {item.featured && (
                                             <div className='asset-media-image'>
                                                 <Skeleton className='' sx={{ height: '100%', width: '100%', borderRadius: 'inherit', borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }} animation="wave" variant="rectangular" />
-                                                {collection.featured && (<Image loader={imgLoader} src={collection.featured} layout="fill" objectFit="fill" />)}
+                                                {item.featured && (<Image loader={imgLoader} src={item.featured} layout="fill" objectFit="fill" />)}
                                             </div>
                                         )}
                                     </div>
                                 </div>
                                 <div className='logo'>
                                     <Skeleton className='' sx={{ height: '100%', width: '100%', background: '#e3e3e3' }} animation="wave" variant="rectangular" />
-                                    {collection.logo && (<Image loader={imgLoader} src={collection.logo} layout="fill" objectFit="fill" />)}
+                                    {item.logo && (<Image loader={imgLoader} src={item.logo} layout="fill" objectFit="fill" />)}
                                 </div>
                                 <div className='card-image-text-area'>
-                                    <div className='name'>{collection.name || <Skeleton variant="text" />}</div>
-                                    <div className='owner'>{('by ' + collection.owner.toString().substring(0, 15) + '...' + item.owner.toString().substring(item.owner.length - 8)) || <Skeleton variant="text" />}</div>
-                                    <div className='description'>{collection.description || <Skeleton variant="text" />}</div>
+                                    <div className='name'>{item.name || <Skeleton variant="text" />}</div>
+                                    <div className='owner'>{('by ' + item.owner.toString().substring(0, 15) + '...' + item.owner.toString().substring(item.owner.length - 8)) || <Skeleton variant="text" />}</div>
+                                    <div className='description'>{item.description || <Skeleton variant="text" />}</div>
                                 </div>
                             </a>
-                        </article>
+                        </div>
                     </CardDiv>
                 ) : (
                     <EmptyCard height={height} width={width} >
