@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import AppsIcon from '@mui/icons-material/Apps';
 import RedeemIcon from '@mui/icons-material/Redeem';
-import SettingsIcon from '@mui/icons-material/Settings';
+// import SettingsIcon from '@mui/icons-material/Settings';
 import { DropdownMenu, StyledBadge } from '@/navigation/styles';
 import { useWeb3React } from "@web3-react/core";
 import { useRouter } from 'next/router';
