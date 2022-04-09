@@ -173,7 +173,7 @@ export default function Collection() {
 
     React.useEffect(() => {
         getData();
-    }, [collectionId, address, gift, search, selectFilterItem, rangePrice, favorite, sortFilter]);
+    }, [collectionId, address, gift, search, selectFilterItem, rangePrice, favorite, sortFilter, account]);
 
     return (
         <Section>
