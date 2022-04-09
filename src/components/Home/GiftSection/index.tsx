@@ -65,13 +65,11 @@ const GiftBox = () => {
                 {
                   giftItems.map((item: any, key: any) => {
                     return (
-                      <>
-                        <li key={key} className='gift-item'>
-                          <div className='gift-name'>{item.name}</div>
-                          <div>from:</div>
-                          <div className='from-address'>{item.owner.substring(0, 12)} ... {item.owner.substring(item.owner.length - 8)}</div>
-                        </li>
-                      </>
+                      <li key={key} className='gift-item'>
+                        <div className='gift-name'>{item.name}</div>
+                        <div>from:</div>
+                        <div className='from-address'>{item.owner.substring(0, 12)} ... {item.owner.substring(item.owner.length - 8)}</div>
+                      </li>
                     )
                   })
                 }

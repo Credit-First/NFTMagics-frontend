@@ -24,10 +24,14 @@ import { SearchModalDropdownMenu, SearchSortDropDowonMenu, SearchToggleButton } 
 import AssetList from './AssetList';
 import { actionGetMarketplace, actionGetCollectionItem } from '@/store/actions';
 import { selectMarketplace, selectCollectionItem } from '@/store/selectors';
+import toast from "@/components/Toast";
+import "react-toastify/dist/ReactToastify.css";
+import { useWeb3React } from "@web3-react/core";
 
 export default function Collection() {
     const router = useRouter()
     const { collectionId, gift, address, search, favorite}: any = router.query;
+    const { active, account }: any = useWeb3React();
     const dispatch = useDispatch();
     const marketplace = useSelector(selectMarketplace);
     const collectionItem = useSelector(selectCollectionItem);
@@ -74,6 +78,10 @@ export default function Collection() {
         mycollection: true
     });
 
+    const notify = React.useCallback((type, message) => {
+        toast({ type, message });
+    }, []);
+
     const handleToggleSideBar = () => {
         setsideBarOpen(!sideBaropen);
     };
@@ -93,6 +101,7 @@ export default function Collection() {
     };
 
     const handleSelectFilterItem = (item: string) => () => {
+        if(!account) return notify('error', 'please connect your wallet');
         if (item === 'sales') {
             setSelectFilterItem(value => ({ ...value, sales: !selectFilterItem.sales }));
         }
@@ -139,13 +148,15 @@ export default function Collection() {
 
     const getData = () => {
         if (collectionId) dispatch(actionGetCollectionItem({ collectionId }));
-        if (gift) setSelectFilterItem(value => ({ ...value, forGift: true }));
-        if (search) setSearchText(search)
+        // if (gift) setSelectFilterItem(value => ({ ...value, forGift: true }));
+        if (search) setSearchText(search);
+
         dispatch(actionGetMarketplace({
             ...selectFilterItem,
+            sales: selectFilterItem.sales,
             forGift: !!gift || selectFilterItem.forGift,
-            followings: (!!favorite || selectFilterItem.followings) && favorite,
-            account: address,
+            followings: (!!favorite || selectFilterItem.followings),
+            account: account || address,
             collectionId: collectionId,
             name: searchText,
             sort: sortFilter
