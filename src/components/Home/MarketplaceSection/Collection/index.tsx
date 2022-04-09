@@ -153,7 +153,7 @@ export default function Collection() {
 
         dispatch(actionGetMarketplace({
             ...selectFilterItem,
-            sales: selectFilterItem.sales,
+            sales: selectFilterItem.sales || address,
             forGift: !!gift || selectFilterItem.forGift,
             followings: (!!favorite || selectFilterItem.followings),
             account: account || address,
