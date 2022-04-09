@@ -137,10 +137,12 @@ export const TokenDropDownMenu = ({ disabled, setInputData, inputData }: { disab
         setInputData({ ...inputData, saleTokenType: item.value })
     }
     React.useEffect(() => {
-        const tokenType = list.find(item => {
-            return item.value === inputData.saleTokenType;
+
+        list.map(item => {
+            if(item.value === inputData.saleTokenType) {
+                return setText(item.label);
+            }
         })
-        setText(tokenType?.label);
     },[inputData]);
 
     return (

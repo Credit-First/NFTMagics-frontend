@@ -46,6 +46,9 @@ const VirtualizedPage = ({ assetList, sideBarOpen }: { assetList: any, sideBarOp
 
     React.useEffect(() => {
         setMounted(true);
+        return () => {
+            setMounted(false);
+        }
     }, [])
     return (
         <div>

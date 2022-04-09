@@ -70,7 +70,8 @@ export default function Assets() {
 
     const [loading, setLoading] = React.useState({
         gift: false,
-        sale: false
+        sale: false,
+        buy: false
     });
 
     const [selected, setSelected] = React.useState({
@@ -191,13 +192,13 @@ export default function Assets() {
             return setApproveModal(true);
         }
 
-        handleLoading('sale', true);
+        handleLoading('buy', true);
 
         let value = itemData.salePrice * 1e18;
         if (itemData.saleToken !== Config.Token.BNB.address) value = 0;
 
         let affiliateLink = localStorage.getItem('magic-affiliate-link');
-        if(!affiliateLink) affiliateLink = '0x0000000000000000000000000000000000000000';
+        if (!affiliateLink) affiliateLink = '0x0000000000000000000000000000000000000000';
         try {
             await Market.methods
                 .buyMarketItem(
@@ -206,7 +207,7 @@ export default function Assets() {
                 )
                 .send({ from: account, value: value })
                 .on('receipt', async (receipt: any) => {
-                    handleLoading('sale', false);
+                    handleLoading('buy', false);
                     handleItemChange('activeItem', false);
                     handleItemChange('seller', account);
                 })
@@ -217,19 +218,20 @@ export default function Assets() {
             if (err.code == 4001) notify('error', err.message);
             else notify('error', 'Error buying the NFT');
             console.log('Error buying the NFT : ', err);
-            handleLoading('sale', false);
+            handleLoading('buy', false);
         }
         dispatch(actionGetMarketItem({ itemId: itemId }));
 
-        handleLoading('sale', false);
+        handleLoading('buy', false);
     }
 
     React.useEffect(() => {
         if (marketItem) {
+            console.log(marketItem)
             const salePrice = marketItem.price ? fromWei(web3, marketItem.price) : 0;
             let decimal = Config.bnbToUsd;
-            if(marketItem.saleToken == Config.Token.AYRA.address) decimal = Config.ayraToUsd;
-            if(marketItem.saleToken == Config.Token.ITHD.address) decimal = Config.ithdToUsd;
+            if (marketItem.saleToken == Config.Token.AYRA.address) decimal = Config.ayraToUsd;
+            if (marketItem.saleToken == Config.Token.ITHD.address) decimal = Config.ithdToUsd;
             const usdPrice = new BigNumber(salePrice).multipliedBy(decimal).toFixed(2, BigNumber.ROUND_DOWN).toString();
             handleItemChange('collectionId', marketItem.collectionId);
             handleItemChange('collectionName', marketItem.collectionName);
@@ -533,20 +535,25 @@ export default function Assets() {
                                                 itemData.seller === account ? (
                                                     <div>Owned by yours</div>
                                                 ) : (
-                                                    <div>
+                                                    <div className='buy-action'>
                                                         {
                                                             !itemData.activeItem ? (
                                                                 <div>This Nft is sold by {itemData.seller}</div>
                                                             ) : (
-                                                                <button className='button button-primary' onClick={handleBuyAction}>
-                                                                    {
-                                                                        itemData.giftAddress === account ? (
-                                                                            <>Receive Gift</>
-                                                                        ) : (
-                                                                            <>Buy Now</>
-                                                                        )
-                                                                    }
-                                                                </button>
+                                                                <>
+                                                                    <button className='button button-primary' onClick={handleBuyAction} disabled={loading.buy}>
+                                                                        {
+                                                                            itemData.giftAddress === account ? (
+                                                                                <>Receive Gift</>
+                                                                            ) : (
+                                                                                <>Buy Now</>
+                                                                            )
+                                                                        }
+                                                                    </button>
+                                                                    {loading.buy && (
+                                                                        <CircularProgress className='loading' size={24} />
+                                                                    )}
+                                                                </>
                                                             )
                                                         }
                                                     </div>

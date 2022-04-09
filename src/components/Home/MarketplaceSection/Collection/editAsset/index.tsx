@@ -151,7 +151,6 @@ export default function EditAssets() {
         const giftAddress = inputData.giftAddress === '' ? '0x0000000000000000000000000000000000000000' : inputData.giftAddress;
         const royalty = inputData.royalty;
 
-        console.log(inputData)
         try {
             await Market.methods
                 .updateMarketItem(
@@ -211,7 +210,7 @@ export default function EditAssets() {
             handleItemChange('tokenImg', tokenImg[marketItem.saleToken]);
             handleItemChange('saleToken', marketItem.saleToken === '0x0000000000000000000000000000000000000000' ? '' : marketItem.saleToken);
             handleItemChange('salePrice', salePrice);
-            handleItemChange('favorites', marketItem.likes ? marketItem.likes : 0);
+            handleItemChange('favorites', marketItem.likes.account ? marketItem.likes.account.length + 10 : 10);
             handleItemChange('image', marketItem.image);
             handleItemChange('minter', marketItem.minter);
             handleItemChange('seller', marketItem.seller ? marketItem.seller : marketItem.minter);

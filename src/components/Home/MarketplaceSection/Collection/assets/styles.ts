@@ -47,7 +47,7 @@ export const OwnerSticky = styled('div')(({ theme, active, loading }: { theme?: 
                     top: 'calc(50% - 12px)',
                     left: 'calc(50% - 12px)'
                 }
-            }                
+            }
         }
     })
 });
@@ -196,7 +196,7 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                             '& a': {
                                 color: `${theme.palette.primary.default}`,
                                 '&:hover': {
-                                    fontWeight: 500   
+                                    fontWeight: 500
                                 }
                             }
                         }
@@ -320,7 +320,7 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                                         color: 'grey'
                                     },
                                     '& .status': {
-                                        flex:1,
+                                        flex: 1,
                                         textAlign: 'right',
                                         fontSize: 25,
                                         fontWeight: 400
@@ -344,9 +344,19 @@ export const LargeSection = styled('div')(({ theme }: { theme: any }) => {
                             '& .item-action': {
                                 display: 'flex',
                                 marginTop: 30,
-                                '& button': {
-                                    width: 200,
-                                    marginRight: 10
+                                '& .buy-action': {
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    position: 'relative',
+                                    '& button': {
+                                        width: 200,
+                                        marginRight: 10
+                                    },
+                                    '& .loading': {
+                                        position: 'absolute',
+                                        top: 'calc(50% - 12px)',
+                                        left: 'calc(50% - 12px)'
+                                    }
                                 }
                             }
                         }
@@ -639,7 +649,7 @@ export const SmallSection = styled('div')(({ theme }: { theme: any }) => {
                                     color: 'grey'
                                 },
                                 '& .status': {
-                                    flex:1,
+                                    flex: 1,
                                     textAlign: 'right',
                                     fontSize: 25,
                                     fontWeight: 400

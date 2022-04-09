@@ -1,10 +1,12 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogTitle from '@mui/material/DialogTitle';
-import useMediaQuery from '@mui/material/useMediaQuery';
+import {
+    Dialog,
+    DialogActions,
+    DialogContent,
+    DialogTitle,
+    useMediaQuery,
+    CircularProgress
+} from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
 import { useTheme } from '@mui/material/styles';
 import { Modal } from './styles';
@@ -22,6 +24,7 @@ const tokenImg = {
 
 export default function ApproveTokenModal({ modal, setModal, approveTokenType, onAddress }: { modal: any, setModal: any, approveTokenType: any, onAddress: any }) {
     const { account, library }: any = useWeb3React();
+    const [loading, setLoading] = React.useState(false);
     const theme = useTheme();
     const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -44,7 +47,7 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
     };
 
     const approve = async () => {
-
+        setLoading(true);
         const web3 = new Web3(library.provider);
 
         const contract = new web3.eth.Contract(token_abi, token_address);
@@ -56,6 +59,7 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
             })
             .then((_tx: any) => {
                 notify('success', 'You have approved the purchase with Token');
+                setLoading(false);
                 handleClose();
             })
             .catch((e: any) => {
@@ -63,6 +67,7 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
                     notify('error', 'You need to approve the spending of Token in your wallet');
                 }
             });
+            setLoading(false);
     }
     return (
         <Dialog
@@ -88,9 +93,12 @@ export default function ApproveTokenModal({ modal, setModal, approveTokenType, o
                     </div>
                 </DialogContent>
                 <DialogActions className='modal-actions'>
-                    <button autoFocus className='button button-primary' onClick={approve}>
-                        Approve
-                    </button>
+                    <div className='item-action'>
+                        <button className="button button-primary" onClick={approve} disabled={loading}>Approve Token</button>
+                        {loading && (
+                            <CircularProgress className='loading' size={24} />
+                        )}
+                    </div>
                 </DialogActions>
             </Modal>
         </Dialog>

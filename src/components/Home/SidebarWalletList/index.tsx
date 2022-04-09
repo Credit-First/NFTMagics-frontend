@@ -409,6 +409,11 @@ export default function SidebarWalletList(props: any) {// the function is being 
                                             </CopyToClipboard>
                                         </div>
                                     </div>
+                                    <div className='affiliate-detail'>
+                                        <div>
+                                        REWARD FOR PERSON YOU INVITE
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

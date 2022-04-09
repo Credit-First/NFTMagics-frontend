@@ -320,6 +320,11 @@ export const SidebarWalletLSection = styled('div')(({ theme, openwalletlist, con
                                 background: '#69cdeb',
                             }
                         }
+                    },
+                    '& .affiliate-detail': {
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }
                 }
             }

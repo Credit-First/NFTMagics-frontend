@@ -38,7 +38,14 @@ export const Modal = styled('div')((theme) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      marginBottom: 10
+      marginBottom: 10,
+      position: 'relative',
+      width: '100%',
+      '& .loading': {
+          position: 'absolute',
+          top: 'calc(50% - 12px)',
+          left: 'calc(50% - 12px)'
+      }
     }
   })
 })
